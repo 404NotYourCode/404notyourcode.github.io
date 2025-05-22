@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Syed Sameer - Portfolio</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7f8;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #0077cc;
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin-bottom: 0.3rem;
+      font-size: 2.5rem;
+    }
+    header p {
+      font-style: italic;
+      font-weight: 300;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      color: #0077cc;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #0077cc;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+    }
+    /* About Section */
+    #about p {
+      font-size: 1.1rem;
+      max-width: 700px;
+    }
+    /* Projects Section */
+    #projects .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .project {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+    .project h3 {
+      margin-bottom: 0.5rem;
+      color: #005fa3;
+    }
+    .project p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+    /* Contact Section */
+    #contact p {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    #contact a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    #contact a:hover {
+      text-decoration: underline;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+      border-top: 1px solid #ddd;
+      margin-top: 3rem;
+    }
+    /* Responsive */
+    @media (max-width: 500px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      #projects .project-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Syed Sameer</h1>
+    <p>Web Developer & Designer</p>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Hi! I'm Syed Sameer, a passionate web developer specializing in creating clean and modern websites. I enjoy turning ideas into reality using code and design.
+      </p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project-list">
+        <div class="project">
+          <h3>Portfolio Website</h3>
+          <p>A personal website showcasing my skills and projects, built with HTML, CSS, and JavaScript.</p>
+        </div>
+        <div class="project">
+          <h3>Blog Platform</h3>
+          <p>A simple blogging platform with user authentication and CRUD features using React and Firebase.</p>
+        </div>
+        <div class="project">
+          <h3>E-commerce Store</h3>
+          <p>An online store built with Shopify, including payment integration and product management.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:syedsameer@example.com">syedsameer@example.com</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/syedsameer" target="_blank" rel="noopener">linkedin.com/in/syedsameer</a></p>
+      <p>GitHub: <a href="https://github.com/syedsameer" target="_blank" rel="noopener">github.com/syedsameer</a></p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Syed Sameer. All rights reserved.
+  </footer>
+</body>
+</html>
