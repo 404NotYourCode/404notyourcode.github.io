@@ -2,228 +2,210 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Syed Sameer | Animated Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Syed Sameer | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    * {
+    *, *::before, *::after {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
     body {
+      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #1e1e2f, #2e2e4f);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem;
+      background: linear-gradient(to right, #eef2f3, #8e9eab);
+      color: #333;
       overflow-x: hidden;
+      transition: background 0.5s, color 0.5s;
     }
-
-    /* Animated Card Box */
-    .intro-box {
-      position: relative;
-      width: 100%;
-      max-width: 400px;
-      margin: 2rem auto;
-      border-radius: 20px;
-      overflow: hidden;
-      z-index: 1;
-      animation: fadeIn 1s ease-in-out;
+    body.dark-mode {
+      background: #121212;
+      color: #f0f0f0;
     }
-
-    .intro-box::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: conic-gradient(from 0deg, #ff5f6d, #ffc371, #ff5f6d);
-      border-radius: 20px;
-      filter: drop-shadow(0 10px 25px rgba(255, 99, 71, 0.5));
-      animation: spin 4s linear infinite;
-      z-index: 1;
-    }
-
-    .intro-box::after {
-      content: "";
-      position: absolute;
-      inset: 4px;
-      background: #1f1f2e;
-      border-radius: 16px;
-      z-index: 2;
-    }
-
-    .intro-content {
-      position: relative;
-      z-index: 3;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .intro-content h1 {
-      font-size: 2rem;
-      font-weight: 700;
-    }
-
-    .intro-content p {
-      margin-top: 0.5rem;
-      color: #aaa;
-    }
-
-    .links a {
-      color: #ffc371;
-      margin: 0 0.5rem;
+    a {
+      color: #007bff;
       text-decoration: none;
-      font-weight: 600;
       transition: color 0.3s ease;
     }
-
-    .links a:hover {
+    a:hover {
+      color: #0056b3;
+    }
+    header {
+      background: #222;
       color: #fff;
+      text-align: center;
+      padding: 4rem 1rem;
+      animation: fadeInDown 1s ease-in-out;
     }
-
-    /* Projects Section */
-    .section {
-      margin-top: 3rem;
-      width: 100%;
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin: 1rem 0 2rem;
+    }
+    .btn-primary {
+      padding: 0.8rem 1.6rem;
+      background: #007bff;
+      color: white;
+      border-radius: 5px;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background: #0056b3;
+      transform: translateY(-3px);
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+    }
+    main {
       max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+      animation: fadeIn 1.5s ease;
     }
-
-    .section h2 {
-      font-size: 1.8rem;
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      border-left: 5px solid #007bff;
+      padding-left: 0.5rem;
       margin-bottom: 1rem;
-      border-left: 5px solid #ffc371;
-      padding-left: 0.8rem;
     }
-
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
     .projects {
       display: grid;
-      gap: 1.5rem;
+      gap: 2rem;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
-
     .project-card {
-      background: #2e2e4f;
-      border-radius: 12px;
+      background: white;
       padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
-
     .project-card:hover {
-      transform: scale(1.03);
+      transform: scale(1.05);
     }
-
-    .project-card h3 {
-      margin-bottom: 0.5rem;
-      color: #ffc371;
-    }
-
-    .project-card a {
-      color: #76c7f2;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 0.5rem;
-    }
-
-    /* Skills */
     .skills-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.6rem;
       margin-top: 1rem;
     }
-
     .skill {
-      background: #ffc371;
-      color: #000;
-      padding: 0.5rem 1rem;
+      background: #007bff;
+      color: white;
+      padding: 0.6rem 1rem;
       border-radius: 20px;
-      font-weight: 600;
-      animation: fadeIn 1s ease;
+      font-size: 0.9rem;
+      font-weight: 500;
+      animation: popIn 0.5s ease;
     }
-
     footer {
-      margin-top: 4rem;
+      background: #222;
+      color: #ddd;
       text-align: center;
-      color: #888;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
     }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    @media (max-width: 600px) {
-      .intro-content h1 {
-        font-size: 1.6rem;
-      }
-      .section h2 {
-        font-size: 1.4rem;
-      }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
 <body>
-
-  <!-- Intro Card -->
-  <div class="intro-box">
-    <div class="intro-content">
-      <h1>Syed Sameer</h1>
-      <p>Full Stack Developer & Cyber Security Engineer</p>
-      <div class="links">
-        <a href="https://www.linkedin.com/in/syed-sameer-502b422b0" target="_blank">LinkedIn</a> |
+  <button class="theme-toggle btn-primary" onclick="document.body.classList.toggle('dark-mode')">Toggle Theme</button>
+  <audio autoplay loop hidden>
+    <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <header>
+    <h1>Syed Sameer</h1>
+    <p>Full Stack Developer | Cyber Security Engineer</p>
+    <a href="#" class="btn-primary">Download Resume</a>
+  </header>
+  <main>
+    <section id="about" data-aos="fade-up">
+      <h2>About Me</h2>
+      <p>Hello! I'm Syed Sameer, a passionate full-stack developer and cyber security engineer. I specialize in JavaScript, Python, and creating secure, modern web applications.</p>
+    </section>
+    <section id="projects" data-aos="fade-up">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3>Task Tracker</h3>
+          <p>A responsive task tracking app with notifications and a clean UI.</p>
+          <a href="#">View on GitHub</a>
+        </div>
+        <div class="project-card">
+          <h3>ML Housing Model</h3>
+          <p>Machine learning model predicting real estate prices accurately.</p>
+          <a href="#">View on GitHub</a>
+        </div>
+        <div class="project-card">
+          <h3>React Portfolio</h3>
+          <p>Animated personal portfolio built with React and Tailwind CSS.</p>
+          <a href="#">View on GitHub</a>
+        </div>
+      </div>
+    </section>
+    <section id="skills" data-aos="fade-up">
+      <h2>Skills & Languages</h2>
+      <div class="skills-list">
+        <span class="skill">Java</span>
+        <span class="skill">Python</span>
+        <span class="skill">C</span>
+        <span class="skill">SQL</span>
+        <span class="skill">Cyber Security</span>
+        <span class="skill">Typist</span>
+      </div>
+      <p>Languages: English, Tamil, Hindi, Urdu, learning Japanese</p>
+    </section>
+    <section id="certificates" data-aos="fade-up">
+      <h2>Certificates</h2>
+      <p>Coming soon: Professional certificates will be displayed here.</p>
+    </section>
+    <section id="contact" data-aos="fade-up">
+      <h2>Contact</h2>
+      <p>Phone: 9840329368</p>
+      <p>Email: <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
+      <p>
+        <a href="https://linkedin.com/in/syed-sameer-502b422b0" target="_blank">LinkedIn</a> |
         <a href="https://github.com/404NotYourCode" target="_blank">GitHub</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Projects -->
-  <div class="section">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="project-card">
-        <h3>Task Tracker App</h3>
-        <p>Responsive task management with notifications and calendar integration.</p>
-        <a href="#">View on GitHub</a>
-      </div>
-      <div class="project-card">
-        <h3>ML Housing Model</h3>
-        <p>AI-powered real estate price prediction using Scikit-learn & Pandas.</p>
-        <a href="#">View on GitHub</a>
-      </div>
-      <div class="project-card">
-        <h3>Animated Portfolio</h3>
-        <p>Modern animated personal site using HTML, CSS and JS animations.</p>
-        <a href="#">View on GitHub</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Skills -->
-  <div class="section">
-    <h2>Skills</h2>
-    <div class="skills-list">
-      <span class="skill">Java</span>
-      <span class="skill">Python</span>
-      <span class="skill">C</span>
-      <span class="skill">SQL</span>
-      <span class="skill">Cyber Security</span>
-      <span class="skill">Typist</span>
-    </div>
-  </div>
-
-  <!-- Footer -->
+      </p>
+    </section>
+  </main>
   <footer>
-    <p>© 2025 Syed Sameer — All rights reserved.</p>
+    <p>© 2025 Syed Sameer. All rights reserved.</p>
   </footer>
-
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
