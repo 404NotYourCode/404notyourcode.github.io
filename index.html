@@ -2,228 +2,392 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Syed Sameer | Animated Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Syed Sameer | Full Stack Developer & Cybersecurity Engineer</title>
+  <meta name="description" content="Portfolio of Syed Sameer, Full Stack Developer & Cyber Security Engineer. Showcasing projects, skills, and contact information." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
-    * {
+    /* Reset and basics */
+    *, *::before, *::after {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #1e1e2f, #2e2e4f);
       color: #fff;
+      margin: 0;
+      padding: 2rem 1rem;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 2rem;
-      overflow-x: hidden;
+      scroll-behavior: smooth;
     }
-
-    /* Animated Card Box */
-    .intro-box {
-      position: relative;
-      width: 100%;
-      max-width: 400px;
-      margin: 2rem auto;
-      border-radius: 20px;
-      overflow: hidden;
-      z-index: 1;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    .intro-box::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: conic-gradient(from 0deg, #ff5f6d, #ffc371, #ff5f6d);
-      border-radius: 20px;
-      filter: drop-shadow(0 10px 25px rgba(255, 99, 71, 0.5));
-      animation: spin 4s linear infinite;
-      z-index: 1;
-    }
-
-    .intro-box::after {
-      content: "";
-      position: absolute;
-      inset: 4px;
-      background: #1f1f2e;
-      border-radius: 16px;
-      z-index: 2;
-    }
-
-    .intro-content {
-      position: relative;
-      z-index: 3;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .intro-content h1 {
-      font-size: 2rem;
-      font-weight: 700;
-    }
-
-    .intro-content p {
-      margin-top: 0.5rem;
-      color: #aaa;
-    }
-
-    .links a {
+    a {
       color: #ffc371;
-      margin: 0 0.5rem;
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s ease;
     }
-
-    .links a:hover {
+    a:hover, a:focus {
       color: #fff;
+      outline: none;
     }
-
-    /* Projects Section */
-    .section {
-      margin-top: 3rem;
-      width: 100%;
-      max-width: 1000px;
+    h1, h2, h3 {
+      margin-bottom: 0.5rem;
     }
-
-    .section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: 2rem;
       border-left: 5px solid #ffc371;
-      padding-left: 0.8rem;
+      padding-left: 0.75rem;
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+    }
+    h3 {
+      color: #ffc371;
+      font-weight: 600;
+    }
+    p {
+      line-height: 1.6;
+      color: #ddd;
     }
 
+    /* Intro card */
+    .intro-box {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 25px rgba(255, 99, 71, 0.5);
+      background: #1f1f2e;
+      animation: fadeInUp 1s ease forwards;
+    }
+    .intro-box::before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      left: -20%;
+      width: 140%;
+      height: 140%;
+      background: conic-gradient(from 0deg, #ff5f6d, #ffc371, #ff5f6d);
+      filter: blur(20px);
+      animation: spin 8s linear infinite;
+      z-index: 0;
+    }
+    .intro-content {
+      position: relative;
+      padding: 2.5rem 2rem 3rem;
+      z-index: 1;
+      text-align: center;
+    }
+    .links {
+      margin-top: 1rem;
+    }
+    .links a {
+      margin: 0 0.6rem;
+    }
+
+    /* Navigation for quick scroll */
+    nav {
+      margin-bottom: 1rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    /* Projects */
     .projects {
       display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
       gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      max-width: 1000px;
+      width: 100%;
     }
-
     .project-card {
       background: #2e2e4f;
       border-radius: 12px;
       padding: 1.5rem;
-      transition: transform 0.3s ease;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
     }
-
-    .project-card:hover {
-      transform: scale(1.03);
+    .project-card:hover, .project-card:focus-within {
+      transform: scale(1.05);
+      outline: none;
     }
-
-    .project-card h3 {
-      margin-bottom: 0.5rem;
-      color: #ffc371;
+    .project-image {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+      background: #444;
     }
-
     .project-card a {
+      margin-top: auto;
+      align-self: flex-start;
       color: #76c7f2;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 0.5rem;
+      font-weight: 600;
     }
 
     /* Skills */
     .skills-list {
+      max-width: 1000px;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
+      gap: 0.7rem;
+      margin-top: 0.5rem;
+      justify-content: center;
     }
-
     .skill {
       background: #ffc371;
       color: #000;
       padding: 0.5rem 1rem;
       border-radius: 20px;
       font-weight: 600;
-      animation: fadeIn 1s ease;
+      animation: fadeInUp 0.5s ease forwards;
     }
 
+    /* Contact */
+    .contact {
+      max-width: 400px;
+      width: 100%;
+      background: #1f1f2e;
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      margin-top: 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      animation: fadeInUp 1.2s ease forwards;
+    }
+    .contact h2 {
+      margin-top: 0;
+    }
+    .contact label {
+      display: block;
+      margin: 1rem 0 0.25rem;
+      font-weight: 600;
+      color: #ffc371;
+    }
+    .contact input, .contact textarea {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      border-radius: 8px;
+      border: none;
+      font-family: inherit;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    .contact textarea {
+      min-height: 100px;
+    }
+    .contact button {
+      margin-top: 1rem;
+      background: #ffc371;
+      border: none;
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      font-weight: 700;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .contact button:hover, .contact button:focus {
+      background: #ff9f43;
+      outline: none;
+    }
+
+    /* Footer */
     footer {
-      margin-top: 4rem;
+      margin-top: auto;
+      padding: 1rem 0;
       text-align: center;
       color: #888;
+      font-size: 0.9rem;
+      user-select: none;
     }
 
+    /* Animations */
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Cybersecurity Animated Icon (SVG glow effect) */
+    .cyber-icon {
+      width: 100px;
+      height: 100px;
+      margin: 1.5rem auto;
+      display: block;
+      filter: drop-shadow(0 0 8px #ffc371);
+      animation: pulseGlow 2.5s infinite ease-in-out;
     }
-
-    @media (max-width: 600px) {
-      .intro-content h1 {
-        font-size: 1.6rem;
+    @keyframes pulseGlow {
+      0%, 100% {
+        filter: drop-shadow(0 0 8px #ffc371);
+        opacity: 1;
       }
-      .section h2 {
-        font-size: 1.4rem;
+      50% {
+        filter: drop-shadow(0 0 20px #ffae42);
+        opacity: 0.7;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .projects {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Intro Card -->
-  <div class="intro-box">
+  <nav aria-label="Primary navigation">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="intro-box" role="banner" aria-label="Introduction">
     <div class="intro-content">
       <h1>Syed Sameer</h1>
       <p>Full Stack Developer & Cyber Security Engineer</p>
-      <div class="links">
-        <a href="https://www.linkedin.com/in/syed-sameer-502b422b0" target="_blank">LinkedIn</a> |
-        <a href="https://github.com/404NotYourCode" target="_blank">GitHub</a>
+      <!-- Cybersecurity SVG Icon -->
+      <svg class="cyber-icon" xmlns="http://www.w3.org/2000/svg" fill="#ffc371" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <path d="M32 2a30 30 0 0 0-30 30 30 30 0 0 0 30 30 30 30 0 0 0 30-30A30 30 0 0 0 32 2zm0 56a26 26 0 0 1-26-26 26 26 0 0 1 26-26 26 26 0 0 1 26 26 26 26 0 0 1-26 26z"/>
+        <path d="M32 12a20 20 0 0 0-20 20 20 20 0 0 0 20 20 20 20 0 0 0 20-20 20 20 0 0 0-20-20zm0 36a16 16 0 0 1-16-16 16 16 0 0 1 16-16 16 16 0 0 1 16 16 16 16 0 0 1-16 16z"/>
+        <path d="M22 28h20v8H22z"/>
+      </svg>
+      <div class="links" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/syed-sameer-502b422b0" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+        <a href="https://github.com/404NotYourCode" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Projects -->
-  <div class="section">
+  <section id="projects" aria-label="Projects" class="projects-section">
     <h2>Projects</h2>
-    <div class="projects">
-      <div class="project-card">
+    <div class="projects" role="list">
+      <article class="project-card" role="listitem" tabindex="0" aria-label="Task Tracker App project">
+        <img src="https://via.placeholder.com/400x225.png?text=Task+Tracker+App" alt="Screenshot of Task Tracker App" class="project-image" loading="lazy" />
         <h3>Task Tracker App</h3>
         <p>Responsive task management with notifications and calendar integration.</p>
-        <a href="#">View on GitHub</a>
-      </div>
-      <div class="project-card">
+        <a href="#" aria-label="View Task Tracker App project on GitHub">View on GitHub</a>
+      </article>
+      <article class="project-card" role="listitem" tabindex="0" aria-label="ML Housing Model project">
+        <img src="https://via.placeholder.com/400x225.png?text=ML+Housing+Model" alt="Screenshot of ML Housing Model" class="project-image" loading="lazy" />
         <h3>ML Housing Model</h3>
         <p>AI-powered real estate price prediction using Scikit-learn & Pandas.</p>
-        <a href="#">View on GitHub</a>
-      </div>
-      <div class="project-card">
+        <a href="#" aria-label="View ML Housing Model project on GitHub">View on GitHub</a>
+      </article>
+      <article class="project-card" role="listitem" tabindex="0" aria-label="Animated Portfolio project">
+        <img src="https://via.placeholder.com/400x225.png?text=Animated+Portfolio" alt="Screenshot of Animated Portfolio" class="project-image" loading="lazy" />
         <h3>Animated Portfolio</h3>
         <p>Modern animated personal site using HTML, CSS and JS animations.</p>
-        <a href="#">View on GitHub</a>
-      </div>
+        <a href="#" aria-label="View Animated Portfolio project on GitHub">View on GitHub</a>
+      </article>
     </div>
-  </div>
+  </section>
 
-  <!-- Skills -->
-  <div class="section">
+  <section id="skills" aria-label="Skills" class="skills-section">
     <h2>Skills</h2>
-    <div class="skills-list">
-      <span class="skill">Java</span>
-      <span class="skill">Python</span>
-      <span class="skill">C</span>
-      <span class="skill">SQL</span>
-      <span class="skill">Cyber Security</span>
-      <span class="skill">Typist</span>
+    <div class="skills-list" role="list">
+      <span class="skill" role="listitem">Java</span>
+      <span class="skill" role="listitem">Python</span>
+      <span class="skill" role="listitem">C</span>
+      <span class="skill" role="listitem">SQL</span>
+      <span class="skill" role="listitem">Cyber Security</span>
+      <span class="skill" role="listitem">Typing</span>
     </div>
-  </div>
+  </section>
 
-  <!-- Footer -->
+  <section id="contact" aria-label="Contact form" class="contact">
+    <h2>Contact Me</h2>
+    <form onsubmit="return handleSubmit(event)" novalidate>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required aria-required="true" placeholder="Your name" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required aria-required="true" placeholder="you@example.com" />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required aria-required="true" placeholder="Your message here..." ></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+    <p id="form-status" role="alert" style="margin-top:1rem; color:#ffc371;"></p>
+  </section>
+
   <footer>
     <p>© 2025 Syed Sameer — All rights reserved.</p>
   </footer>
+
+  <!-- Background Music with controls -->
+  <audio id="bg-music" src="https://cdn.pixabay.com/download/audio/2022/03/01/audio_88ae5e2f12.mp3?filename=ambient-electronic-11217.mp3" loop preload="auto"></audio>
+  <button id="music-toggle" aria-pressed="false" aria-label="Play background music" style="position: fixed; bottom: 20px; right: 20px; background:#ffc371; border:none; border-radius:50%; width:50px; height:50px; cursor:pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+    ▶️
+  </button>
+
+  <script>
+    // Background music toggle
+    const music = document.getElementById('bg-music');
+    const musicToggle = document.getElementById('music-toggle');
+    musicToggle.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        musicToggle.textContent = '⏸️';
+        musicToggle.setAttribute('aria-pressed', 'true');
+        musicToggle.setAttribute('aria-label', 'Pause background music');
+      } else {
+        music.pause();
+        musicToggle.textContent = '▶️';
+        musicToggle.setAttribute('aria-pressed', 'false');
+        musicToggle.setAttribute('aria-label', 'Play background music');
+      }
+    });
+
+    // Simple contact form submission handler (mock)
+    function handleSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const status = document.getElementById('form-status');
+
+      // Basic validation (HTML5 handles most)
+      if (!form.name.value || !form.email.value || !form.message.value) {
+        status.textContent = 'Please fill all fields.';
+        return false;
+      }
+      status.textContent = 'Sending message...';
+
+      // Simulate sending...
+      setTimeout(() => {
+        status.textContent = 'Thank you! Your message has been sent.';
+        form.reset();
+      }, 1500);
+
+      return false;
+    }
+  </script>
 
 </body>
 </html>
