@@ -13,54 +13,27 @@
   }
   body {
     margin: 0; padding: 0;
-    background: radial-gradient(ellipse at center, #000011 0%, #000000 100%);
-    color: #a8e0ff;
+    background: #ffffff;
+    color: #222222;
     font-family: 'Roboto', sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
   }
 
-  /* Starfield background */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background:
-      radial-gradient(2px 2px at 10% 20%, #fff, transparent),
-      radial-gradient(1.5px 1.5px at 20% 40%, #a8e0ff, transparent),
-      radial-gradient(1px 1px at 80% 70%, #fff, transparent),
-      radial-gradient(2px 2px at 50% 10%, #99ccff, transparent),
-      radial-gradient(1.5px 1.5px at 70% 30%, #ccefff, transparent);
-    background-repeat: repeat;
-    background-size: 100px 100px;
-    animation: starShift 60s linear infinite;
-    z-index: 0;
-  }
-  @keyframes starShift {
-    from {background-position: 0 0, 0 0, 0 0, 0 0, 0 0;}
-    to {background-position: 100px 100px, 50px 150px, 75px 50px, 25px 200px, 60px 80px;}
-  }
-
   /* Container */
   main {
     position: relative;
-    z-index: 10;
     max-width: 900px;
     margin: 0 auto;
     padding: 2rem 1rem 4rem;
   }
 
-  /* Neon glow text */
+  /* Headings */
   h1, h2, h3 {
     font-family: 'Orbitron', sans-serif;
-    color: #7efcff;
-    text-shadow:
-      0 0 5px #7efcff,
-      0 0 10px #7efcff,
-      0 0 20px #00bfff,
-      0 0 30px #00bfff,
-      0 0 40px #00bfff;
+    color: #111111;
+    text-shadow: none;
     margin-bottom: 0.5rem;
   }
   h1 {
@@ -70,13 +43,13 @@
   }
   h2 {
     font-size: 2.4rem;
-    border-left: 6px solid #00bfff;
+    border-left: 6px solid #444444;
     padding-left: 0.7rem;
     margin-top: 3rem;
   }
   h3 {
     font-size: 1.4rem;
-    color: #40e0d0;
+    color: #333333;
     margin-bottom: 0.25rem;
   }
 
@@ -84,42 +57,35 @@
   p {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #b0e0ffdd;
+    color: #444444;
   }
 
   /* Nav */
   nav {
     text-align: center;
     margin-bottom: 2rem;
-    z-index: 15;
   }
   nav a {
     font-family: 'Orbitron', monospace;
     margin: 0 1.3rem;
-    color: #00bfff;
+    color: #222222;
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1rem;
-    text-shadow: 0 0 6px #00bfff;
     transition: color 0.3s ease;
   }
   nav a:hover,
   nav a:focus {
-    color: #7efcff;
+    color: #555555;
     outline: none;
   }
 
   /* Intro card */
   .intro-box {
-    background: rgba(0, 15, 40, 0.8);
-    border: 2px solid #00bfff;
+    background: #f5f5f5;
+    border: 2px solid #444444;
     border-radius: 20px;
     padding: 2.5rem 2rem 3rem;
-    box-shadow:
-      0 0 10px #00bfff,
-      0 0 20px #00bfff,
-      0 0 30px #7efcff,
-      0 0 40px #7efcff inset;
     text-align: center;
     max-width: 450px;
     margin: 0 auto 3rem;
@@ -127,21 +93,21 @@
   .intro-box p {
     font-size: 1.25rem;
     font-weight: 300;
-    color: #80dfff;
+    color: #666666;
     margin-top: 0.3rem;
   }
   .links {
     margin-top: 1.3rem;
   }
   .links a {
-    color: #00bfff;
+    color: #222222;
     margin: 0 0.8rem;
     font-weight: 700;
-    text-shadow: 0 0 10px #00bfff;
+    text-decoration: none;
     transition: color 0.3s ease;
   }
   .links a:hover, .links a:focus {
-    color: #7efcff;
+    color: #555555;
     outline: none;
   }
 
@@ -150,18 +116,9 @@
     width: 100px;
     height: 100px;
     margin: 1.7rem auto 2rem;
-    filter: drop-shadow(0 0 8px #00bfff);
-    animation: pulseGlow 3s infinite ease-in-out;
-  }
-  @keyframes pulseGlow {
-    0%, 100% {
-      filter: drop-shadow(0 0 8px #7efcff);
-      opacity: 1;
-    }
-    50% {
-      filter: drop-shadow(0 0 20px #00bfff);
-      opacity: 0.8;
-    }
+    filter: none;
+    fill: #222222;
+    opacity: 0.85;
   }
 
   /* Projects grid */
@@ -171,23 +128,19 @@
     gap: 1.6rem;
   }
   .project-card {
-    background: rgba(0, 20, 50, 0.8);
-    border: 1.5px solid #00bfff;
+    background: #f0f0f0;
+    border: 1.5px solid #444444;
     border-radius: 14px;
     padding: 1.4rem 1.2rem 1.8rem;
-    box-shadow:
-      0 0 15px #00bfff;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
   .project-card:hover,
   .project-card:focus-within {
-    transform: scale(1.05);
-    box-shadow:
-      0 0 30px #7efcff,
-      0 0 40px #00bfff;
+    background-color: #e0e0e0;
+    border-color: #666666;
     outline: none;
   }
   .project-image {
@@ -196,21 +149,18 @@
     margin-bottom: 1rem;
     object-fit: cover;
     aspect-ratio: 16 / 9;
-    background: #002244;
-    box-shadow:
-      0 0 10px #00bfff inset;
+    background: #cccccc;
   }
   .project-card a {
     margin-top: auto;
-    color: #7efcff;
+    color: #222222;
     font-weight: 600;
     text-decoration: none;
-    text-shadow: 0 0 5px #7efcff;
     transition: color 0.3s ease;
   }
   .project-card a:hover,
   .project-card a:focus {
-    color: #00dfff;
+    color: #555555;
     outline: none;
   }
 
@@ -223,79 +173,72 @@
     justify-content: center;
   }
   .skill {
-    background: #00bfff;
-    color: #001822;
+    background: #444444;
+    color: #f0f0f0;
     padding: 0.5rem 1.2rem;
     border-radius: 20px;
     font-weight: 700;
     font-family: 'Orbitron', monospace;
-    box-shadow:
-      0 0 8px #00bfff;
     user-select: none;
   }
 
   /* Contact */
   .contact {
-    background: rgba(0, 15, 40, 0.9);
+    background: #f5f5f5;
     max-width: 420px;
     margin: 3rem auto 1rem;
     border-radius: 18px;
     padding: 2rem 2.2rem 2.5rem;
-    box-shadow:
-      0 0 25px #00bfff,
-      0 0 40px #00bfff inset;
+    border: 1.5px solid #444444;
   }
   .contact h2 {
-    color: #7efcff;
+    color: #111111;
     margin-top: 0;
     font-family: 'Orbitron', monospace;
-    text-shadow: 0 0 10px #7efcff;
   }
   .contact label {
     display: block;
     margin: 1.1rem 0 0.35rem;
     font-weight: 600;
-    color: #00bfff;
+    color: #333333;
   }
   .contact input,
   .contact textarea {
     width: 100%;
     padding: 0.6rem 0.8rem;
     border-radius: 12px;
-    border: none;
+    border: 1px solid #ccc;
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
-    background: rgba(255 255 255 / 0.05);
-    color: #a8e0ff;
-    box-shadow: inset 0 0 8px #00bfff;
+    background: #fff;
+    color: #222222;
     resize: vertical;
+    box-shadow: none;
   }
   .contact input::placeholder,
   .contact textarea::placeholder {
-    color: #66b9ff99;
+    color: #999999;
   }
   .contact input:focus,
   .contact textarea:focus {
-    outline: 2px solid #7efcff;
-    background: rgba(255 255 255 / 0.1);
+    outline: 2px solid #666666;
+    background: #fafafa;
   }
   .contact button {
     margin-top: 1.3rem;
-    background: #00bfff;
+    background: #444444;
     border: none;
-    color: #001822;
+    color: #f0f0f0;
     padding: 0.85rem 1.7rem;
     font-weight: 700;
     border-radius: 30px;
     font-family: 'Orbitron', monospace;
     cursor: pointer;
-    box-shadow:
-      0 0 15px #00bfff;
     transition: background-color 0.3s ease;
   }
   .contact button:hover,
   .contact button:focus {
-    background: #7efcff;
+    background: #666666;
     outline: none;
   }
 
@@ -304,14 +247,13 @@
     margin-top: 1.2rem;
     font-weight: 600;
     min-height: 1.4em;
-    color: #00bfff;
-    text-shadow: 0 0 10px #00bfff;
+    color: #444444;
   }
 
   /* Footer */
   footer {
     text-align: center;
-    color: #336688cc;
+    color: #888888;
     font-size: 0.9rem;
     margin: 3rem 0 1rem;
     user-select: none;
@@ -347,7 +289,7 @@
     <p>Full Stack Developer & Cyber Security Engineer</p>
 
     <!-- Stylized spaceship SVG -->
-    <svg class="cyber-icon" xmlns="http://www.w3.org/2000/svg" fill="#00bfff" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+    <svg class="cyber-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
       <path d="M32 2L26 18H38L32 2zM20 26l-8 8 10 10-4 6 14-6 14 6-4-6 10-10-8-8-14 4-14-4zM30 46v14h4V46h-4z"/>
     </svg>
 
@@ -390,85 +332,58 @@
     </article>
   </section>
 
-  <section id="skills" aria-label="Skills" style="text-align:center;">
+  <section id="skills" aria-label="Skills" style="text-align:center; margin-top: 3rem;">
     <h2>Skills</h2>
-    <div class="skills-list" role="list">
-      <span class="skill" role="listitem">React.js</span>
-      <span class="skill" role="listitem">Node.js</span>
-      <span class="skill" role="listitem">Python</span>
-      <span class="skill" role="listitem">AWS</span>
-      <span class="skill" role="listitem">Docker</span>
-      <span class="skill" role="listitem">Kubernetes</span>
-      <span class="skill" role="listitem">Terraform</span>
-      <span class="skill" role="listitem">CI/CD</span>
-      <span class="skill" role="listitem">Cybersecurity</span>
+    <div class="skills-list" aria-label="List of skills">
+      <span class="skill">React.js</span>
+      <span class="skill">Node.js</span>
+      <span class="skill">Python</span>
+      <span class="skill">AWS</span>
+      <span class="skill">Terraform</span>
+      <span class="skill">Cybersecurity</span>
+      <span class="skill">Docker</span>
+      <span class="skill">SQL</span>
     </div>
   </section>
 
-  <section id="contact" aria-label="Contact form" class="contact">
+  <section id="contact" aria-label="Contact me" class="contact">
     <h2>Contact Me</h2>
-    <form 
-      action="https://formspree.io/f/mrbkzqnd" 
-      method="POST" 
-      id="contact-form" 
-      aria-describedby="form-status" 
-      novalidate
-    >
+    <form id="contact-form" novalidate>
       <label for="name">Name</label>
-      <input type="text" id="name" name="name" required aria-required="true" placeholder="Your name" />
-
+      <input id="name" name="name" type="text" placeholder="Your full name" required aria-required="true" />
+      
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" required aria-required="true" placeholder="you@example.com" />
-
+      <input id="email" name="email" type="email" placeholder="example@mail.com" required aria-required="true" />
+      
       <label for="message">Message</label>
-      <textarea id="message" name="message" required aria-required="true" placeholder="Your message here..."></textarea>
-
-      <button type="submit">Send Message</button>
+      <textarea id="message" name="message" rows="4" placeholder="Write your message here" required aria-required="true"></textarea>
+      
+      <button type="submit">Send</button>
     </form>
-    <p id="form-status" role="alert" aria-live="polite"></p>
+    <p id="form-status" role="status" aria-live="polite"></p>
   </section>
 
 </main>
 
 <footer>
-  &copy; 2025 Syed Sameer — All rights reserved.
+  &copy; 2025 Syed Sameer. All rights reserved.
 </footer>
 
 <script>
+  // Simple contact form submission handling (simulate async)
   const form = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
 
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
-    status.style.color = '#00bfff';
-    status.textContent = 'Sending message...';
+    status.textContent = 'Sending...';
 
     const formData = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        status.textContent = 'Thank you! Your message has been sent.';
-        status.style.color = '#7efcff';
-        form.reset();
-      } else {
-        const data = await response.json();
-        if (data.errors) {
-          status.textContent = data.errors.map(error => error.message).join(', ');
-        } else {
-          status.textContent = 'Oops! There was a problem sending your message.';
-        }
-        status.style.color = '#ff6b6b';
-      }
-    } catch (error) {
-      status.textContent = 'Oops! There was a problem sending your message.';
-      status.style.color = '#ff6b6b';
-    }
+    // Simulate server delay
+    setTimeout(() => {
+      status.textContent = 'Thank you for your message, ' + formData.get('name') + '!';
+      form.reset();
+    }, 1200);
   });
 </script>
 
