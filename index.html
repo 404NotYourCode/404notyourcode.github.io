@@ -309,4 +309,124 @@
       <svg class="cyber-icon" xmlns="http://www.w3.org/2000/svg" fill="#ffc371" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
         <path d="M32 2a30 30 0 0 0-30 30 30 30 0 0 0 30 30 30 30 0 0 0 30-30A30 30 0 0 0 32 2zm0 56a26 26 0 0 1-26-26 26 26 0 0 1 26-26 26 26 0 0 1 26 26 26 26 0 0 1-26 26z"/>
         <path d="M32 12a20 20 0 0 0-20 20 20 20 0 0 0 20 20 20 20 0 0 0 20-20 20 20 0 0 0-20-20zm0 36a16 16 0 0 1-16-16 16 16 0 0 1 16-16 16 16 0 0 1 16 16 16 16 0 0 1-16 16z"/>
-        <path d="M22 28h20v8H
+        <path d="M22 28h20v8H22z"/>
+      </svg>
+      <div class="links" aria-label="Social and contact links">
+        <a href="https://github.com/syedsameer" target="_blank" rel="noopener noreferrer">GitHub</a> |
+        <a href="https://linkedin.com/in/syedsameer" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+        <a href="mailto:syedsameer.sbecse@gmail.com">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-heading" style="max-width: 800px; text-align: center; margin-bottom: 3rem;">
+    <h2 id="about-heading">About Me</h2>
+    <p>
+      Experienced Full Stack Developer and Cyber Security Engineer with a passion for building secure, scalable web applications and conducting thorough security assessments. Skilled in JavaScript, Python, React, Node.js, and ethical hacking.
+    </p>
+  </section>
+
+  <section id="projects" aria-labelledby="projects-heading" style="max-width: 1000px; width: 100%;">
+    <h2 id="projects-heading">Projects</h2>
+    <div class="projects">
+      <article class="project-card" tabindex="0" aria-label="Project: Secure Chat App">
+        <img src="https://via.placeholder.com/400x225?text=Secure+Chat+App" alt="Screenshot of Secure Chat App" class="project-image" />
+        <h3>Secure Chat App</h3>
+        <p>A real-time encrypted chat application using WebSocket and AES encryption to ensure private messaging.</p>
+        <a href="https://github.com/syedsameer/secure-chat-app" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      </article>
+      <article class="project-card" tabindex="0" aria-label="Project: Portfolio Website">
+        <img src="https://via.placeholder.com/400x225?text=Portfolio+Website" alt="Screenshot of Portfolio Website" class="project-image" />
+        <h3>Portfolio Website</h3>
+        <p>Responsive and modern personal portfolio built with React and CSS animations.</p>
+        <a href="https://syedsameer.github.io" target="_blank" rel="noopener noreferrer">Visit Site</a>
+      </article>
+      <article class="project-card" tabindex="0" aria-label="Project: Vulnerability Scanner">
+        <img src="https://via.placeholder.com/400x225?text=Vulnerability+Scanner" alt="Screenshot of Vulnerability Scanner" class="project-image" />
+        <h3>Vulnerability Scanner</h3>
+        <p>Python tool to scan web applications for common security vulnerabilities like SQL Injection and XSS.</p>
+        <a href="https://github.com/syedsameer/vulnerability-scanner" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-heading" style="max-width: 1000px; width: 100%;">
+    <h2 id="skills-heading">Skills</h2>
+    <div class="skills-list" aria-label="List of skills">
+      <span class="skill">JavaScript</span>
+      <span class="skill">Python</span>
+      <span class="skill">React</span>
+      <span class="skill">Node.js</span>
+      <span class="skill">Express</span>
+      <span class="skill">MongoDB</span>
+      <span class="skill">Docker</span>
+      <span class="skill">Kubernetes</span>
+      <span class="skill">Ethical Hacking</span>
+      <span class="skill">Penetration Testing</span>
+      <span class="skill">Network Security</span>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Contact Me</h2>
+    <p class="instructions">Feel free to send me a message by filling out the form below. I look forward to connecting with you!</p>
+    <form id="contact-form" action="https://formspree.io/f/mayvdrgn" method="POST" aria-describedby="form-status" novalidate>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required aria-required="true" placeholder="Your full name" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="_replyto" required aria-required="true" placeholder="Your email address" />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required aria-required="true" placeholder="Write your message here..."></textarea>
+
+      <!-- honeypot field to prevent spam -->
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+      <button type="submit">Send Message</button>
+    </form>
+    <div id="form-status" role="alert" aria-live="polite"></div>
+  </section>
+
+  <footer>
+    &copy; 2025 Syed Sameer. All rights reserved.
+  </footer>
+
+  <script>
+    // Formspree custom submission handler with status messages
+    const form = document.getElementById('contact-form');
+    const statusDiv = document.getElementById('form-status');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      statusDiv.textContent = 'Sending message...';
+
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          statusDiv.textContent = 'Thank you! Your message has been sent.';
+          form.reset();
+        } else {
+          response.json().then(data => {
+            if (data.errors) {
+              statusDiv.textContent = data.errors.map(error => error.message).join(', ');
+            } else {
+              statusDiv.textContent = 'Oops! There was a problem sending your message.';
+            }
+          });
+        }
+      }).catch(() => {
+        statusDiv.textContent = 'Oops! There was a problem sending your message.';
+      });
+    });
+  </script>
+
+</body>
+</html>
