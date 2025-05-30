@@ -1,432 +1,476 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Syed Sameer | Full Stack Developer & Cybersecurity Engineer</title>
-  <meta name="description" content="Portfolio of Syed Sameer, Full Stack Developer & Cyber Security Engineer. Showcasing projects, skills, and contact information." />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    /* Reset and basics */
-    *, *::before, *::after {
-      box-sizing: border-box;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Syed Sameer | Full Stack Developer & Cybersecurity Engineer</title>
+<meta name="description" content="Portfolio of Syed Sameer, Full Stack Developer & Cyber Security Engineer. Showcasing projects, skills, and contact information." />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+<style>
+  /* Reset */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; padding: 0;
+    background: radial-gradient(ellipse at center, #000011 0%, #000000 100%);
+    color: #a8e0ff;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Starfield background */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(2px 2px at 10% 20%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 20% 40%, #a8e0ff, transparent),
+      radial-gradient(1px 1px at 80% 70%, #fff, transparent),
+      radial-gradient(2px 2px at 50% 10%, #99ccff, transparent),
+      radial-gradient(1.5px 1.5px at 70% 30%, #ccefff, transparent);
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    animation: starShift 60s linear infinite;
+    z-index: 0;
+  }
+  @keyframes starShift {
+    from {background-position: 0 0, 0 0, 0 0, 0 0, 0 0;}
+    to {background-position: 100px 100px, 50px 150px, 75px 50px, 25px 200px, 60px 80px;}
+  }
+
+  /* Container */
+  main {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+  }
+
+  /* Neon glow text */
+  h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #7efcff;
+    text-shadow:
+      0 0 5px #7efcff,
+      0 0 10px #7efcff,
+      0 0 20px #00bfff,
+      0 0 30px #00bfff,
+      0 0 40px #00bfff;
+    margin-bottom: 0.5rem;
+  }
+  h1 {
+    font-size: 3rem;
+    letter-spacing: 0.08em;
+    margin-top: 0;
+  }
+  h2 {
+    font-size: 2.4rem;
+    border-left: 6px solid #00bfff;
+    padding-left: 0.7rem;
+    margin-top: 3rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+    color: #40e0d0;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Paragraphs */
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #b0e0ffdd;
+  }
+
+  /* Nav */
+  nav {
+    text-align: center;
+    margin-bottom: 2rem;
+    z-index: 15;
+  }
+  nav a {
+    font-family: 'Orbitron', monospace;
+    margin: 0 1.3rem;
+    color: #00bfff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-shadow: 0 0 6px #00bfff;
+    transition: color 0.3s ease;
+  }
+  nav a:hover,
+  nav a:focus {
+    color: #7efcff;
+    outline: none;
+  }
+
+  /* Intro card */
+  .intro-box {
+    background: rgba(0, 15, 40, 0.8);
+    border: 2px solid #00bfff;
+    border-radius: 20px;
+    padding: 2.5rem 2rem 3rem;
+    box-shadow:
+      0 0 10px #00bfff,
+      0 0 20px #00bfff,
+      0 0 30px #7efcff,
+      0 0 40px #7efcff inset;
+    text-align: center;
+    max-width: 450px;
+    margin: 0 auto 3rem;
+  }
+  .intro-box p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: #80dfff;
+    margin-top: 0.3rem;
+  }
+  .links {
+    margin-top: 1.3rem;
+  }
+  .links a {
+    color: #00bfff;
+    margin: 0 0.8rem;
+    font-weight: 700;
+    text-shadow: 0 0 10px #00bfff;
+    transition: color 0.3s ease;
+  }
+  .links a:hover, .links a:focus {
+    color: #7efcff;
+    outline: none;
+  }
+
+  /* Cybersecurity icon - stylized spaceship */
+  .cyber-icon {
+    width: 100px;
+    height: 100px;
+    margin: 1.7rem auto 2rem;
+    filter: drop-shadow(0 0 8px #00bfff);
+    animation: pulseGlow 3s infinite ease-in-out;
+  }
+  @keyframes pulseGlow {
+    0%, 100% {
+      filter: drop-shadow(0 0 8px #7efcff);
+      opacity: 1;
     }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #1e1e2f, #2e2e4f);
-      color: #fff;
-      margin: 0;
-      padding: 2rem 1rem;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      scroll-behavior: smooth;
+    50% {
+      filter: drop-shadow(0 0 20px #00bfff);
+      opacity: 0.8;
     }
-    a {
-      color: #ffc371;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    a:hover, a:focus {
-      color: #fff;
-      outline: none;
-    }
-    h1, h2, h3 {
-      margin-bottom: 0.5rem;
-    }
+  }
+
+  /* Projects grid */
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.6rem;
+  }
+  .project-card {
+    background: rgba(0, 20, 50, 0.8);
+    border: 1.5px solid #00bfff;
+    border-radius: 14px;
+    padding: 1.4rem 1.2rem 1.8rem;
+    box-shadow:
+      0 0 15px #00bfff;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .project-card:hover,
+  .project-card:focus-within {
+    transform: scale(1.05);
+    box-shadow:
+      0 0 30px #7efcff,
+      0 0 40px #00bfff;
+    outline: none;
+  }
+  .project-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+    background: #002244;
+    box-shadow:
+      0 0 10px #00bfff inset;
+  }
+  .project-card a {
+    margin-top: auto;
+    color: #7efcff;
+    font-weight: 600;
+    text-decoration: none;
+    text-shadow: 0 0 5px #7efcff;
+    transition: color 0.3s ease;
+  }
+  .project-card a:hover,
+  .project-card a:focus {
+    color: #00dfff;
+    outline: none;
+  }
+
+  /* Skills */
+  .skills-list {
+    margin-top: 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+  }
+  .skill {
+    background: #00bfff;
+    color: #001822;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-family: 'Orbitron', monospace;
+    box-shadow:
+      0 0 8px #00bfff;
+    user-select: none;
+  }
+
+  /* Contact */
+  .contact {
+    background: rgba(0, 15, 40, 0.9);
+    max-width: 420px;
+    margin: 3rem auto 1rem;
+    border-radius: 18px;
+    padding: 2rem 2.2rem 2.5rem;
+    box-shadow:
+      0 0 25px #00bfff,
+      0 0 40px #00bfff inset;
+  }
+  .contact h2 {
+    color: #7efcff;
+    margin-top: 0;
+    font-family: 'Orbitron', monospace;
+    text-shadow: 0 0 10px #7efcff;
+  }
+  .contact label {
+    display: block;
+    margin: 1.1rem 0 0.35rem;
+    font-weight: 600;
+    color: #00bfff;
+  }
+  .contact input,
+  .contact textarea {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border-radius: 12px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    background: rgba(255 255 255 / 0.05);
+    color: #a8e0ff;
+    box-shadow: inset 0 0 8px #00bfff;
+    resize: vertical;
+  }
+  .contact input::placeholder,
+  .contact textarea::placeholder {
+    color: #66b9ff99;
+  }
+  .contact input:focus,
+  .contact textarea:focus {
+    outline: 2px solid #7efcff;
+    background: rgba(255 255 255 / 0.1);
+  }
+  .contact button {
+    margin-top: 1.3rem;
+    background: #00bfff;
+    border: none;
+    color: #001822;
+    padding: 0.85rem 1.7rem;
+    font-weight: 700;
+    border-radius: 30px;
+    font-family: 'Orbitron', monospace;
+    cursor: pointer;
+    box-shadow:
+      0 0 15px #00bfff;
+    transition: background-color 0.3s ease;
+  }
+  .contact button:hover,
+  .contact button:focus {
+    background: #7efcff;
+    outline: none;
+  }
+
+  /* Form status */
+  #form-status {
+    margin-top: 1.2rem;
+    font-weight: 600;
+    min-height: 1.4em;
+    color: #00bfff;
+    text-shadow: 0 0 10px #00bfff;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    color: #336688cc;
+    font-size: 0.9rem;
+    margin: 3rem 0 1rem;
+    user-select: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
     h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
+      font-size: 2.2rem;
     }
     h2 {
-      font-size: 2rem;
-      border-left: 5px solid #ffc371;
-      padding-left: 0.75rem;
-      margin-bottom: 1rem;
-      margin-top: 2rem;
+      font-size: 1.8rem;
     }
-    h3 {
-      color: #ffc371;
-      font-weight: 600;
-    }
-    p {
-      line-height: 1.6;
-      color: #ddd;
-    }
-
-    /* Intro card */
-    .intro-box {
-      position: relative;
-      width: 100%;
-      max-width: 420px;
-      border-radius: 20px;
-      overflow: hidden;
-      margin-bottom: 2rem;
-      box-shadow: 0 10px 25px rgba(255, 99, 71, 0.5);
-      background: #1f1f2e;
-      animation: fadeInUp 1s ease forwards;
-    }
-    .intro-box::before {
-      content: "";
-      position: absolute;
-      top: -20%;
-      left: -20%;
-      width: 140%;
-      height: 140%;
-      background: conic-gradient(from 0deg, #ff5f6d, #ffc371, #ff5f6d);
-      filter: blur(20px);
-      animation: spin 8s linear infinite;
-      z-index: 0;
-    }
-    .intro-content {
-      position: relative;
-      padding: 2.5rem 2rem 3rem;
-      z-index: 1;
-      text-align: center;
-    }
-    .links {
-      margin-top: 1rem;
-    }
-    .links a {
-      margin: 0 0.6rem;
-    }
-
-    /* Navigation for quick scroll */
-    nav {
-      margin-bottom: 1rem;
-    }
-    nav a {
-      margin: 0 1rem;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    /* Projects */
     .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 1.5rem;
-      max-width: 1000px;
-      width: 100%;
+      grid-template-columns: 1fr;
     }
-    .project-card {
-      background: #2e2e4f;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease;
-    }
-    .project-card:hover, .project-card:focus-within {
-      transform: scale(1.05);
-      outline: none;
-    }
-    .project-image {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      object-fit: cover;
-      aspect-ratio: 16/9;
-      background: #444;
-    }
-    .project-card a {
-      margin-top: auto;
-      align-self: flex-start;
-      color: #76c7f2;
-      font-weight: 600;
-    }
-
-    /* Skills */
-    .skills-list {
-      max-width: 1000px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      margin-top: 0.5rem;
-      justify-content: center;
-    }
-    .skill {
-      background: #ffc371;
-      color: #000;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-weight: 600;
-      animation: fadeInUp 0.5s ease forwards;
-    }
-
-    /* Contact */
-    .contact {
-      max-width: 420px;
-      width: 100%;
-      background: #1b1b2f;
-      border-radius: 16px;
-      padding: 2rem 2.5rem;
-      margin-top: 2rem;
-      box-shadow: 0 12px 25px rgba(255, 195, 113, 0.5);
-      animation: fadeInUp 1.2s ease forwards;
-      color: #fff;
-      font-weight: 500;
-      border: 2px solid #ffc371;
-    }
-    .contact h2 {
-      margin-top: 0;
-      color: #ffc371;
-      font-weight: 700;
-      text-align: center;
-    }
-    .contact p.instructions {
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-      color: #ffd77a;
-      text-align: center;
-      font-style: italic;
-    }
-    .contact label {
-      display: block;
-      margin: 1rem 0 0.25rem;
-      font-weight: 600;
-      color: #ffc371;
-    }
-    .contact input, .contact textarea {
-      width: 100%;
-      padding: 0.6rem 0.75rem;
-      border-radius: 8px;
-      border: none;
-      font-family: inherit;
-      font-size: 1rem;
-      resize: vertical;
-      background: #2e2e4f;
-      color: #fff;
-      transition: background-color 0.3s ease;
-    }
-    .contact input:focus, .contact textarea:focus {
-      background-color: #3f3f65;
-      outline: none;
-    }
-    .contact textarea {
-      min-height: 120px;
-    }
-    .contact button {
-      margin-top: 1.5rem;
-      background: #ffc371;
-      border: none;
-      color: #000;
-      padding: 0.75rem 1.5rem;
-      font-weight: 700;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      width: 100%;
-      font-size: 1.1rem;
-    }
-    .contact button:hover, .contact button:focus {
-      background: #ff9f43;
-      outline: none;
-    }
-    #form-status {
-      margin-top: 1rem;
-      color: #ffd77a;
-      font-weight: 600;
-      text-align: center;
-      min-height: 1.2em;
-    }
-
-    /* Footer */
-    footer {
-      margin-top: auto;
-      padding: 1rem 0;
-      text-align: center;
-      color: #888;
-      font-size: 0.9rem;
-      user-select: none;
-    }
-
-    /* Animations */
-    @keyframes spin {
-      0% { transform: rotate(0deg);}
-      100% { transform: rotate(360deg);}
-    }
-    @keyframes fadeInUp {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    /* Cybersecurity Animated Icon (SVG glow effect) */
-    .cyber-icon {
-      width: 100px;
-      height: 100px;
-      margin: 1.5rem auto;
-      display: block;
-      filter: drop-shadow(0 0 8px #ffc371);
-      animation: pulseGlow 2.5s infinite ease-in-out;
-    }
-    @keyframes pulseGlow {
-      0%, 100% {
-        filter: drop-shadow(0 0 8px #ffc371);
-        opacity: 1;
-      }
-      50% {
-        filter: drop-shadow(0 0 20px #ffae42);
-        opacity: 0.7;
-      }
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-      h2 {
-        font-size: 1.5rem;
-      }
-      .projects {
-        grid-template-columns: 1fr;
-      }
-      .contact {
-        padding: 1.5rem 1.5rem;
-        max-width: 100%;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-  <nav aria-label="Primary navigation">
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<nav aria-label="Primary navigation">
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<main>
 
   <section class="intro-box" role="banner" aria-label="Introduction">
-    <div class="intro-content">
-      <h1>Syed Sameer</h1>
-      <p>Full Stack Developer & Cyber Security Engineer</p>
-      <!-- Cybersecurity SVG Icon -->
-      <svg class="cyber-icon" xmlns="http://www.w3.org/2000/svg" fill="#ffc371" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-        <path d="M32 2a30 30 0 0 0-30 30 30 30 0 0 0 30 30 30 30 0 0 0 30-30A30 30 0 0 0 32 2zm0 56a26 26 0 0 1-26-26 26 26 0 0 1 26-26 26 26 0 0 1 26 26 26 26 0 0 1-26 26z"/>
-        <path d="M32 12a20 20 0 0 0-20 20 20 20 0 0 0 20 20 20 20 0 0 0 20-20 20 20 0 0 0-20-20zm0 36a16 16 0 0 1-16-16 16 16 0 0 1 16-16 16 16 0 0 1 16 16 16 16 0 0 1-16 16z"/>
-        <path d="M22 28h20v8H22z"/>
-      </svg>
-      <div class="links" aria-label="Social and contact links">
-        <a href="https://github.com/syedsameer" target="_blank" rel="noopener noreferrer">GitHub</a> |
-        <a href="https://linkedin.com/in/syedsameer" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
-        <a href="mailto:syedsameer.sbecse@gmail.com">Email</a>
-      </div>
+    <h1>Syed Sameer</h1>
+    <p>Full Stack Developer & Cyber Security Engineer</p>
+
+    <!-- Stylized spaceship SVG -->
+    <svg class="cyber-icon" xmlns="http://www.w3.org/2000/svg" fill="#00bfff" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+      <path d="M32 2L26 18H38L32 2zM20 26l-8 8 10 10-4 6 14-6 14 6-4-6 10-10-8-8-14 4-14-4zM30 46v14h4V46h-4z"/>
+    </svg>
+
+    <div class="links" aria-label="Social and resume links">
+      <a href="https://github.com/sameer667" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">GitHub</a>
+      <a href="https://www.linkedin.com/in/sameer667/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">LinkedIn</a>
+      <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download Resume">Resume</a>
     </div>
   </section>
 
-  <section id="about" aria-labelledby="about-heading" style="max-width: 800px; text-align: center; margin-bottom: 3rem;">
-    <h2 id="about-heading">About Me</h2>
+  <section id="about" aria-label="About me" style="max-width: 700px; margin-bottom: 3rem;">
+    <h2>About Me</h2>
     <p>
-      Experienced Full Stack Developer and Cyber Security Engineer with a passion for building secure, scalable web applications and conducting thorough security assessments. Skilled in JavaScript, Python, React, Node.js, and ethical hacking.
+      I'm Syed Sameer, a passionate Full Stack Developer and Cyber Security Engineer. I specialize in building secure, efficient, and beautiful web applications. With expertise in React.js, Node.js, Python, and AWS, I deliver robust solutions that meet client needs and industry standards.
     </p>
   </section>
 
-  <section id="projects" aria-labelledby="projects-heading" style="max-width: 1000px; width: 100%;">
-    <h2 id="projects-heading">Projects</h2>
-    <div class="projects">
-      <article class="project-card" tabindex="0" aria-label="Project: Secure Chat App">
-        <img src="https://via.placeholder.com/400x225?text=Secure+Chat+App" alt="Screenshot of Secure Chat App" class="project-image" />
-        <h3>Secure Chat App</h3>
-        <p>A real-time encrypted chat application using WebSocket and AES encryption to ensure private messaging.</p>
-        <a href="https://github.com/syedsameer/secure-chat-app" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-      </article>
-      <article class="project-card" tabindex="0" aria-label="Project: Portfolio Website">
-        <img src="https://via.placeholder.com/400x225?text=Portfolio+Website" alt="Screenshot of Portfolio Website" class="project-image" />
-        <h3>Portfolio Website</h3>
-        <p>Responsive and modern personal portfolio built with React and CSS animations.</p>
-        <a href="https://syedsameer.github.io" target="_blank" rel="noopener noreferrer">Visit Site</a>
-      </article>
-      <article class="project-card" tabindex="0" aria-label="Project: Vulnerability Scanner">
-        <img src="https://via.placeholder.com/400x225?text=Vulnerability+Scanner" alt="Screenshot of Vulnerability Scanner" class="project-image" />
-        <h3>Vulnerability Scanner</h3>
-        <p>Python tool to scan web applications for common security vulnerabilities like SQL Injection and XSS.</p>
-        <a href="https://github.com/syedsameer/vulnerability-scanner" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-      </article>
+  <section id="projects" aria-label="Projects" class="projects">
+    <h2>My Projects</h2>
+
+    <article class="project-card" tabindex="0" aria-label="Project: Portfolio Website">
+      <img src="https://github.com/sameer667.png" alt="Screenshot of Portfolio Website" class="project-image" />
+      <h3>Portfolio Website</h3>
+      <p>A sleek portfolio site to showcase my work and skills, built with React.js and styled-components.</p>
+      <a href="https://github.com/sameer667/portfolio" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+    </article>
+
+    <article class="project-card" tabindex="0" aria-label="Project: Secure Login System">
+      <img src="https://placehold.co/400x225/png?text=Secure+Login+System" alt="Screenshot of Secure Login System" class="project-image" />
+      <h3>Secure Login System</h3>
+      <p>Implemented a multi-factor authentication login system with Node.js and JWT tokens for enhanced security.</p>
+      <a href="https://github.com/sameer667/secure-login" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+    </article>
+
+    <article class="project-card" tabindex="0" aria-label="Project: Cloud Infrastructure Automation">
+      <img src="https://placehold.co/400x225/png?text=Cloud+Automation" alt="Screenshot of Cloud Infrastructure Automation" class="project-image" />
+      <h3>Cloud Infrastructure Automation</h3>
+      <p>Automated AWS infrastructure deployments using Terraform and CI/CD pipelines to optimize development workflows.</p>
+      <a href="https://github.com/sameer667/cloud-automation" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+    </article>
+  </section>
+
+  <section id="skills" aria-label="Skills" style="text-align:center;">
+    <h2>Skills</h2>
+    <div class="skills-list" role="list">
+      <span class="skill" role="listitem">React.js</span>
+      <span class="skill" role="listitem">Node.js</span>
+      <span class="skill" role="listitem">Python</span>
+      <span class="skill" role="listitem">AWS</span>
+      <span class="skill" role="listitem">Docker</span>
+      <span class="skill" role="listitem">Kubernetes</span>
+      <span class="skill" role="listitem">Terraform</span>
+      <span class="skill" role="listitem">CI/CD</span>
+      <span class="skill" role="listitem">Cybersecurity</span>
     </div>
   </section>
 
-  <section id="skills" aria-labelledby="skills-heading" style="max-width: 1000px; width: 100%;">
-    <h2 id="skills-heading">Skills</h2>
-    <div class="skills-list" aria-label="List of skills">
-      <span class="skill">JavaScript</span>
-      <span class="skill">Python</span>
-      <span class="skill">React</span>
-      <span class="skill">Node.js</span>
-      <span class="skill">Express</span>
-      <span class="skill">MongoDB</span>
-      <span class="skill">Docker</span>
-      <span class="skill">Kubernetes</span>
-      <span class="skill">Ethical Hacking</span>
-      <span class="skill">Penetration Testing</span>
-      <span class="skill">Network Security</span>
-    </div>
-  </section>
-
-  <section id="contact" class="contact" aria-labelledby="contact-heading">
-    <h2 id="contact-heading">Contact Me</h2>
-    <p class="instructions">Feel free to send me a message by filling out the form below. I look forward to connecting with you!</p>
-    <form id="contact-form" action="https://formspree.io/f/mayvdrgn" method="POST" aria-describedby="form-status" novalidate>
+  <section id="contact" aria-label="Contact form" class="contact">
+    <h2>Contact Me</h2>
+    <form 
+      action="https://formspree.io/f/mrbkzqnd" 
+      method="POST" 
+      id="contact-form" 
+      aria-describedby="form-status" 
+      novalidate
+    >
       <label for="name">Name</label>
-      <input type="text" id="name" name="name" required aria-required="true" placeholder="Your full name" />
+      <input type="text" id="name" name="name" required aria-required="true" placeholder="Your name" />
 
       <label for="email">Email</label>
-      <input type="email" id="email" name="_replyto" required aria-required="true" placeholder="Your email address" />
+      <input type="email" id="email" name="email" required aria-required="true" placeholder="you@example.com" />
 
       <label for="message">Message</label>
-      <textarea id="message" name="message" required aria-required="true" placeholder="Write your message here..."></textarea>
-
-      <!-- honeypot field to prevent spam -->
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+      <textarea id="message" name="message" required aria-required="true" placeholder="Your message here..."></textarea>
 
       <button type="submit">Send Message</button>
     </form>
-    <div id="form-status" role="alert" aria-live="polite"></div>
+    <p id="form-status" role="alert" aria-live="polite"></p>
   </section>
 
-  <footer>
-    &copy; 2025 Syed Sameer. All rights reserved.
-  </footer>
+</main>
 
-  <script>
-    // Formspree custom submission handler with status messages
-    const form = document.getElementById('contact-form');
-    const statusDiv = document.getElementById('form-status');
+<footer>
+  &copy; 2025 Syed Sameer — All rights reserved.
+</footer>
 
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      statusDiv.textContent = 'Sending message...';
+<script>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
 
-      const formData = new FormData(form);
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.style.color = '#00bfff';
+    status.textContent = 'Sending message...';
 
-      fetch(form.action, {
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
         method: 'POST',
         body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          statusDiv.textContent = 'Thank you! Your message has been sent.';
-          form.reset();
-        } else {
-          response.json().then(data => {
-            if (data.errors) {
-              statusDiv.textContent = data.errors.map(error => error.message).join(', ');
-            } else {
-              statusDiv.textContent = 'Oops! There was a problem sending your message.';
-            }
-          });
-        }
-      }).catch(() => {
-        statusDiv.textContent = 'Oops! There was a problem sending your message.';
+        headers: { 'Accept': 'application/json' }
       });
-    });
-  </script>
+
+      if (response.ok) {
+        status.textContent = 'Thank you! Your message has been sent.';
+        status.style.color = '#7efcff';
+        form.reset();
+      } else {
+        const data = await response.json();
+        if (data.errors) {
+          status.textContent = data.errors.map(error => error.message).join(', ');
+        } else {
+          status.textContent = 'Oops! There was a problem sending your message.';
+        }
+        status.style.color = '#ff6b6b';
+      }
+    } catch (error) {
+      status.textContent = 'Oops! There was a problem sending your message.';
+      status.style.color = '#ff6b6b';
+    }
+  });
+</script>
 
 </body>
 </html>
