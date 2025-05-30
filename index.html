@@ -159,17 +159,30 @@
 
     /* Contact */
     .contact {
-      max-width: 400px;
+      max-width: 420px;
       width: 100%;
-      background: #1f1f2e;
+      background: #1b1b2f;
       border-radius: 16px;
-      padding: 1.5rem 2rem;
+      padding: 2rem 2.5rem;
       margin-top: 2rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 12px 25px rgba(255, 195, 113, 0.5);
       animation: fadeInUp 1.2s ease forwards;
+      color: #fff;
+      font-weight: 500;
+      border: 2px solid #ffc371;
     }
     .contact h2 {
       margin-top: 0;
+      color: #ffc371;
+      font-weight: 700;
+      text-align: center;
+    }
+    .contact p.instructions {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      color: #ffd77a;
+      text-align: center;
+      font-style: italic;
     }
     .contact label {
       display: block;
@@ -185,12 +198,19 @@
       font-family: inherit;
       font-size: 1rem;
       resize: vertical;
+      background: #2e2e4f;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+    .contact input:focus, .contact textarea:focus {
+      background-color: #3f3f65;
+      outline: none;
     }
     .contact textarea {
-      min-height: 100px;
+      min-height: 120px;
     }
     .contact button {
-      margin-top: 1rem;
+      margin-top: 1.5rem;
       background: #ffc371;
       border: none;
       color: #000;
@@ -199,10 +219,19 @@
       border-radius: 25px;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      width: 100%;
+      font-size: 1.1rem;
     }
     .contact button:hover, .contact button:focus {
       background: #ff9f43;
       outline: none;
+    }
+    #form-status {
+      margin-top: 1rem;
+      color: #ffd77a;
+      font-weight: 600;
+      text-align: center;
+      min-height: 1.2em;
     }
 
     /* Footer */
@@ -256,6 +285,10 @@
       .projects {
         grid-template-columns: 1fr;
       }
+      .contact {
+        padding: 1.5rem 1.5rem;
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -276,118 +309,4 @@
       <svg class="cyber-icon" xmlns="http://www.w3.org/2000/svg" fill="#ffc371" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
         <path d="M32 2a30 30 0 0 0-30 30 30 30 0 0 0 30 30 30 30 0 0 0 30-30A30 30 0 0 0 32 2zm0 56a26 26 0 0 1-26-26 26 26 0 0 1 26-26 26 26 0 0 1 26 26 26 26 0 0 1-26 26z"/>
         <path d="M32 12a20 20 0 0 0-20 20 20 20 0 0 0 20 20 20 20 0 0 0 20-20 20 20 0 0 0-20-20zm0 36a16 16 0 0 1-16-16 16 16 0 0 1 16-16 16 16 0 0 1 16 16 16 16 0 0 1-16 16z"/>
-        <path d="M22 28h20v8H22z"/>
-      </svg>
-      <div class="links" aria-label="Social links">
-        <a href="https://www.linkedin.com/in/syed-sameer-502b422b0" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
-        <a href="https://github.com/404NotYourCode" target="_blank" rel="noopener noreferrer">GitHub</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" aria-label="Projects" class="projects-section">
-    <h2>Projects</h2>
-    <div class="projects" role="list">
-      <article class="project-card" role="listitem" tabindex="0" aria-label="Task Tracker App project">
-        <img src="https://via.placeholder.com/400x225.png?text=Task+Tracker+App" alt="Screenshot of Task Tracker App" class="project-image" loading="lazy" />
-        <h3>Task Tracker App</h3>
-        <p>Responsive task management with notifications and calendar integration.</p>
-        <a href="#" aria-label="View Task Tracker App project on GitHub">View on GitHub</a>
-      </article>
-      <article class="project-card" role="listitem" tabindex="0" aria-label="ML Housing Model project">
-        <img src="https://via.placeholder.com/400x225.png?text=ML+Housing+Model" alt="Screenshot of ML Housing Model" class="project-image" loading="lazy" />
-        <h3>ML Housing Model</h3>
-        <p>AI-powered real estate price prediction using Scikit-learn & Pandas.</p>
-        <a href="#" aria-label="View ML Housing Model project on GitHub">View on GitHub</a>
-      </article>
-      <article class="project-card" role="listitem" tabindex="0" aria-label="Animated Portfolio project">
-        <img src="https://via.placeholder.com/400x225.png?text=Animated+Portfolio" alt="Screenshot of Animated Portfolio" class="project-image" loading="lazy" />
-        <h3>Animated Portfolio</h3>
-        <p>Modern animated personal site using HTML, CSS and JS animations.</p>
-        <a href="#" aria-label="View Animated Portfolio project on GitHub">View on GitHub</a>
-      </article>
-    </div>
-  </section>
-
-  <section id="skills" aria-label="Skills" class="skills-section">
-    <h2>Skills</h2>
-    <div class="skills-list" role="list">
-      <span class="skill" role="listitem">Java</span>
-      <span class="skill" role="listitem">Python</span>
-      <span class="skill" role="listitem">C</span>
-      <span class="skill" role="listitem">SQL</span>
-      <span class="skill" role="listitem">Cyber Security</span>
-      <span class="skill" role="listitem">Typing</span>
-    </div>
-  </section>
-
-  <section id="contact" aria-label="Contact form" class="contact">
-    <h2>Contact Me</h2>
-    <form onsubmit="return handleSubmit(event)" novalidate>
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required aria-required="true" placeholder="Your name" />
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required aria-required="true" placeholder="you@example.com" />
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required aria-required="true" placeholder="Your message here..." ></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
-    <p id="form-status" role="alert" style="margin-top:1rem; color:#ffc371;"></p>
-  </section>
-
-  <footer>
-    <p>© 2025 Syed Sameer — All rights reserved.</p>
-  </footer>
-
-  <!-- Background Music with controls -->
-  <audio id="bg-music" src="https://cdn.pixabay.com/download/audio/2022/03/01/audio_88ae5e2f12.mp3?filename=ambient-electronic-11217.mp3" loop preload="auto"></audio>
-  <button id="music-toggle" aria-pressed="false" aria-label="Play background music" style="position: fixed; bottom: 20px; right: 20px; background:#ffc371; border:none; border-radius:50%; width:50px; height:50px; cursor:pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-    ▶️
-  </button>
-
-  <script>
-    // Background music toggle
-    const music = document.getElementById('bg-music');
-    const musicToggle = document.getElementById('music-toggle');
-    musicToggle.addEventListener('click', () => {
-      if (music.paused) {
-        music.play();
-        musicToggle.textContent = '⏸️';
-        musicToggle.setAttribute('aria-pressed', 'true');
-        musicToggle.setAttribute('aria-label', 'Pause background music');
-      } else {
-        music.pause();
-        musicToggle.textContent = '▶️';
-        musicToggle.setAttribute('aria-pressed', 'false');
-        musicToggle.setAttribute('aria-label', 'Play background music');
-      }
-    });
-
-    // Simple contact form submission handler (mock)
-    function handleSubmit(event) {
-      event.preventDefault();
-      const form = event.target;
-      const status = document.getElementById('form-status');
-
-      // Basic validation (HTML5 handles most)
-      if (!form.name.value || !form.email.value || !form.message.value) {
-        status.textContent = 'Please fill all fields.';
-        return false;
-      }
-      status.textContent = 'Sending message...';
-
-      // Simulate sending...
-      setTimeout(() => {
-        status.textContent = 'Thank you! Your message has been sent.';
-        form.reset();
-      }, 1500);
-
-      return false;
-    }
-  </script>
-
-</body>
-</html>
+        <path d="M22 28h20v8H
