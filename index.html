@@ -95,7 +95,20 @@
     font-weight: 300;
     color: #666666;
     margin-top: 0.3rem;
+    display: inline-block; /* for transform */
+    animation: rotateBackForth 4s ease-in-out infinite;
   }
+
+  /* Animation keyframes */
+  @keyframes rotateBackForth {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+  }
+
   .links {
     margin-top: 1.3rem;
   }
@@ -378,12 +391,17 @@
     e.preventDefault();
     status.textContent = 'Sending...';
 
-    const formData = new FormData(form);
-    // Simulate server delay
+    // Simple validation
+    if (!form.name.value || !form.email.value || !form.message.value) {
+      status.textContent = 'Please fill all fields.';
+      return;
+    }
+
+    // Simulate sending (in real case, call API or backend)
     setTimeout(() => {
-      status.textContent = 'Thank you for your message, ' + formData.get('name') + '!';
+      status.textContent = 'Thank you for your message! I will get back to you soon.';
       form.reset();
-    }, 1200);
+    }, 1500);
   });
 </script>
 
