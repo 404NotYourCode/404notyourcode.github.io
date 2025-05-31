@@ -91,22 +91,25 @@
     margin: 0 auto 3rem;
   }
   .intro-box p {
-    font-size: 1.25rem;
     font-weight: 300;
     color: #666666;
     margin-top: 0.3rem;
-    display: inline-block; /* for transform */
-    animation: rotateBackForth 4s ease-in-out infinite;
   }
 
-  /* Animation keyframes */
-  @keyframes rotateBackForth {
-    0%, 100% {
-      transform: rotate(0deg);
-    }
-    50% {
-      transform: rotate(10deg);
-    }
+  /* Add rotation animation to the symbol (SVG) */
+  .cyber-icon {
+    width: 100px;
+    height: 100px;
+    margin: 1.7rem auto 2rem;
+    fill: #222222;
+    opacity: 0.85;
+    animation: spin 6s linear infinite;
+    /* smooth continuous rotation */
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 
   .links {
@@ -122,16 +125,6 @@
   .links a:hover, .links a:focus {
     color: #555555;
     outline: none;
-  }
-
-  /* Cybersecurity icon - stylized spaceship */
-  .cyber-icon {
-    width: 100px;
-    height: 100px;
-    margin: 1.7rem auto 2rem;
-    filter: none;
-    fill: #222222;
-    opacity: 0.85;
   }
 
   /* Projects grid */
@@ -301,8 +294,8 @@
     <h1>Syed Sameer</h1>
     <p>Full Stack Developer & Cyber Security Engineer</p>
 
-    <!-- Stylized spaceship SVG -->
-    <svg class="cyber-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+    <!-- Stylized spaceship SVG with rotation animation -->
+    <svg class="cyber-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false" role="img" aria-label="Rotating spaceship symbol">
       <path d="M32 2L26 18H38L32 2zM20 26l-8 8 10 10-4 6 14-6 14 6-4-6 10-10-8-8-14 4-14-4zM30 46v14h4V46h-4z"/>
     </svg>
 
