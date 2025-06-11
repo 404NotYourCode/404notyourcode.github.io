@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>S. Syed Sameer | Cybersecurity Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav>
+    <div class="container nav-container">
+      <div class="logo">Sameer</div>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button id="mode-toggle" aria-label="Toggle Dark/Light Mode">🌙</button>
+      <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+    </div>
+  </nav>
+
+  <main>
+    <section id="home" class="section hero-section">
+      <div class="container hero-content">
+        <h1>S. Syed Sameer</h1>
+        <p>Aspiring Cybersecurity Engineer</p>
+        <button class="btn btn-primary" onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })">View Projects</button>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About Me</h2>
+        <p>
+          I'm a second-year Computer Science Engineering student specializing in Cybersecurity. Passionate about digital defense, network safety, and ethical hacking. Currently focused on building tools for security and educating users on phishing threats.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2>Skills & Tools</h2>
+        <div class="skills-grid">
+          <div class="skill"><center><h3>C</h3></center></div>
+          <div class="skill"><center><h3>Python</h3></center></div>
+          <div class="skill"><center><h3>Java</h3></center></div>
+          <div class="skill"><center><h3>SQL</h3></center></div>
+          <div class="skill"><center><h3>Cybersecurity Concepts</h3></center></div>
+          <div class="skill">
+            <h3>Languages</h3>
+            <p>Tamil, English, Hindi, Urdu (learning Japanese)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3>Network Sniffing Tool</h3>
+            <p>Basic network sniffing tool to monitor traffic and identify anomalies.</p>
+            <a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank" rel="noopener">View Repo</a>
+          </article>
+          <article class="project-card">
+            <h3>Phishing Awareness</h3>
+            <p>Educating users about phishing attacks and prevention.</p>
+            <a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank" rel="noopener">View Repo</a>
+          </article>
+          <article class="project-card">
+            <h3>Securing User Registration System</h3>
+            <p>Improving security in user registration to prevent common vulnerabilities.</p>
+            <a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank" rel="noopener">View Repo</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact Me</h2>
+        <form id="contact-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
+          <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+        <div class="contact-info">
+          <p>Email: <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
+          <p>Phone: +91 98403 29368</p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank" rel="noopener">syed-sameer-dev</a></p>
+          <p>GitHub: <a href="https://github.com/august04-oss" target="_blank" rel="noopener">august04-oss</a></p>
+          <p>
+            <a class="btn btn-primary" href="https://github.com/404NotYourCode/404notyourcode.github.io/blob/main/resume%20(2).pdf?raw=true" target="_blank" rel="noopener">
+              Download My Resume (PDF)
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 S. Syed Sameer</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
