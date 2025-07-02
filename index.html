@@ -1,96 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of S. Syed Sameer – Aspiring Cybersecurity Engineer. See my projects, skills and contact details.">
-  <meta name="keywords" content="Cybersecurity, Portfolio, Ethical Hacking, Network Security, Sameer">
-  <meta name="author" content="S. Syed Sameer">
-  <title>Sameer Portfolio</title>
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/404NotYourCode/404notyourcode.github.io/main/logo.png" />
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syed Sameer | Cybersecurity Engineer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="logo.png" type="image/png" />
 </head>
-
 <body>
-  <header class="header">
-    <div class="container">
-      <div class="logo">
-        <img src="https://raw.githubusercontent.com/404NotYourCode/404notyourcode.github.io/main/logo.png" alt="Sameer Logo" class="logo-img" />
-      </div>
-      <nav class="navbar">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="Syed Sameer Logo" class="logo" />
     </div>
+    <nav>
+      <button class="menu-toggle" id="menu-toggle">☰</button>
+      <ul class="nav-links">
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <button id="mode-toggle" title="Toggle Theme">🌙</button>
+    </nav>
   </header>
 
-  <section class="hero section" data-aos="fade-up">
-    <div class="container">
-      <h1>Hello, I'm <span>Sameer</span></h1>
-      <p id="typed-text"></p>
-      <button class="btn">
-        <a href="https://github.com/404NotYourCode/404notyourcode.github.io/raw/main/Sameer_Resume.pdf" target="_blank">Download My Resume (PDF)</a>
-      </button>
-    </div>
-  </section>
+  <main>
+    <section id="about">
+      <h1>S. Syed Sameer</h1>
+      <h2>Cybersecurity Engineer</h2>
+      <p>Crafting secure code and defending digital borders with Python, SQL, Java, C, and more.</p>
+    </section>
 
-  <section id="about" class="section" data-aos="fade-up">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>I am an aspiring cybersecurity engineer with a strong interest in ethical hacking, penetration testing, and network security.</p>
-    </div>
-  </section>
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <ul>
+        <li>Python, C, Java, SQL</li>
+        <li>Network Sniffing, Phishing Defense</li>
+        <li>Secure Web Applications</li>
+        <li>Cryptography, Threat Analysis</li>
+      </ul>
+    </section>
 
-  <section id="skills" class="section" data-aos="fade-up">
-    <div class="container">
-      <h2>Skills</h2>
-      <div class="skill">
-        <h3>Python</h3>
-        <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
-      </div>
-      <div class="skill">
-        <h3>SQL</h3>
-        <div class="skill-bar"><div class="skill-level" style="width: 75%;"></div></div>
-      </div>
-      <div class="skill">
-        <h3>Network Security</h3>
-        <div class="skill-bar"><div class="skill-level" style="width: 70%;"></div></div>
-      </div>
-    </div>
-  </section>
+    <section id="projects">
+      <h2>Highlighted Projects</h2>
+      <ul>
+        <li><a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">Network Sniffing Tool</a></li>
+        <li><a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">Phishing Awareness App</a></li>
+        <li><a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">Secure User Registration</a></li>
+      </ul>
+    </section>
 
-  <section id="projects" class="section" data-aos="fade-up">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="project-card">
-        <img src="https://via.placeholder.com/400x200" alt="Project Image" class="project-img" />
-        <h3>Network Sniffing Tool</h3>
-        <p>Basic network sniffing tool to monitor traffic and identify anomalies.</p>
-        <a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">View Repo</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section" data-aos="fade-up">
-    <div class="container">
+    <section id="contact">
       <h2>Contact</h2>
-      <p>Email: sameer@example.com</p>
-      <p>GitHub: <a href="https://github.com/404NotYourCode" target="_blank">404NotYourCode</a></p>
-    </div>
-  </section>
+      <p>Email: <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank">syed-sameer-dev</a></p>
+      <p>GitHub: <a href="https://github.com/august04-oss" target="_blank">august04-oss</a> / <a href="https://github.com/404NotYourCode" target="_blank">404NotYourCode</a></p>
+    </section>
+  </main>
 
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 S. Syed Sameer</p>
-    </div>
+  <footer>
+    <p>&copy; 2025 Syed Sameer. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
 </body>
 </html>
