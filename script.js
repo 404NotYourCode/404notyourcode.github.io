@@ -1,116 +1,75 @@
-// Typing Animation
-const typedText = document.getElementById('typed-text');
-const words = ["Cybersecurity Enthusiast", "Ethical Hacker", "Python Developer", "Network Analyst"];
-let wordIndex = 0;
+// Dark Mode Preference Initialization
+const body = document.body;
+const themeToggle = document.getElementById("theme-toggle");
+
+function setTheme(mode) {
+  if (mode === "dark") {
+    body.classList.add("dark-mode");
+    themeToggle.textContent = "☀️";
+    localStorage.setItem("theme", "dark");
+  } else {
+    body.classList.remove("dark-mode");
+    themeToggle.textContent = "🌙";
+    localStorage.setItem("theme", "light");
+  }
+}
+
+const storedTheme = localStorage.getItem("theme") ||
+  (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+setTheme(storedTheme);
+
+themeToggle.addEventListener("click", () => {
+  const current = body.classList.contains("dark-mode") ? "dark" : "light";
+  setTheme(current === "dark" ? "light" : "dark");
+});
+
+// Typing Effect
+const typedText = document.getElementById("typed-text");
+const phrases = [
+  "Cybersecurity Enthusiast",
+  "Python Developer",
+  "Network Security Analyst",
+  "Ethical Hacker in Training"
+];
+let phraseIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 
-function type() {
-  const currentWord = words[wordIndex];
-  typedText.textContent = currentWord.substring(0, charIndex);
+function typeEffect() {
+  const currentPhrase = phrases[phraseIndex];
+  const currentText = typedText.textContent;
 
-  if (!isDeleting && charIndex < currentWord.length) {
-    charIndex++;
-    setTimeout(type, 100);
-  } else if (isDeleting && charIndex > 0) {
-    charIndex--;
-    setTimeout(type, 60);
+  if (isDeleting) {
+    typedText.textContent = currentText.slice(0, -1);
   } else {
-    isDeleting = !isDeleting;
-    if (!isDeleting) wordIndex = (wordIndex + 1) % words.length;
-    setTimeout(type, 1000);
+    typedText.textContent = currentPhrase.slice(0, charIndex + 1);
   }
-}
 
-// Skill Bar Animation on Scroll
-function animateSkillBars() {
-  const skills = document.querySelectorAll('.skill-level');
-  skills.forEach(bar => {
-    const rect = bar.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      const targetWidth = bar.getAttribute('data-skill') || bar.style.getPropertyValue('--level');
-      bar.style.width = targetWidth;
-    }
-  });
-}
-
-// AOS Initialization
-AOS.init({
-  duration: 1000,
-  once: true,
-});
-
-// Dark/Light Mode Toggle
-const modeToggle = document.getElementById('mode-toggle');
-const body = document.body;
-
-function setMode(mode) {
-  if (mode === 'light') {
-    body.classList.add('light');
-    modeToggle.textContent = '🌙';
-    localStorage.setItem('mode', 'light');
-  } else {
-    body.classList.remove('light');
-    modeToggle.textContent = '☀️';
-    localStorage.setItem('mode', 'dark');
+  if (!isDeleting && charIndex === currentPhrase.length) {
+    isDeleting = true;
+    setTimeout(typeEffect, 1000);
+    return;
   }
+
+  if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    phraseIndex = (phraseIndex + 1) % phrases.length;
+  }
+
+  charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
+  setTimeout(typeEffect, isDeleting ? 50 : 100);
 }
+typeEffect();
 
-const savedMode = localStorage.getItem('mode');
-if (savedMode) {
-  setMode(savedMode);
-} else {
-  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-  setMode(prefersLight ? 'light' : 'dark');
-}
-
-if (modeToggle) {
-  modeToggle.addEventListener('click', () => {
-    const newMode = body.classList.contains('light') ? 'dark' : 'light';
-    setMode(newMode);
-  });
-}
-
-// Responsive Mobile Menu
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-if (menuToggle) {
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-  });
-}
-
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-  });
-});
-
-// Active Nav Link Highlighting
-const sections = document.querySelectorAll('section');
-const navItems = document.querySelectorAll('.nav-link');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120;
-    if (pageYOffset >= sectionTop) {
-      current = section.getAttribute('id');
+// Scroll Animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("animate");
     }
   });
-
-  navItems.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active');
-    }
-  });
-
-  animateSkillBars(); // Trigger skill bars on scroll
+}, {
+  threshold: 0.1
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  type();
-  animateSkillBars();
-});
+document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
