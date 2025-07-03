@@ -6,8 +6,7 @@ const navLinks = document.querySelector('.nav-links');
 
 // Set theme based on localStorage or system preference
 document.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem('theme') ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const saved = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   applyTheme(saved);
 });
 
@@ -27,27 +26,23 @@ modeToggle.addEventListener('click', () => {
   applyTheme(current === 'dark' ? 'light' : 'dark');
 });
 
-// Mobile Menu Toggle
 menuToggle.addEventListener('click', () => {
   navLinks.classList.toggle('open');
 });
-document.querySelectorAll('.nav-link').forEach(link =>
-  link.addEventListener('click', () => navLinks.classList.remove('open'))
-);
 
-// Typing Animation in Hero
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+// Typing Animation
 const target = document.getElementById('typed-text');
-const phrases = [
-  'Cybersecurity Enthusiast',
-  'Python Developer',
-  'Network Analyst',
-  'Ethical Hacker'
-];
+const phrases = ['Cybersecurity Enthusiast', 'Python Developer', 'Network Analyst', 'Ethical Hacker'];
 let pIndex = 0, cIndex = 0, deleting = false;
 
 function typeLoop() {
   const current = phrases[pIndex];
-  target.textContent = current.substring(0, cIndex);
+  let displayed = current.substring(0, cIndex);
+  target.textContent = displayed;
 
   if (!deleting && cIndex < current.length) {
     cIndex++;
@@ -63,10 +58,12 @@ function typeLoop() {
   }
   setTimeout(typeLoop, deleting ? 50 : 100);
 }
+
 document.addEventListener('DOMContentLoaded', typeLoop);
 
-// AOS Init & Fade‑in Observer
+// AOS Init & Fade-in Observer
 AOS.init({ duration: 800, once: true });
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -74,11 +71,13 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.1 });
+
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// Highlight Active Nav Link on Scroll
+// Active Nav Link on Scroll
 const sections = document.querySelectorAll('section');
 const navItems = document.querySelectorAll('.nav-link');
+
 window.addEventListener('scroll', () => {
   let currentId = '';
   sections.forEach(sec => {
@@ -86,6 +85,7 @@ window.addEventListener('scroll', () => {
     if (pageYOffset >= top) currentId = sec.getAttribute('id');
   });
   navItems.forEach(item => {
-    item.classList.toggle('active', item.getAttribute('href') === `#${currentId}`);
+    item.classList.remove('active');
+    if (item.getAttribute('href') === `#${currentId}`) item.classList.add('active');
   });
 });
