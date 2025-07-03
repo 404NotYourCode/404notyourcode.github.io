@@ -1,121 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Syed Sameer | Cybersecurity Engineer</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="logo.png" type="image/png" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <title>S. Syed Sameer | Cybersecurity Engineer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="logo.png">
+  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <header>
-    <div class="logo-container">
-      <img src="logo.png" alt="Syed Sameer Logo" class="logo" />
-    </div>
     <nav class="navbar">
+      <button id="menu-toggle">☰</button>
       <ul class="nav-links">
-        <li><a class="nav-link" href="#about">About</a></li>
-        <li><a class="nav-link" href="#skills">Skills</a></li>
-        <li><a class="nav-link" href="#projects">Projects</a></li>
-        <li><a class="nav-link" href="#testimonials">Testimonials</a></li>
-        <li><a class="nav-link" href="#contact">Contact</a></li>
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#resume" class="nav-link">Resume</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
-      <button id="mode-toggle" title="Toggle Theme">🌙</button>
-      <button class="menu-toggle" id="menu-toggle">☰</button>
+      <button id="mode-toggle">🌙</button>
     </nav>
   </header>
 
-  <main>
-    <section id="hero" class="section fade-in" data-aos="fade-up">
+  <section id="home" class="section">
+    <div class="home-content fade-in">
+      <img src="logo.png" alt="Logo" class="logo-large center-logo" />
       <h1>S. Syed Sameer</h1>
-      <h2>Cybersecurity Engineer</h2>
-      <p id="typed-text"></p>
-      <button class="btn"><a href="https://github.com/404NotYourCode/404NotYourCode-404notyourcode.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" target="_blank">Download Resume</a></button>
-    </section>
+      <h2 id="typed-text"></h2>
+      <p class="quote">“I came from silence, walked through storms, and now I speak with purpose—not to prove, but to inspire.”<br>
+        — Syed Sameer</p>
+      <p class="quote">I wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise.
+        My name doesn't echo yet—but when it does, the world will listen.</p>
+    </div>
+  </section>
 
-    <section id="skills" class="section fade-in" data-aos="fade-up">
-      <h2>Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-card" data-aos="flip-left">
-          <h3>Python</h3>
-        </div>
-        <div class="skill-card" data-aos="flip-left" data-aos-delay="100">
-          <h3>C, Java</h3>
-        </div>
-        <div class="skill-card" data-aos="flip-left" data-aos-delay="200">
-          <h3>SQL</h3>
-        </div>
-        <div class="skill-card" data-aos="flip-left" data-aos-delay="300">
-          <h3>Network Sniffing</h3>
-        </div>
-        <div class="skill-card" data-aos="flip-left" data-aos-delay="400">
-          <h3>Phishing Defense</h3>
-        </div>
-      </div>
-    </section>
+  <section id="about" class="section">
+    <div class="container fade-in">
+      <h2>About Me</h2>
+      <p>I am a passionate <strong>Cybersecurity Engineer</strong> skilled in Python, SQL, Java, C, Phishing Detection, and Network Sniffing. I specialize in building secure systems and raising awareness on digital safety.</p>
+    </div>
+  </section>
 
-    <section id="projects" class="section fade-in" data-aos="fade-up">
-      <h2>Highlighted Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card" data-aos="zoom-in">
-          <h3>Network Sniffing Tool</h3>
-          <p>Monitor traffic and identify anomalies programmatically.</p>
-          <a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
-          <h3>Phishing Awareness App</h3>
-          <p>Educate users on phishing attacks and prevention techniques.</p>
-          <a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
-          <h3>Secure User Registration</h3>
-          <p>Enhance user sign-up security to prevent common vulnerabilities.</p>
-          <a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">View on GitHub</a>
-        </div>
-      </div>
-    </section>
+  <section id="projects" class="section">
+    <div class="container fade-in">
+      <h2>Projects</h2>
+      <ul class="project-list">
+        <li><a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">Network Sniffing</a></li>
+        <li><a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">Phishing Awareness</a></li>
+        <li><a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">Secure User Registration</a></li>
+      </ul>
+    </div>
+  </section>
 
-    <section id="testimonials" class="section fade-in" data-aos="fade-up">
-      <h2>Testimonials</h2>
-      <div class="testimonial">
-        <blockquote>
-          “I came from silence, walked through storms, and now I speak with purpose—not to prove, but to inspire.”
-        </blockquote>
-        <p class="author">— Syed Sameer</p>
-      </div>
-      <div class="testimonial">
-        <blockquote>
-          “I wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise. My name doesn't echo yet—but when it does, the world will listen.”
-        </blockquote>
-        <p class="author">— Syed Sameer</p>
-      </div>
-    </section>
+  <section id="resume" class="section">
+    <div class="container fade-in">
+      <h2>Resume</h2>
+      <p>Download my resume to learn more about my background and experience.</p>
+      <a href="https://github.com/404NotYourCode/404NotYourCode-404notyourcode.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" target="_blank" class="btn btn-primary">Download Resume</a>
+    </div>
+  </section>
 
-    <section id="contact" class="section fade-in" data-aos="fade-up">
-      <div class="container">
-        <h2>Contact Me</h2>
-        <form id="contact-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
+  <section id="contact" class="section">
+    <div class="container fade-in">
+      <h2>Contact Me</h2>
+      <form id="contact-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
+        <div class="form-group">
           <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
-          <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
-          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
-        <div class="social-links">
-          <a href="mailto:syedsameer.sbecse@gmail.com">Email</a>
-          <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank">LinkedIn</a>
-          <a href="https://github.com/august04-oss" target="_blank">GitHub</a>
-          <a href="https://github.com/404NotYourCode" target="_blank">GitHub</a>
         </div>
-      </div>
-    </section>
-  </main>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </div>
+  </section>
 
-  <footer class="footer fade-in" data-aos="fade-up">
-    <p>&copy; 2025 Syed Sameer. All rights reserved.</p>
+  <footer>
+    <div class="container">
+      <p>© 2025 S. Syed Sameer | <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
+      <p>
+        <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank">LinkedIn</a> |
+        <a href="https://github.com/august04-oss" target="_blank">GitHub: august04-oss</a> |
+        <a href="https://github.com/404NotYourCode" target="_blank">GitHub: 404NotYourCode</a>
+      </p>
+    </div>
   </footer>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="script.js"></script>
 </body>
+
 </html>
