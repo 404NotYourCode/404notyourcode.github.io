@@ -1,75 +1,91 @@
-// Dark Mode Preference Initialization
+// Dark/Light Mode & Menu Toggle
 const body = document.body;
-const themeToggle = document.getElementById("theme-toggle");
+const modeToggle = document.getElementById('mode-toggle');
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.querySelector('.nav-links');
 
-function setTheme(mode) {
-  if (mode === "dark") {
-    body.classList.add("dark-mode");
-    themeToggle.textContent = "☀️";
-    localStorage.setItem("theme", "dark");
-  } else {
-    body.classList.remove("dark-mode");
-    themeToggle.textContent = "🌙";
-    localStorage.setItem("theme", "light");
-  }
-}
-
-const storedTheme = localStorage.getItem("theme") ||
-  (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-setTheme(storedTheme);
-
-themeToggle.addEventListener("click", () => {
-  const current = body.classList.contains("dark-mode") ? "dark" : "light";
-  setTheme(current === "dark" ? "light" : "dark");
+// Set theme based on localStorage or system preference
+document.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  applyTheme(saved);
 });
 
-// Typing Effect
-const typedText = document.getElementById("typed-text");
-const phrases = [
-  "Cybersecurity Enthusiast",
-  "Python Developer",
-  "Network Security Analyst",
-  "Ethical Hacker in Training"
-];
-let phraseIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-function typeEffect() {
-  const currentPhrase = phrases[phraseIndex];
-  const currentText = typedText.textContent;
-
-  if (isDeleting) {
-    typedText.textContent = currentText.slice(0, -1);
+function applyTheme(theme) {
+  if (theme === 'dark') {
+    body.classList.add('dark-mode');
+    modeToggle.textContent = '☀️';
   } else {
-    typedText.textContent = currentPhrase.slice(0, charIndex + 1);
+    body.classList.remove('dark-mode');
+    modeToggle.textContent = '🌙';
   }
-
-  if (!isDeleting && charIndex === currentPhrase.length) {
-    isDeleting = true;
-    setTimeout(typeEffect, 1000);
-    return;
-  }
-
-  if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    phraseIndex = (phraseIndex + 1) % phrases.length;
-  }
-
-  charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
-  setTimeout(typeEffect, isDeleting ? 50 : 100);
+  localStorage.setItem('theme', theme);
 }
-typeEffect();
 
-// Scroll Animation
+modeToggle.addEventListener('click', () => {
+  const current = body.classList.contains('dark-mode') ? 'dark' : 'light';
+  applyTheme(current === 'dark' ? 'light' : 'dark');
+});
+
+// Mobile Menu Toggle
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+document.querySelectorAll('.nav-link').forEach(link =>
+  link.addEventListener('click', () => navLinks.classList.remove('open'))
+);
+
+// Typing Animation in Hero
+const target = document.getElementById('typed-text');
+const phrases = [
+  'Cybersecurity Enthusiast',
+  'Python Developer',
+  'Network Analyst',
+  'Ethical Hacker'
+];
+let pIndex = 0, cIndex = 0, deleting = false;
+
+function typeLoop() {
+  const current = phrases[pIndex];
+  target.textContent = current.substring(0, cIndex);
+
+  if (!deleting && cIndex < current.length) {
+    cIndex++;
+  } else if (deleting && cIndex > 0) {
+    cIndex--;
+  } else if (cIndex === current.length) {
+    deleting = true;
+    setTimeout(typeLoop, 1000);
+    return;
+  } else if (deleting && cIndex === 0) {
+    deleting = false;
+    pIndex = (pIndex + 1) % phrases.length;
+  }
+  setTimeout(typeLoop, deleting ? 50 : 100);
+}
+document.addEventListener('DOMContentLoaded', typeLoop);
+
+// AOS Init & Fade‑in Observer
+AOS.init({ duration: 800, once: true });
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add("animate");
+      entry.target.classList.add('animate');
     }
   });
-}, {
-  threshold: 0.1
-});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+// Highlight Active Nav Link on Scroll
+const sections = document.querySelectorAll('section');
+const navItems = document.querySelectorAll('.nav-link');
+window.addEventListener('scroll', () => {
+  let currentId = '';
+  sections.forEach(sec => {
+    const top = sec.offsetTop - 120;
+    if (pageYOffset >= top) currentId = sec.getAttribute('id');
+  });
+  navItems.forEach(item => {
+    item.classList.toggle('active', item.getAttribute('href') === `#${currentId}`);
+  });
+});
