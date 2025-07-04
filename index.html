@@ -1,139 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Syed Sameer | Cybersecurity Portfolio</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <nav>
-      <div class="container nav-container">
-        <div class="logo">SYED SAMEER</div>
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button id="mode-toggle" aria-label="Toggle Dark/Light Mode">🌙</button>
-        <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Syed Sameer — Cybersecurity Engineer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <img src="logo.png" alt="Syed Sameer Logo" class="logo" />
+      <h1>SYED SAMEER</h1>
+      <h2>Cybersecurity Engineer</h2>
+    </div>
+  </header>
+
+  <!-- QUOTES -->
+  <section class="quotes">
+    <div class="container">
+      <blockquote>
+        “Built with purpose. Driven by passion. Defined by originality. — I don’t just create, I leave a mark.”
+      </blockquote>
+      <blockquote>
+        “I came from silence, walked through storms, and now I speak with purpose — not to prove, but to inspire.”
+        <span class="quote-author">— Syed Sameer</span>
+      </blockquote>
+      <blockquote>
+        “I wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise. My name doesn't echo yet—but when it does, the world will listen.”
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="container">
+      <h3>About Me</h3>
+      <p>
+        I'm a cybersecurity engineer with a passion for ethical hacking, vulnerability assessment, and digital defense.
+        My mission is to build safer systems and empower organizations to secure their data.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects">
+    <div class="container">
+      <h3>Projects</h3>
+      <div class="project-grid">
+        <div class="project-card">
+          <h4>PenTest Toolkit</h4>
+          <p>CLI-based penetration testing toolkit built in Python with modules for scanning, enumeration, and exploitation.</p>
+        </div>
+        <div class="project-card">
+          <h4>LogAnalyzer</h4>
+          <p>Real-time log monitoring tool that highlights suspicious patterns and flags anomalies with alert system.</p>
+        </div>
+        <div class="project-card">
+          <h4>SecureVault</h4>
+          <p>End-to-end encrypted password manager with AES-256, 2FA, and offline-first architecture.</p>
+        </div>
       </div>
-    </nav>
+    </div>
+  </section>
 
-    <main>
-      <section id="home" class="hero-section">
-        <div class="container hero-content">
-          <h1>SYED SAMEER</h1>
-          <p>Crafting My Path with Purpose</p>
-          <button class="btn btn-primary" onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })">View Projects</button>
-        </div>
-      </section>
+  <!-- GAME -->
+  <section class="game">
+    <div class="container">
+      <h3>Catch the Red Box</h3>
+      <p>Click the red box as fast as you can. It moves every second!</p>
+      <div id="game-area">
+        <div id="target-box"></div>
+      </div>
+      <p>Score: <span id="score">0</span></p>
+    </div>
+  </section>
 
-      <section id="about" class="section">
-        <div class="container">
-          <h2>About Me</h2>
-          <p>
-            I’m a passionate learner and aspiring professional in Cybersecurity. As a Computer Science Engineering student, my journey began with curiosity and a drive to protect digital frontiers. I believe in continuous learning and building secure systems with empathy and logic.
-          </p>
-        </div>
-      </section>
+  <!-- CONTACT -->
+  <section class="contact">
+    <div class="container">
+      <h3>Get in Touch</h3>
+      <p>Let’s build something secure. Reach out for collaboration, consulting, or just to say hello.</p>
+      <ul class="contact-info">
+        <li><strong>Email:</strong> <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></li>
+        <li><strong>Phone:</strong> <a href="tel:+919840329368">+91 98403 29368</a></li>
+      </ul>
 
-      <section id="skills" class="section">
-        <div class="container">
-          <h2>Skills</h2>
-          <div class="skills-grid">
-            <div class="skill"><h3>Python</h3></div>
-            <div class="skill"><h3>HTML & CSS</h3></div>
-            <div class="skill"><h3>C / Java</h3></div>
-            <div class="skill"><h3>SQL</h3></div>
-            <div class="skill"><h3>Cybersecurity Concepts</h3></div>
-            <div class="skill"><h3>Problem-solving</h3></div>
-            <div class="skill"><h3>Communication</h3></div>
-          </div>
-        </div>
-      </section>
+      <form id="contact-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
+        <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </div>
+  </section>
 
-      <section id="projects" class="section">
-        <div class="container">
-          <h2>Projects</h2>
-          <div class="projects-grid">
-            <article class="project-card">
-              <h3>Network Sniffing Tool</h3>
-              <p>Tool to monitor network traffic and detect anomalies.</p>
-              <a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">View on GitHub</a>
-            </article>
-            <article class="project-card">
-              <h3>Phishing Awareness</h3>
-              <p>Educating users on how to detect and avoid phishing threats.</p>
-              <a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">View on GitHub</a>
-            </article>
-            <article class="project-card">
-              <h3>User Registration Security</h3>
-              <p>Secure registration system preventing common vulnerabilities.</p>
-              <a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">View on GitHub</a>
-            </article>
-          </div>
-        </div>
-      </section>
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Syed Sameer. All rights reserved.</p>
+  </footer>
 
-      <section id="certifications" class="section">
-        <div class="container">
-          <h2>Certifications</h2>
-          <div class="certifications-grid">
-            <div class="cert-item">
-              <img src="assets/cert1.png" alt="Cert Logo" />
-              <a href="#">Cybersecurity Fundamentals - [Provider]</a>
-            </div>
-            <div class="cert-item">
-              <img src="assets/cert2.png" alt="Cert Logo" />
-              <a href="#">Python for Beginners - [Provider]</a>
-            </div>
-            <!-- Add more certs as needed -->
-          </div>
-        </div>
-      </section>
-
-      <section id="quote" class="section">
-        <div class="container">
-          <blockquote>
-            <p>"I don’t chase greatness—I build it, line by line, step by step."</p>
-          </blockquote>
-        </div>
-      </section>
-
-      <section id="contact" class="section">
-        <div class="container">
-          <h2>Contact Me</h2>
-          <form action="https://formspree.io/f/mrbkzqnd" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input type="email" name="email" placeholder="Your Email" required />
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn">Send Message</button>
-          </form>
-
-          <div class="contact-info">
-            <p>Email: <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
-            <p>Phone: +91 98403 29368</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank">syed-sameer-dev</a></p>
-            <p>GitHub: <a href="https://github.com/august04-oss" target="_blank">august04-oss</a></p>
-            <p><a href="https://github.com/404NotYourCode/404NotYourCode-404notyourcode.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" target="_blank">Download My Resume (PDF)</a></p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <p>&copy; 2025 Syed Sameer. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
