@@ -1,137 +1,55 @@
-// Dark/Light Mode Toggle
-const modeToggle = document.getElementById('mode-toggle');
-const body = document.body;
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const modeToggle = document.getElementById("mode-toggle");
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  const navLinkItems = document.querySelectorAll(".nav-links a");
 
-function setMode(mode) {
-  if (mode === 'light') {
-    body.classList.add('light');
-    modeToggle.textContent = '🌙';
-    localStorage.setItem('mode', 'light');
-  } else {
-    body.classList.remove('light');
-    modeToggle.textContent = '☀️';
-    localStorage.setItem('mode', 'dark');
+  // Load mode from localStorage
+  const savedMode = localStorage.getItem("theme");
+  if (savedMode === "light") {
+    body.classList.add("light");
   }
-}
 
-// Initialize mode based on localStorage or system preference
-const savedMode = localStorage.getItem('mode');
-if (savedMode) {
-  setMode(savedMode);
-} else {
-  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-  setMode(prefersLight ? 'light' : 'dark');
-}
-
-modeToggle.addEventListener('click', () => {
-  if (body.classList.contains('light')) {
-    setMode('dark');
-  } else {
-    setMode('light');
-  }
-});
-
-// Responsive Mobile Menu Toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
-
-// Close mobile menu on link click
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-  });
-});
-
-// Highlight active nav link on scroll
-const sections = document.querySelectorAll('section');
-const navItems = document.querySelectorAll('.nav-link');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    if (pageYOffset >= sectionTop) {
-      current = section.getAttribute('id');
-    }
+  // Toggle light/dark mode
+  modeToggle.addEventListener("click", () => {
+    body.classList.toggle("light");
+    const currentMode = body.classList.contains("light") ? "light" : "dark";
+    localStorage.setItem("theme", currentMode);
   });
 
-  navItems.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active');
-    }
-  });
-});// Dark/Light Mode Toggle
-const modeToggle = document.getElementById('mode-toggle');
-const body = document.body;
-
-function setMode(mode) {
-  if (mode === 'light') {
-    body.classList.add('light');
-    modeToggle.textContent = '🌙';
-    localStorage.setItem('mode', 'light');
-  } else {
-    body.classList.remove('light');
-    modeToggle.textContent = '☀️';
-    localStorage.setItem('mode', 'dark');
-  }
-}
-
-// Initialize mode based on localStorage or system preference
-const savedMode = localStorage.getItem('mode');
-if (savedMode) {
-  setMode(savedMode);
-} else {
-  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-  setMode(prefersLight ? 'light' : 'dark');
-}
-
-modeToggle.addEventListener('click', () => {
-  if (body.classList.contains('light')) {
-    setMode('dark');
-  } else {
-    setMode('light');
-  }
-});
-
-// Responsive Mobile Menu Toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
-
-// Close mobile menu on link click
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-  });
-});
-
-// Highlight active nav link on scroll
-const sections = document.querySelectorAll('section');
-const navItems = document.querySelectorAll('.nav-link');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    if (pageYOffset >= sectionTop) {
-      current = section.getAttribute('id');
-    }
+  // Toggle mobile menu
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
   });
 
-  navItems.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active');
-    }
+  // Close menu when a link is clicked (mobile)
+  navLinkItems.forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+    });
   });
+
+  // Optional: Highlight current section link on scroll
+  const sections = document.querySelectorAll("section");
+  const highlightNavLink = () => {
+    let scrollY = window.pageYOffset;
+
+    sections.forEach(sec => {
+      const sectionTop = sec.offsetTop - 100;
+      const sectionHeight = sec.offsetHeight;
+      const sectionId = sec.getAttribute("id");
+
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        navLinkItems.forEach(link => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${sectionId}`) {
+            link.classList.add("active");
+          }
+        });
+      }
+    });
+  };
+
+  window.addEventListener("scroll", highlightNavLink);
 });
