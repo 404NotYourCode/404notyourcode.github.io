@@ -6,15 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>S. Syed Sameer | Cybersecurity Engineer</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" href="logo.png" type="image/png">
   <script src="script.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <header>
-    <nav class="navbar">
-      <button id="menu-toggle">☰</button>
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="nav-left">
+        <button id="menu-toggle">☰</button>
+      </div>
       <ul class="nav-links">
         <li><a href="#home" class="nav-link">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
@@ -22,19 +24,30 @@
         <li><a href="#resume" class="nav-link">Resume</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
-      <button id="mode-toggle">🌙</button>
-    </nav>
+      <div class="nav-right">
+        <button id="mode-toggle">🌙</button>
+      </div>
+    </div>
   </header>
 
-  <section id="home" class="section">
-    <div class="home-content fade-in">
-      <img src="logo.png" alt="Logo" class="logo-large center-logo" />
-      <h1>S. Syed Sameer</h1>
-      <h2 id="typed-text"></h2>
-      <p class="quote">“I came from silence, walked through storms, and now I speak with purpose—not to prove, but to inspire.”<br>
-        — Syed Sameer</p>
-      <p class="quote">I wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise.
-        My name doesn't echo yet—but when it does, the world will listen.</p>
+  <section id="home" class="section home-hero">
+    <div class="home-content">
+      <img src="logo.png" alt="Syed Sameer Logo" class="hero-logo" />
+      <h1 class="hero-title">S. Syed Sameer</h1>
+      <h2 class="hero-subtitle">Cybersecurity Engineer</h2>
+    </div>
+  </section>
+
+  <section id="quotes" class="section quote-section">
+    <div class="container">
+      <blockquote>
+        “I came from silence, walked through storms, and now I speak with purpose—not to prove, but to inspire.”
+        <span class="author">— Syed Sameer</span>
+      </blockquote>
+      <blockquote>
+        I wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise.
+        My name doesn't echo yet—but when it does, the world will listen.
+      </blockquote>
     </div>
   </section>
 
@@ -49,32 +62,33 @@
     <div class="container fade-in">
       <h2>Projects</h2>
       <ul class="project-list">
-        <li><a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">Network Sniffing</a></li>
-        <li><a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">Phishing Awareness</a></li>
-        <li><a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">Secure User Registration</a></li>
+        <li><a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">🔗 Network Sniffing</a></li>
+        <li><a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">🔗 Phishing Awareness</a></li>
+        <li><a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">🔗 Secure User Registration</a></li>
       </ul>
     </div>
   </section>
 
-  <section id="resume" class="section">
+  <section id="resume" class="section resume-section">
     <div class="container fade-in">
       <h2>Resume</h2>
-      <p>Download my resume to learn more about my background and experience.</p>
-      <a href="https://github.com/404NotYourCode/404NotYourCode-404notyourcode.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" target="_blank" class="btn btn-primary">Download Resume</a>
+      <p>View or download my resume to learn more about my professional background and technical experience.</p>
+      <a href="https://github.com/404NotYourCode/404NotYourCode-404notyourcode.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true"
+        target="_blank" class="btn btn-primary resume-btn">📄 Download Resume</a>
     </div>
   </section>
 
-  <section id="contact" class="section">
+  <section id="contact" class="section contact-section">
     <div class="container fade-in">
       <h2>Contact Me</h2>
       <form id="contact-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
-        <div class="form-group">
+        <div class="form-row">
           <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
         </div>
-        <div class="form-group">
+        <div class="form-row">
           <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
         </div>
-        <div class="form-group">
+        <div class="form-row">
           <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Send Message</button>
