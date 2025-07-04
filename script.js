@@ -1,89 +1,55 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // ==============================
-  // Theme Toggle
-  // ==============================
-  const modeToggle = document.getElementById('mode-toggle');
-  modeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light');
-    modeToggle.innerHTML = document.body.classList.contains('light') ? '🌙' : '☀️';
-  });
+// Game Logic
+const box = document.getElementById("box");
+const gameContainer = document.getElementById("game-container");
+const scoreDisplay = document.getElementById("score");
+let score = 0;
 
-  // ==============================
-  // Mobile Menu Toggle
-  // ==============================
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
+function moveBox() {
+  const containerWidth = gameContainer.clientWidth - box.clientWidth;
+  const containerHeight = gameContainer.clientHeight - box.clientHeight;
 
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-  });
+  const randomX = Math.floor(Math.random() * containerWidth);
+  const randomY = Math.floor(Math.random() * containerHeight);
 
-  // ==============================
-  // Smooth Scroll Highlight Active Link
-  // ==============================
-  const sections = document.querySelectorAll('section');
-  const navItems = document.querySelectorAll('.nav-links a');
+  box.style.left = `${randomX}px`;
+  box.style.top = `${randomY}px`;
+}
 
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      if (pageYOffset >= sectionTop) {
-        current = section.getAttribute('id');
-      }
-    });
+box.addEventListener("click", () => {
+  score++;
+  scoreDisplay.textContent = `Score: ${score}`;
+  moveBox();
+});
 
-    navItems.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href').includes(current)) {
-        link.classList.add('active');
-      }
-    });
-  });
+function startGame() {
+  box.style.display = "block";
+  moveBox();
+}
 
-  // ==============================
-  // Contact Form Submission Success (Optional)
-  // ==============================
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      setTimeout(() => {
-        alert('Message sent successfully!');
-      }, 500); // wait for formspree to process
-    });
+document.addEventListener("DOMContentLoaded", startGame);
+
+// Optional Typing Animation (for quotes or name)
+function typeEffect(element, text, speed = 50) {
+  let i = 0;
+  function typing() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, speed);
+    }
   }
+  typing();
+}
 
-  // ==============================
-  // Mini Game: Click the Target Box
-  // ==============================
-  const target = document.getElementById('target-box');
-  const gameArea = document.getElementById('game-area');
-  const scoreDisplay = document.getElementById('score');
+// Example: Uncomment if you want typing effect on tagline or quote
+// const heading = document.querySelector(".big-heading");
+// heading.innerHTML = ""; 
+// typeEffect(heading, "Built with purpose. Driven by passion.", 80);
 
-  let score = 0;
-
-  function moveTarget() {
-    const areaWidth = gameArea.clientWidth;
-    const areaHeight = gameArea.clientHeight;
-    const targetSize = target.offsetWidth;
-
-    const maxX = areaWidth - targetSize;
-    const maxY = areaHeight - targetSize;
-
-    const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxY);
-
-    target.style.left = `${randomX}px`;
-    target.style.top = `${randomY}px`;
-  }
-
-  if (target && gameArea && scoreDisplay) {
-    target.addEventListener('click', () => {
-      score++;
-      scoreDisplay.textContent = score;
-      moveTarget();
-    });
-
-    moveTarget();
-  }
+// Optional Form Submission Feedback
+const form = document.getElementById("contact-form");
+form.addEventListener("submit", function () {
+  setTimeout(() => {
+    alert("Thanks for reaching out! I’ll get back to you soon.");
+  }, 500);
 });
