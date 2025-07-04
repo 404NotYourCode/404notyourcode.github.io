@@ -1,110 +1,137 @@
-// Particles.js config
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 60 },
-    color: { value: "#00ffd5" },
-    shape: { type: "circle" },
-    opacity: { value: 0.5 },
-    size: { value: 3 },
-    line_linked: {
-      enable: true,
-      distance: 120,
-      color: "#00ffd5",
-      opacity: 0.4,
-      width: 1
-    },
-    move: {
-      enable: true,
-      speed: 2
-    }
-  }
-});
+// Dark/Light Mode Toggle
+const modeToggle = document.getElementById('mode-toggle');
+const body = document.body;
 
-// Typed.js for hero subtitle
-document.addEventListener("DOMContentLoaded", function () {
-  new Typed(".hero-subtitle", {
-    strings: [
-      "Cybersecurity Engineer",
-      "Python Developer",
-      "Network Sniffer",
-      "Phishing Preventer"
-    ],
-    typeSpeed: 50,
-    backSpeed: 30,
-    loop: true
-  });
-});
-
-// Rotate quotes
-const quotes = [
-  {
-    text: "Wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise. My name doesn't echo yet—but when it does, the world will listen.",
-    author: "Syed Sameer"
-  },
-  {
-    text: "I came from silence, walked through storms, and now I speak with purpose—not to prove, but to inspire.",
-    author: "Syed Sameer"
-  },
-  {
-    text: "Built with purpose. Driven by passion. Defined by originality. — I don’t just create, I leave a mark.",
-    author: "Syed Sameer"
-  }
-];
-
-let quoteIndex = 0;
-function rotateQuotes() {
-  const quoteEl = document.getElementById("quote-text");
-  const authorEl = document.getElementById("quote-author");
-
-  quoteEl.textContent = quotes[quoteIndex].text;
-  authorEl.textContent = `— ${quotes[quoteIndex].author}`;
-
-  quoteIndex = (quoteIndex + 1) % quotes.length;
-}
-rotateQuotes();
-setInterval(rotateQuotes, 8000);
-
-// Show case study steps on scroll
-const steps = document.querySelectorAll(".step");
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-}, {
-  threshold: 0.2
-});
-steps.forEach(step => observer.observe(step));
-
-// Animate timeline progress
-window.addEventListener("scroll", () => {
-  const timeline = document.querySelector(".timeline");
-  const line = document.querySelector(".timeline-line");
-  const scrollY = window.scrollY + window.innerHeight;
-  const timelineTop = timeline.offsetTop;
-  const timelineHeight = timeline.offsetHeight;
-
-  if (scrollY >= timelineTop) {
-    const progress = Math.min(1, (scrollY - timelineTop) / timelineHeight);
-    line.style.height = `${progress * 100}%`;
-  }
-});
-
-// CTF Puzzle logic
-document.getElementById("ctf-check")?.addEventListener("click", () => {
-  const input = document.getElementById("ctf-input").value.trim().toLowerCase();
-  const result = document.getElementById("ctf-result");
-  if (input === "there is a future") {
-    result.innerText = "✅ Correct! You’ve unlocked part of the journey.";
-    result.style.color = "lime";
+function setMode(mode) {
+  if (mode === 'light') {
+    body.classList.add('light');
+    modeToggle.textContent = '🌙';
+    localStorage.setItem('mode', 'light');
   } else {
-    result.innerText = "❌ Try again!";
-    result.style.color = "crimson";
+    body.classList.remove('light');
+    modeToggle.textContent = '☀️';
+    localStorage.setItem('mode', 'dark');
+  }
+}
+
+// Initialize mode based on localStorage or system preference
+const savedMode = localStorage.getItem('mode');
+if (savedMode) {
+  setMode(savedMode);
+} else {
+  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+  setMode(prefersLight ? 'light' : 'dark');
+}
+
+modeToggle.addEventListener('click', () => {
+  if (body.classList.contains('light')) {
+    setMode('dark');
+  } else {
+    setMode('light');
   }
 });
 
-// Mobile nav toggle
-document.getElementById("menu-toggle").addEventListener("click", () => {
-  document.querySelector(".nav-links").classList.toggle("open");
+// Responsive Mobile Menu Toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+
+// Close mobile menu on link click
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+  });
+});
+
+// Highlight active nav link on scroll
+const sections = document.querySelectorAll('section');
+const navItems = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (pageYOffset >= sectionTop) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navItems.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+});// Dark/Light Mode Toggle
+const modeToggle = document.getElementById('mode-toggle');
+const body = document.body;
+
+function setMode(mode) {
+  if (mode === 'light') {
+    body.classList.add('light');
+    modeToggle.textContent = '🌙';
+    localStorage.setItem('mode', 'light');
+  } else {
+    body.classList.remove('light');
+    modeToggle.textContent = '☀️';
+    localStorage.setItem('mode', 'dark');
+  }
+}
+
+// Initialize mode based on localStorage or system preference
+const savedMode = localStorage.getItem('mode');
+if (savedMode) {
+  setMode(savedMode);
+} else {
+  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+  setMode(prefersLight ? 'light' : 'dark');
+}
+
+modeToggle.addEventListener('click', () => {
+  if (body.classList.contains('light')) {
+    setMode('dark');
+  } else {
+    setMode('light');
+  }
+});
+
+// Responsive Mobile Menu Toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+
+// Close mobile menu on link click
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+  });
+});
+
+// Highlight active nav link on scroll
+const sections = document.querySelectorAll('section');
+const navItems = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (pageYOffset >= sectionTop) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navItems.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
 });
