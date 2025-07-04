@@ -2,81 +2,112 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Syed Sameer — Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Syed Sameer's Digital Portfolio - A journey of originality, design, and passion." />
+  <meta name="theme-color" content="#000000" />
+  <title>Syed Sameer | Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Logo" class="logo" />
-    <nav>
-      <ul>
+    <nav class="nav-container">
+      <div class="logo">
+        <img src="logo.png" alt="Syed Sameer Logo" />
+      </div>
+      <ul class="nav-links">
         <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#game">Game</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section id="hero">
-    <h1 class="big-heading">Syed Sameer</h1>
-    <p class="tagline large">Built with purpose. Driven by passion. Defined by originality.</p>
-    <blockquote class="quotes large">
-      <p>“I came from silence, walked through storms, and now I speak with purpose — not to prove, but to inspire.”</p>
-      <p>“I wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise. My name doesn't echo yet—but when it does, the world will listen.”</p>
-    </blockquote>
-    <a href="https://github.com/404NotYourCode/404NotYourCode-404notyourcode.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" target="_blank" class="btn large">📄 View Resume</a>
+  <section id="hero" class="hero-section">
+    <div class="hero-content">
+      <h1>Syed Sameer</h1>
+      <p>Built with purpose. Driven by passion. Defined by originality.<br>I don’t just create, I leave a mark.</p>
+      <a href="#contact" class="btn">Let's Connect</a>
+    </div>
   </section>
 
-  <section id="projects">
-    <h2 class="section-title">Projects</h2>
-    <div class="project-list">
-      <div class="project">
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>"I came from silence, walked through storms, and now I speak with purpose — not to prove, but to inspire." — Syed Sameer</p>
+    <p>"I wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise. My name doesn't echo yet—but when it does, the world will listen."</p>
+  </section>
+
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill">
+        <h3>HTML/CSS</h3>
+        <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+      </div>
+      <div class="skill">
+        <h3>JavaScript</h3>
+        <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+      </div>
+      <div class="skill">
+        <h3>UI/UX Design</h3>
+        <div class="skill-bar"><div class="skill-level" style="width: 75%;"></div></div>
+      </div>
+      <div class="skill">
+        <h3>React</h3>
+        <div class="skill-bar"><div class="skill-level" style="width: 70%;"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
         <h3>Project 1</h3>
-        <p>A responsive portfolio landing page using HTML, CSS, JS.</p>
-        <a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">View on GitHub</a>
+        <p><a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">View on GitHub</a></p>
       </div>
-      <div class="project">
+      <div class="project-card">
         <h3>Project 2</h3>
-        <p>A To-Do List web app that lets users add and manage tasks.</p>
-        <a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">View on GitHub</a>
+        <p><a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">View on GitHub</a></p>
       </div>
-      <div class="project">
+      <div class="project-card">
         <h3>Project 3</h3>
-        <p>A weather app with live weather data using APIs.</p>
-        <a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">View on GitHub</a>
+        <p><a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">View on GitHub</a></p>
+      </div>
+      <div class="project-card">
+        <h3>Resume</h3>
+        <p><a href="https://github.com/404NotYourCode/404NotYourCode-404notyourcode.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" target="_blank">Download Resume</a></p>
       </div>
     </div>
   </section>
 
-  <section id="game">
-    <h2 class="section-title">Mini Game: Click the Box</h2>
-    <p class="large">Click the red box as many times as you can in 10 seconds!</p>
-    <div id="game-container">
-      <div id="box"></div>
-    </div>
-    <p id="score" class="large">Score: 0</p>
-    <button onclick="startGame()" class="btn large">Start Game</button>
+  <section id="game" class="section">
+    <h2>Mini Game</h2>
+    <canvas id="gameCanvas" width="300" height="300"></canvas>
+    <p class="game-instruction">Use Arrow Keys to Move the Red Box!</p>
   </section>
 
-  <section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <p>Email: <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
-    <p>Phone: <a href="tel:+919840329368">+91 98403 29368</a></p>
-
+  <section id="contact" class="section">
+    <h2>Contact Me</h2>
     <form id="contact-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
       <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
       <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
-      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn large">Send Message</button>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
     </form>
+    <div class="contact-info">
+      <p>Email: <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
+      <p>Phone: <a href="tel:+919840329368">+91 98403 29368</a></p>
+    </div>
   </section>
 
   <footer>
     <p>&copy; 2025 Syed Sameer. All rights reserved.</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
