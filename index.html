@@ -1,96 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>S. Syed Sameer | Cybersecurity Engineer</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <link rel="icon" href="logo.png" type="image/png">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
+  <script src="https://unpkg.com/scrollmagic@2.0.7/scrollmagic/minified/ScrollMagic.min.js" defer></script>
   <script src="script.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
   <header class="navbar">
     <div class="container nav-container">
-      <div class="nav-left">
-        <button id="menu-toggle">☰</button>
-      </div>
+      <button id="menu-toggle">☰</button>
       <ul class="nav-links">
         <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#resume" class="nav-link">Resume</a></li>
+        <li><a href="#case-study" class="nav-link">Case Study</a></li>
+        <li><a href="#timeline" class="nav-link">Timeline</a></li>
+        <li><a href="#puzzle" class="nav-link">CTF Puzzle</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
-      <div class="nav-right">
-        <button id="mode-toggle">🌙</button>
-      </div>
+      <button id="mode-toggle">🌙</button>
     </div>
   </header>
 
+  <!-- Hero with particles -->
   <section id="home" class="section home-hero">
+    <div id="particles-js"></div>
     <div class="home-content">
-      <img src="logo.png" alt="Syed Sameer Logo" class="hero-logo" />
+      <img src="logo.png" alt="Syed Sameer Logo" class="hero-logo">
       <h1 class="hero-title">S. Syed Sameer</h1>
-      <h2 class="hero-subtitle">Cybersecurity Engineer</h2>
+      <h2 class="hero-subtitle" id="typed-text"></h2>
     </div>
   </section>
 
-  <section id="quotes" class="section quote-section">
+  <!-- Scroll-triggered Case Study -->
+  <section id="case-study" class="section case-study">
     <div class="container">
-      <blockquote>
-        “I came from silence, walked through storms, and now I speak with purpose—not to prove, but to inspire.”
-        <span class="author">— Syed Sameer</span>
-      </blockquote>
-      <blockquote>
-        I wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise.
-        My name doesn't echo yet—but when it does, the world will listen.
-      </blockquote>
+      <h2>Case Study: Network Sniffer</h2>
+      <div class="step" data-step="1">
+        <h3>Overview</h3><p>A Python sniffer that captures packets.</p>
+      </div>
+      <div class="step" data-step="2">
+        <h3>Architecture</h3><p>Uses Scapy to parse headers.</p>
+      </div>
+      <div class="step" data-step="3">
+        <h3>Results</h3><p>Detected anomalies in real time.</p>
+      </div>
     </div>
   </section>
 
-  <section id="about" class="section">
-    <div class="container fade-in">
-      <h2>About Me</h2>
-      <p>I am a passionate <strong>Cybersecurity Engineer</strong> skilled in Python, SQL, Java, C, Phishing Detection, and Network Sniffing. I specialize in building secure systems and raising awareness on digital safety.</p>
+  <!-- Timeline -->
+  <section id="timeline" class="section timeline">
+    <div class="container">
+      <h2>Career Timeline</h2>
+      <div class="timeline-line"></div>
+      <div class="entry" style="top:0%"><span>2023</span><p>Built first sniffer</p></div>
+      <div class="entry" style="top:33%"><span>2024</span><p>Released phishing app</p></div>
+      <div class="entry" style="top:66%"><span>2025</span><p>Secured registration system</p></div>
     </div>
   </section>
 
-  <section id="projects" class="section">
-    <div class="container fade-in">
-      <h2>Projects</h2>
-      <ul class="project-list">
-        <li><a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">🔗 Network Sniffing</a></li>
-        <li><a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">🔗 Phishing Awareness</a></li>
-        <li><a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">🔗 Secure User Registration</a></li>
-      </ul>
+  <!-- Mini CTF Puzzle -->
+  <section id="puzzle" class="section puzzle-section">
+    <div class="container">
+      <h2>Mini CTF Puzzle</h2>
+      <p>Decode the hidden word: <code id="cipher">Uifsf!jt!b!gvuvsf</code></p>
+      <input type="text" id="ctf-input" placeholder="Your answer">
+      <button id="ctf-check" class="btn">Submit</button>
+      <p id="ctf-result"></p>
     </div>
   </section>
 
-  <section id="resume" class="section resume-section">
-    <div class="container fade-in">
-      <h2>Resume</h2>
-      <p>View or download my resume to learn more about my professional background and technical experience.</p>
-      <a href="https://github.com/404NotYourCode/404NotYourCode-404notyourcode.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true"
-        target="_blank" class="btn btn-primary resume-btn">📄 Download Resume</a>
-    </div>
-  </section>
-
+  <!-- Contact -->
   <section id="contact" class="section contact-section">
-    <div class="container fade-in">
+    <div class="container">
       <h2>Contact Me</h2>
       <form id="contact-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
-        <div class="form-row">
-          <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
-        </div>
-        <div class="form-row">
-          <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
-        </div>
-        <div class="form-row">
-          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        </div>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
         <button type="submit" class="btn btn-primary">Send Message</button>
       </form>
     </div>
@@ -98,14 +89,8 @@
 
   <footer>
     <div class="container">
-      <p>© 2025 S. Syed Sameer | <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
-      <p>
-        <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank">LinkedIn</a> |
-        <a href="https://github.com/august04-oss" target="_blank">GitHub: august04-oss</a> |
-        <a href="https://github.com/404NotYourCode" target="_blank">GitHub: 404NotYourCode</a>
-      </p>
+      <p>© 2025 S. Syed Sameer</p>
     </div>
   </footer>
 </body>
-
 </html>
