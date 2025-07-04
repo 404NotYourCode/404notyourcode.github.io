@@ -1,3 +1,4 @@
+/* Root variables */
 :root {
   --primary: #00ffd5;
   --secondary: #1c1c1e;
@@ -8,15 +9,17 @@
   --btn-text: #121216;
 }
 
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Base Styles */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--secondary);
+  background: var(--secondary);
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
@@ -28,17 +31,18 @@ a {
   text-decoration: none;
 }
 
-.section {
-  padding: 6rem 1rem;
-  position: relative;
-}
-
 .container {
   max-width: 960px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
+.section {
+  padding: 6rem 1rem;
+  position: relative;
+}
+
+/* Navbar */
 .navbar {
   background: var(--accent);
   position: sticky;
@@ -79,15 +83,15 @@ a {
   cursor: pointer;
 }
 
-/* Hero Section */
+/* Hero + Particles */
 .home-hero {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--accent);
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
 #particles-js {
@@ -103,7 +107,6 @@ a {
   position: relative;
   z-index: 2;
   text-align: center;
-  max-width: 700px;
 }
 
 .hero-logo {
@@ -125,7 +128,6 @@ a {
 /* Quotes Section */
 .quotes-section {
   background: #18181a;
-  padding: 6rem 1rem;
   text-align: center;
 }
 
@@ -133,28 +135,41 @@ a {
   font-size: 1.25rem;
   font-style: italic;
   max-width: 700px;
-  margin: 0 auto 2rem;
+  margin: 2rem auto;
   color: var(--muted);
 }
 
 .quote-author {
-  display: block;
   margin-top: 1rem;
   color: var(--primary);
   font-weight: bold;
 }
 
-/* Case Study */
-.case-study .step {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
+/* Case Studies */
+.embed-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 78%; /* 404:316 */
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.embed-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.case-study .project {
   margin-bottom: 2rem;
 }
 
-.case-study .step.visible {
-  opacity: 1;
-  transform: translateY(0);
+.case-study h2 {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 /* Timeline */
@@ -168,7 +183,7 @@ a {
   left: 50%;
   top: 0;
   width: 4px;
-  height: 100%;
+  height: 0;
   background: var(--primary);
 }
 
@@ -198,7 +213,7 @@ a {
   color: var(--text);
 }
 
-.puzzle-section .btn {
+.btn {
   background: var(--btn-bg);
   color: var(--btn-text);
   border: none;
@@ -219,13 +234,14 @@ a {
   width: 100%;
   padding: 0.75rem;
   margin-bottom: 1rem;
-  border-radius: 5px;
   border: none;
+  border-radius: 5px;
   background: #2c2c2e;
   color: var(--text);
 }
 
 .contact-section button {
+  width: 100%;
   background: var(--btn-bg);
   color: var(--btn-text);
   padding: 0.75rem 1.5rem;
