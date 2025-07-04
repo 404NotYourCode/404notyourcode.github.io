@@ -1,55 +1,89 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const body = document.body;
-  const modeToggle = document.getElementById("mode-toggle");
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
-  const navLinkItems = document.querySelectorAll(".nav-links a");
-
-  // Load mode from localStorage
-  const savedMode = localStorage.getItem("theme");
-  if (savedMode === "light") {
-    body.classList.add("light");
-  }
-
-  // Toggle light/dark mode
-  modeToggle.addEventListener("click", () => {
-    body.classList.toggle("light");
-    const currentMode = body.classList.contains("light") ? "light" : "dark";
-    localStorage.setItem("theme", currentMode);
+document.addEventListener('DOMContentLoaded', () => {
+  // ==============================
+  // Theme Toggle
+  // ==============================
+  const modeToggle = document.getElementById('mode-toggle');
+  modeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+    modeToggle.innerHTML = document.body.classList.contains('light') ? '🌙' : '☀️';
   });
 
-  // Toggle mobile menu
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
+  // ==============================
+  // Mobile Menu Toggle
+  // ==============================
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
   });
 
-  // Close menu when a link is clicked (mobile)
-  navLinkItems.forEach(link => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-    });
-  });
+  // ==============================
+  // Smooth Scroll Highlight Active Link
+  // ==============================
+  const sections = document.querySelectorAll('section');
+  const navItems = document.querySelectorAll('.nav-links a');
 
-  // Optional: Highlight current section link on scroll
-  const sections = document.querySelectorAll("section");
-  const highlightNavLink = () => {
-    let scrollY = window.pageYOffset;
-
-    sections.forEach(sec => {
-      const sectionTop = sec.offsetTop - 100;
-      const sectionHeight = sec.offsetHeight;
-      const sectionId = sec.getAttribute("id");
-
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        navLinkItems.forEach(link => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === `#${sectionId}`) {
-            link.classList.add("active");
-          }
-        });
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (pageYOffset >= sectionTop) {
+        current = section.getAttribute('id');
       }
     });
-  };
 
-  window.addEventListener("scroll", highlightNavLink);
+    navItems.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').includes(current)) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  // ==============================
+  // Contact Form Submission Success (Optional)
+  // ==============================
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      setTimeout(() => {
+        alert('Message sent successfully!');
+      }, 500); // wait for formspree to process
+    });
+  }
+
+  // ==============================
+  // Mini Game: Click the Target Box
+  // ==============================
+  const target = document.getElementById('target-box');
+  const gameArea = document.getElementById('game-area');
+  const scoreDisplay = document.getElementById('score');
+
+  let score = 0;
+
+  function moveTarget() {
+    const areaWidth = gameArea.clientWidth;
+    const areaHeight = gameArea.clientHeight;
+    const targetSize = target.offsetWidth;
+
+    const maxX = areaWidth - targetSize;
+    const maxY = areaHeight - targetSize;
+
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    target.style.left = `${randomX}px`;
+    target.style.top = `${randomY}px`;
+  }
+
+  if (target && gameArea && scoreDisplay) {
+    target.addEventListener('click', () => {
+      score++;
+      scoreDisplay.textContent = score;
+      moveTarget();
+    });
+
+    moveTarget();
+  }
 });
