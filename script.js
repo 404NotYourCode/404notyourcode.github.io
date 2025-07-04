@@ -1,267 +1,110 @@
-:root {
-  --primary: #00ffd5;
-  --secondary: #1c1c1e;
-  --accent: #121216;
-  --text: #e0e0e0;
-  --muted: #7a7a7a;
-  --btn-bg: #00ffd5;
-  --btn-text: #121216;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--secondary);
-  color: var(--text);
-  line-height: 1.6;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
-
-a {
-  color: var(--primary);
-  text-decoration: none;
-}
-
-.section {
-  padding: 6rem 1rem;
-  position: relative;
-}
-
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.navbar {
-  background: var(--accent);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-
-.nav-link {
-  color: var(--text);
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: var(--primary);
-}
-
-#menu-toggle,
-#mode-toggle {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: var(--text);
-  cursor: pointer;
-}
-
-/* Hero Section */
-.home-hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--accent);
-  overflow: hidden;
-  position: relative;
-}
-
-#particles-js {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.home-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 700px;
-}
-
-.hero-logo {
-  width: 120px;
-  margin-bottom: 1rem;
-}
-
-.hero-title {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-}
-
-.hero-subtitle {
-  font-size: 1.5rem;
-  color: var(--muted);
-  min-height: 1.5rem;
-}
-
-/* Quotes Section */
-.quotes-section {
-  background: #18181a;
-  padding: 6rem 1rem;
-  text-align: center;
-}
-
-.quote {
-  font-size: 1.25rem;
-  font-style: italic;
-  max-width: 700px;
-  margin: 0 auto 2rem;
-  color: var(--muted);
-}
-
-.quote-author {
-  display: block;
-  margin-top: 1rem;
-  color: var(--primary);
-  font-weight: bold;
-}
-
-/* Case Study */
-.case-study .step {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
-  margin-bottom: 2rem;
-}
-
-.case-study .step.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Timeline */
-.timeline {
-  position: relative;
-  height: 400px;
-}
-
-.timeline-line {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--primary);
-}
-
-.entry {
-  position: absolute;
-  left: calc(50% + 20px);
-  transform: translateX(-50%);
-  background: var(--accent);
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  max-width: 250px;
-}
-
-.entry span {
-  font-weight: bold;
-  color: var(--primary);
-}
-
-/* Puzzle */
-.puzzle-section input {
-  padding: 0.75rem;
-  width: 60%;
-  border: none;
-  border-radius: 5px;
-  margin-right: 1rem;
-  background: var(--accent);
-  color: var(--text);
-}
-
-.puzzle-section .btn {
-  background: var(--btn-bg);
-  color: var(--btn-text);
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Contact */
-.contact-section form {
-  background: var(--accent);
-  padding: 2rem;
-  border-radius: 12px;
-}
-
-.contact-section input,
-.contact-section textarea {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border-radius: 5px;
-  border: none;
-  background: #2c2c2e;
-  color: var(--text);
-}
-
-.contact-section button {
-  background: var(--btn-bg);
-  color: var(--btn-text);
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Footer */
-footer {
-  background: #111;
-  padding: 2rem 1rem;
-  text-align: center;
-  color: var(--muted);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .timeline-line {
-    left: 20px;
+// Particles.js config
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 60 },
+    color: { value: "#00ffd5" },
+    shape: { type: "circle" },
+    opacity: { value: 0.5 },
+    size: { value: 3 },
+    line_linked: {
+      enable: true,
+      distance: 120,
+      color: "#00ffd5",
+      opacity: 0.4,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 2
+    }
   }
-  .entry {
-    left: 40px;
-    transform: none;
+});
+
+// Typed.js for hero subtitle
+document.addEventListener("DOMContentLoaded", function () {
+  new Typed(".hero-subtitle", {
+    strings: [
+      "Cybersecurity Engineer",
+      "Python Developer",
+      "Network Sniffer",
+      "Phishing Preventer"
+    ],
+    typeSpeed: 50,
+    backSpeed: 30,
+    loop: true
+  });
+});
+
+// Show case study steps on scroll
+const steps = document.querySelectorAll(".step");
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, {
+  threshold: 0.2
+});
+steps.forEach(step => observer.observe(step));
+
+// Animate timeline progress
+window.addEventListener("scroll", () => {
+  const timeline = document.querySelector(".timeline");
+  const line = document.querySelector(".timeline-line");
+  const scrollY = window.scrollY + window.innerHeight;
+  const timelineTop = timeline.offsetTop;
+  const timelineHeight = timeline.offsetHeight;
+
+  if (scrollY >= timelineTop) {
+    const progress = Math.min(1, (scrollY - timelineTop) / timelineHeight);
+    line.style.height = `${progress * 100}%`;
   }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: var(--accent);
-    flex-direction: column;
-    padding: 1rem;
-    gap: 1rem;
+});
+
+// CTF Puzzle logic
+document.getElementById("ctf-check")?.addEventListener("click", () => {
+  const input = document.getElementById("ctf-input").value.trim().toLowerCase();
+  const result = document.getElementById("ctf-result");
+  if (input === "there is a future") {
+    result.innerText = "✅ Correct! You’ve unlocked part of the journey.";
+    result.style.color = "lime";
+  } else {
+    result.innerText = "❌ Try again!";
+    result.style.color = "crimson";
   }
-  .nav-links.open {
-    display: flex;
+});
+
+// Mobile nav toggle
+document.getElementById("menu-toggle").addEventListener("click", () => {
+  document.querySelector(".nav-links").classList.toggle("open");
+});
+
+// Dynamic quotes rotation
+const quotes = [
+  {
+    text: "Wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise. My name doesn't echo yet—but when it does, the world will listen.",
+    author: "Syed Sameer"
+  },
+  {
+    text: "I came from silence, walked through storms, and now I speak with purpose—not to prove, but to inspire.",
+    author: "Syed Sameer"
+  },
+  {
+    text: "Built with purpose. Driven by passion. Defined by originality. — I don’t just create, I leave a mark.",
+    author: "Syed Sameer"
   }
+];
+
+let quoteIndex = 0;
+function rotateQuotes() {
+  const quoteEl = document.getElementById("quote-text");
+  const authorEl = document.getElementById("quote-author");
+
+  quoteEl.textContent = quotes[quoteIndex].text;
+  authorEl.textContent = `— ${quotes[quoteIndex].author}`;
+
+  quoteIndex = (quoteIndex + 1) % quotes.length;
 }
+rotateQuotes();
+setInterval(rotateQuotes, 8000);
