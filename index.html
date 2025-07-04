@@ -6,65 +6,7 @@
   <title>S. Syed Sameer | Cybersecurity Engineer</title>
   <link rel="icon" href="logo.png" type="image/png" />
   <style>
-    /* Root variables */
-    :root {
-      --primary: #00ffd5;
-      --secondary: #1c1c1e;
-      --accent: #121216;
-      --text: #e0e0e0;
-      --muted: #7a7a7a;
-      --btn-bg: #00ffd5;
-      --btn-text: #121216;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Inter', sans-serif; background:var(--secondary); color:var(--text); line-height:1.6; overflow-x:hidden; scroll-behavior:smooth; }
-    a { color:var(--primary); text-decoration:none; }
-    .container { max-width:960px; margin:0 auto; padding:0 1rem; }
-    .section { padding:6rem 1rem; position:relative; }
-    /* Navbar */
-    .navbar { background:var(--accent); position:sticky; top:0; z-index:1000; }
-    .nav-container { display:flex; justify-content:space-between; align-items:center; padding:1rem; }
-    .nav-links { list-style:none; display:flex; gap:1rem; }
-    .nav-link { color:var(--text); font-weight:600; transition:color .3s; }
-    .nav-link:hover, .nav-link.active { color:var(--primary); }
-    #menu-toggle, #mode-toggle { background:none; border:none; font-size:1.5rem; color:var(--text); cursor:pointer; }
-    /* Hero + Particles */
-    .home-hero { height:100vh; display:flex; align-items:center; justify-content:center; background:var(--accent); position:relative; overflow:hidden; }
-    #particles-js { position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; }
-    .home-content { position:relative; z-index:2; text-align:center; }
-    .hero-logo { width:120px; margin-bottom:1rem; }
-    .hero-title { font-size:3rem; margin-bottom:.5rem; }
-    .hero-subtitle { font-size:1.5rem; color:var(--muted); min-height:1.5rem; }
-    /* Quotes Section */
-    .quotes-section { background:#18181a; text-align:center; }
-    .quote { font-size:1.25rem; italic; max-width:700px; margin:2rem auto; color:var(--muted); }
-    .quote-author { margin-top:1rem; color:var(--primary); font-weight:bold; }
-    /* Case Studies */
-    .embed-container { position:relative; width:100%; padding-bottom:78%; overflow:hidden; margin-bottom:1.5rem; }
-    .embed-container iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
-    .case-study .project { margin-bottom:2rem; }
-    .case-study h2 { text-align:center; margin-bottom:2rem; }
-    /* Timeline */
-    .timeline { position:relative; height:400px; }
-    .timeline-line { position:absolute; left:50%; top:0; width:4px; height:0; background:var(--primary); }
-    .entry { position:absolute; left:calc(50% + 20px); transform:translateX(-50%); background:var(--accent); padding:.5rem 1rem; border-radius:8px; max-width:250px; }
-    .entry span { font-weight:bold; color:var(--primary); }
-    /* Puzzle */
-    .puzzle-section input { padding:.75rem; width:60%; border:none; border-radius:5px; margin-right:1rem; background:var(--accent); color:var(--text); }
-    .btn { background:var(--btn-bg); color:var(--btn-text); border:none; padding:.75rem 1.5rem; border-radius:5px; cursor:pointer; }
-    /* Contact */
-    .contact-section form { background:var(--accent); padding:2rem; border-radius:12px; }
-    .contact-section input, .contact-section textarea { width:100%; padding:.75rem; margin-bottom:1rem; border:none; border-radius:5px; background:#2c2c2e; color:var(--text); }
-    .contact-section button { width:100%; }
-    /* Footer */
-    footer { background:#111; padding:2rem 1rem; text-align:center; color:var(--muted); }
-    /* Responsive */
-    @media(max-width:768px) {
-      .timeline-line { left:20px; }
-      .entry { left:40px; transform:none; }
-      .nav-links { display:none; position:absolute; top:60px; right:0; background:var(--accent); flex-direction:column; padding:1rem; gap:1rem; }
-      .nav-links.open { display:flex; }
-    }
+    <link rel="stylesheet" href="style.css">
   </style>
 </head>
 <body>
