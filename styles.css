@@ -1,3 +1,4 @@
+/* Root color variables */
 :root {
   --primary: #00ffd5;
   --secondary: #1c1c1e;
@@ -8,6 +9,7 @@
   --btn-text: #121216;
 }
 
+/* Reset & globals */
 * {
   margin: 0;
   padding: 0;
@@ -27,6 +29,7 @@ a {
   text-decoration: none;
 }
 
+/* Sections */
 .section {
   padding: 4rem 1rem;
   position: relative;
@@ -119,7 +122,7 @@ a {
   min-height: 1.5rem;
 }
 
-/* Case Study */
+/* Case Study Animation */
 .case-study .step {
   opacity: 0;
   transform: translateY(20px);
@@ -161,7 +164,7 @@ a {
   color: var(--primary);
 }
 
-/* Puzzle */
+/* Puzzle Section */
 .puzzle-section input {
   padding: 0.75rem;
   width: 60%;
