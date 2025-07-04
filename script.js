@@ -1,81 +1,77 @@
-// Dark/Light Mode Toggle
-const modeToggle = document.getElementById('mode-toggle');
-const body = document.body;
-
-function setMode(mode) {
-  if (mode === 'light') {
-    body.classList.add('light');
-    modeToggle.textContent = '🌙';
-    localStorage.setItem('mode', 'light');
-  } else {
-    body.classList.remove('light');
-    modeToggle.textContent = '☀️';
-    localStorage.setItem('mode', 'dark');
-  }
-}
-
-const savedMode = localStorage.getItem('mode');
-if (savedMode) {
-  setMode(savedMode);
-} else {
-  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-  setMode(prefersLight ? 'light' : 'dark');
-}
-
-modeToggle.addEventListener('click', () => {
-  if (body.classList.contains('light')) {
-    setMode('dark');
-  } else {
-    setMode('light');
+// Particles.js config
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 60 },
+    color: { value: "#00ffd5" },
+    shape: { type: "circle" },
+    opacity: { value: 0.5 },
+    size: { value: 3 },
+    line_linked: {
+      enable: true,
+      distance: 120,
+      color: "#00ffd5",
+      opacity: 0.4,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 2
+    }
   }
 });
 
-// Responsive Menu
-const menuToggle = document.getElementById('menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-});
-
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
+// Typed.js effect
+document.addEventListener("DOMContentLoaded", function () {
+  new Typed(".hero-subtitle", {
+    strings: ["Cybersecurity Engineer", "Python Developer", "Network Sniffer", "Phishing Preventer"],
+    typeSpeed: 50,
+    backSpeed: 30,
+    loop: true
   });
 });
 
-// Active link on scroll
-const sections = document.querySelectorAll('section');
-const navItems = document.querySelectorAll('.nav-link');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-
-  sections.forEach(section => {
-    const top = section.offsetTop - 100;
-    if (scrollY >= top) {
-      current = section.getAttribute('id');
+// Scroll animation for case study steps
+const steps = document.querySelectorAll(".step");
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
     }
   });
-
-  navItems.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
-      link.classList.add('active');
-    }
-  });
+}, {
+  threshold: 0.2
 });
 
-// Typewriter effect for subtitle
-const text = 'Cybersecurity Engineer';
-let i = 0;
-const typedText = document.getElementById('typed-text');
+steps.forEach(step => observer.observe(step));
 
-function typeEffect() {
-  if (i < text.length) {
-    typedText.innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeEffect, 100);
+// Timeline Scroll Progress
+window.addEventListener("scroll", () => {
+  const timeline = document.querySelector(".timeline");
+  const line = document.querySelector(".timeline-line");
+  const scrollY = window.scrollY + window.innerHeight;
+  const timelineTop = timeline.offsetTop;
+  const timelineHeight = timeline.offsetHeight;
+
+  if (scrollY >= timelineTop) {
+    const progress = Math.min(1, (scrollY - timelineTop) / timelineHeight);
+    line.style.height = `${progress * 100}%`;
   }
-}
-typeEffect();
+});
+
+// CTF Puzzle logic
+document.getElementById("puzzle-submit")?.addEventListener("click", () => {
+  const answer = document.getElementById("puzzle-answer").value.trim().toLowerCase();
+  const output = document.getElementById("puzzle-output");
+  if (answer === "syed") {
+    output.innerText = "✅ Correct! You've unlocked part of my journey.";
+    output.style.color = "lime";
+  } else {
+    output.innerText = "❌ Try again!";
+    output.style.color = "crimson";
+  }
+});
+
+// Nav toggle for mobile
+document.getElementById("menu-toggle").addEventListener("click", () => {
+  document.querySelector(".nav-links").classList.toggle("open");
+});
