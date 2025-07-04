@@ -3,101 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Syed Sameer — Cybersecurity Engineer</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <title>Syed Sameer — Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="container">
-      <img src="logo.png" alt="Syed Sameer Logo" class="logo" />
-      <h1>SYED SAMEER</h1>
-      <h2>Cybersecurity Engineer</h2>
-    </div>
+  <header>
+    <img src="logo.png" alt="Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#game">Game</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- QUOTES -->
-  <section class="quotes">
-    <div class="container">
-      <blockquote>
-        “Built with purpose. Driven by passion. Defined by originality. — I don’t just create, I leave a mark.”
-      </blockquote>
-      <blockquote>
-        “I came from silence, walked through storms, and now I speak with purpose — not to prove, but to inspire.”
-        <span class="quote-author">— Syed Sameer</span>
-      </blockquote>
-      <blockquote>
-        “I wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise. My name doesn't echo yet—but when it does, the world will listen.”
-      </blockquote>
-    </div>
+  <section id="hero">
+    <h1 class="big-heading">Syed Sameer</h1>
+    <p class="tagline large">Built with purpose. Driven by passion. Defined by originality.</p>
+    <blockquote class="quotes large">
+      <p>“I came from silence, walked through storms, and now I speak with purpose — not to prove, but to inspire.”</p>
+      <p>“I wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise. My name doesn't echo yet—but when it does, the world will listen.”</p>
+    </blockquote>
+    <a href="https://github.com/404NotYourCode/404NotYourCode-404notyourcode.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" target="_blank" class="btn large">📄 View Resume</a>
   </section>
 
-  <!-- ABOUT -->
-  <section class="about">
-    <div class="container">
-      <h3>About Me</h3>
-      <p>
-        I'm a cybersecurity engineer with a passion for ethical hacking, vulnerability assessment, and digital defense.
-        My mission is to build safer systems and empower organizations to secure their data.
-      </p>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="projects">
-    <div class="container">
-      <h3>Projects</h3>
-      <div class="project-grid">
-        <div class="project-card">
-          <h4>PenTest Toolkit</h4>
-          <p>CLI-based penetration testing toolkit built in Python with modules for scanning, enumeration, and exploitation.</p>
-        </div>
-        <div class="project-card">
-          <h4>LogAnalyzer</h4>
-          <p>Real-time log monitoring tool that highlights suspicious patterns and flags anomalies with alert system.</p>
-        </div>
-        <div class="project-card">
-          <h4>SecureVault</h4>
-          <p>End-to-end encrypted password manager with AES-256, 2FA, and offline-first architecture.</p>
-        </div>
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="project-list">
+      <div class="project">
+        <h3>Project 1</h3>
+        <p>A responsive portfolio landing page using HTML, CSS, JS.</p>
+        <a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">View on GitHub</a>
+      </div>
+      <div class="project">
+        <h3>Project 2</h3>
+        <p>A To-Do List web app that lets users add and manage tasks.</p>
+        <a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">View on GitHub</a>
+      </div>
+      <div class="project">
+        <h3>Project 3</h3>
+        <p>A weather app with live weather data using APIs.</p>
+        <a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">View on GitHub</a>
       </div>
     </div>
   </section>
 
-  <!-- GAME -->
-  <section class="game">
-    <div class="container">
-      <h3>Catch the Red Box</h3>
-      <p>Click the red box as fast as you can. It moves every second!</p>
-      <div id="game-area">
-        <div id="target-box"></div>
-      </div>
-      <p>Score: <span id="score">0</span></p>
+  <section id="game">
+    <h2 class="section-title">Mini Game: Click the Box</h2>
+    <p class="large">Click the red box as many times as you can in 10 seconds!</p>
+    <div id="game-container">
+      <div id="box"></div>
     </div>
+    <p id="score" class="large">Score: 0</p>
+    <button onclick="startGame()" class="btn large">Start Game</button>
   </section>
 
-  <!-- CONTACT -->
-  <section class="contact">
-    <div class="container">
-      <h3>Get in Touch</h3>
-      <p>Let’s build something secure. Reach out for collaboration, consulting, or just to say hello.</p>
-      <ul class="contact-info">
-        <li><strong>Email:</strong> <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></li>
-        <li><strong>Phone:</strong> <a href="tel:+919840329368">+91 98403 29368</a></li>
-      </ul>
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <p>Email: <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
+    <p>Phone: <a href="tel:+919840329368">+91 98403 29368</a></p>
 
-      <form id="contact-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
-        <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-      </form>
-    </div>
+    <form id="contact-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
+      <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn large">Send Message</button>
+    </form>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 Syed Sameer. All rights reserved.</p>
   </footer>
