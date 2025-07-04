@@ -35,6 +35,35 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Rotate quotes
+const quotes = [
+  {
+    text: "Wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise. My name doesn't echo yet—but when it does, the world will listen.",
+    author: "Syed Sameer"
+  },
+  {
+    text: "I came from silence, walked through storms, and now I speak with purpose—not to prove, but to inspire.",
+    author: "Syed Sameer"
+  },
+  {
+    text: "Built with purpose. Driven by passion. Defined by originality. — I don’t just create, I leave a mark.",
+    author: "Syed Sameer"
+  }
+];
+
+let quoteIndex = 0;
+function rotateQuotes() {
+  const quoteEl = document.getElementById("quote-text");
+  const authorEl = document.getElementById("quote-author");
+
+  quoteEl.textContent = quotes[quoteIndex].text;
+  authorEl.textContent = `— ${quotes[quoteIndex].author}`;
+
+  quoteIndex = (quoteIndex + 1) % quotes.length;
+}
+rotateQuotes();
+setInterval(rotateQuotes, 8000);
+
 // Show case study steps on scroll
 const steps = document.querySelectorAll(".step");
 const observer = new IntersectionObserver(entries => {
@@ -79,32 +108,3 @@ document.getElementById("ctf-check")?.addEventListener("click", () => {
 document.getElementById("menu-toggle").addEventListener("click", () => {
   document.querySelector(".nav-links").classList.toggle("open");
 });
-
-// Dynamic quotes rotation
-const quotes = [
-  {
-    text: "Wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise. My name doesn't echo yet—but when it does, the world will listen.",
-    author: "Syed Sameer"
-  },
-  {
-    text: "I came from silence, walked through storms, and now I speak with purpose—not to prove, but to inspire.",
-    author: "Syed Sameer"
-  },
-  {
-    text: "Built with purpose. Driven by passion. Defined by originality. — I don’t just create, I leave a mark.",
-    author: "Syed Sameer"
-  }
-];
-
-let quoteIndex = 0;
-function rotateQuotes() {
-  const quoteEl = document.getElementById("quote-text");
-  const authorEl = document.getElementById("quote-author");
-
-  quoteEl.textContent = quotes[quoteIndex].text;
-  authorEl.textContent = `— ${quotes[quoteIndex].author}`;
-
-  quoteIndex = (quoteIndex + 1) % quotes.length;
-}
-rotateQuotes();
-setInterval(rotateQuotes, 8000);
