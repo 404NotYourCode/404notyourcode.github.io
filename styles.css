@@ -1,4 +1,4 @@
-/* Reset and base styles */
+/* Reset & Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -6,185 +6,205 @@
 }
 
 body {
-  background-color: #0a0a0a;
-  color: #f0f0f0;
   font-family: 'Inter', sans-serif;
+  background-color: #000;
+  color: #fff;
   line-height: 1.6;
   overflow-x: hidden;
 }
 
+/* Reusable */
 h1, h2, h3 {
-  color: #ffffff;
-}
-
-a {
-  color: #ff4c4c;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+  font-weight: 700;
 }
 
 section {
-  padding: 80px 20px;
+  padding: 4rem 2rem;
   max-width: 1000px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .btn {
-  background-color: #ff4c4c;
-  color: white;
-  padding: 12px 25px;
+  background: red;
+  color: #fff;
+  padding: 12px 24px;
   border: none;
-  border-radius: 6px;
-  font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s;
+  margin-top: 1rem;
+  display: inline-block;
+  font-weight: bold;
+  transition: 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #ff1f1f;
+  background: #c40000;
 }
 
-/* Hero Section */
+/* Header / Hero */
 .hero {
   text-align: center;
-  padding: 120px 20px 80px;
-  background: radial-gradient(circle at center, #121212 0%, #000000 100%);
+  padding: 5rem 2rem;
+  position: relative;
 }
 
 .logo {
-  width: 100px;
-  margin-bottom: 20px;
+  width: 80px;
+  margin-bottom: 1rem;
 }
 
 .subheading {
-  font-size: 18px;
-  color: #ccc;
-  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #aaa;
+  margin-bottom: 1rem;
 }
 
-/* Skills Section */
+/* About */
+.about p {
+  margin-bottom: 1rem;
+  color: #ccc;
+}
+
+/* Quotes */
+.quotes {
+  background-color: #111;
+  padding: 3rem 2rem;
+  border-top: 1px solid #222;
+}
+
+.quote-card {
+  background: #1a1a1a;
+  border-left: 5px solid red;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.quote-card span {
+  display: block;
+  margin-top: 0.5rem;
+  text-align: right;
+  color: #999;
+}
+
+/* Skills */
 .skills-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .skills-list span {
-  background-color: #1a1a1a;
-  color: #ddd;
+  background: #111;
   padding: 10px 16px;
-  border-radius: 4px;
+  border: 1px solid #222;
+  border-radius: 8px;
+  font-size: 0.9rem;
 }
 
 /* Projects */
 .project {
-  margin-bottom: 30px;
+  background: #111;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-left: 3px solid red;
 }
 
 .project h3 {
-  font-size: 22px;
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
 }
 
-/* Resume */
+/* Resume Button */
 .resume .btn {
-  margin-top: 15px;
+  margin-top: 1rem;
 }
 
 /* Game */
 .game-section {
   text-align: center;
-  padding-top: 60px;
+  padding: 4rem 2rem;
 }
 
 canvas#flappyCanvas {
-  background-color: #111;
-  border: 2px solid #333;
-  border-radius: 12px;
-  margin-top: 20px;
+  border: 2px solid red;
+  background: #111;
 }
 
 #retryBtn {
-  margin-top: 20px;
+  margin-top: 1rem;
 }
 
-/* Contact */
-.contact input,
-.contact textarea {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  margin-bottom: 20px;
+/* Contact & Feedback */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form input, form textarea {
+  padding: 10px;
   border: none;
-  background-color: #1f1f1f;
+  background: #1a1a1a;
   color: white;
+  border: 1px solid #333;
   border-radius: 4px;
 }
 
-.contact input::placeholder,
-.contact textarea::placeholder {
-  color: #888;
+form input:focus, form textarea:focus {
+  outline: none;
+  border-color: red;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 30px 10px;
-  background-color: #000;
-  color: #aaa;
-  font-size: 14px;
-}
-
-/* Scroll to top */
+/* Scroll Button */
 #scrollTopBtn {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: #ff4c4c;
+  background: red;
   color: white;
   border: none;
-  padding: 10px 14px;
-  font-size: 18px;
+  padding: 12px;
   border-radius: 50%;
+  font-size: 18px;
   cursor: pointer;
   display: none;
-  box-shadow: 0 0 10px rgba(255, 76, 76, 0.5);
-}
-
-/* Cursor animation */
-.cursor {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  background-color: red;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
   z-index: 1000;
 }
 
-/* Typing effect placeholder */
-#typing-text {
-  font-size: 28px;
-  min-height: 40px;
-  margin-top: 10px;
-  font-weight: 500;
+/* Footer */
+footer {
+  background: #111;
+  color: #888;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
 }
 
-/* Media Queries */
+/* Cursor Glow */
+.cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid red;
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 999;
+  transition: 0.08s ease-out;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .skills-list {
     justify-content: center;
   }
 
-  .btn {
-    padding: 10px 20px;
+  .hero h1 {
+    font-size: 2rem;
   }
 
-  #typing-text {
-    font-size: 22px;
+  .hero .subheading {
+    font-size: 1rem;
   }
 }
