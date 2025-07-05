@@ -19,11 +19,10 @@
 <body>
   <canvas id="star-bg"></canvas>
   <div class="cursor"></div>
-
   <header class="hero">
     <img src="logo.png" alt="Logo" class="logo" />
     <h1 id="typing-text"></h1>
-    <p class="subheading">Web Developer |Cybersecurity | Designer | Innovator</p>
+    <p class="subheading">Web Developer | Designer | Innovator</p>
     <a href="#projects" class="btn">View Projects</a>
   </header>
 
@@ -41,13 +40,6 @@
     <p>
       My journey is still unfolding, but I’m proud of how far I’ve come — and excited for what lies ahead. If you're reading this, thank you for being a part of my story.
     </p>
-  </section>
-
-  <section class="quotes">
-    <h2>Quotes</h2>
-    <blockquote>“Built with purpose. Driven by passion. Defined by originality. — I don’t just create, I leave a mark.”</blockquote>
-    <blockquote>“I came from silence, walked through storms, and now I speak with purpose — not to prove, but to inspire.” — Syed Sameer</blockquote>
-    <blockquote>“I wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise. My name doesn't echo yet—but when it does, the world will listen.”</blockquote>
   </section>
 
   <section class="skills">
@@ -85,8 +77,9 @@
   </section>
 
   <section class="game-section">
-    <h2>Flappy Box Game</h2>
+    <h2>Rocket Escape Game</h2>
     <canvas id="flappyCanvas" width="400" height="500"></canvas>
+    <button id="retryBtn" style="display:none;" class="btn">Try Again</button>
   </section>
 
   <section class="contact" id="contact">
@@ -106,6 +99,10 @@
   </footer>
 
   <button id="scrollTopBtn">⬆</button>
+
+  <audio id="jumpSound" src="jump.mp3" preload="auto"></audio>
+  <audio id="hitSound" src="hit.mp3" preload="auto"></audio>
+  <audio id="bgMusic" src="background.mp3" preload="auto" loop></audio>
 
   <script src="script.js"></script>
 </body>
