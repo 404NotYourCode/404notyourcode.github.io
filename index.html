@@ -20,8 +20,8 @@
   <canvas id="star-bg"></canvas>
   <div class="cursor"></div>
   <header class="hero">
-    <img src="logo.png" alt="Logo" class="logo" />
-    <h1 id="typing-text"></h1>
+    <img src="logo.png" alt="Logo" class="logo" style="width: 120px; height: auto;" />
+    <h1 id="typing-text">Syed Sameer</h1>
     <p class="subheading">Web Developer | Designer | Innovator</p>
     <a href="#projects" class="btn">View Projects</a>
   </header>
@@ -45,13 +45,13 @@
   <section class="quotes">
     <h2>Quotes</h2>
     <blockquote>
-      Built with purpose. Driven by passion. Defined by originality. — I don’t just create, I leave a mark.
+      "Built with purpose. Driven by passion. Defined by originality." - Syed Sameer
     </blockquote>
     <blockquote>
-      “I came from silence, walked through storms, and now I speak with purpose — not to prove, but to inspire.” — Syed Sameer
+      "I came from silence, walked through storms, and now I speak with purpose — not to prove, but to inspire." - Syed Sameer
     </blockquote>
     <blockquote>
-      "I wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise. My name doesn't echo yet—but when it does, the world will listen."
+      "I wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise. My name doesn't echo yet—but when it does, the world will listen." - Syed Sameer
     </blockquote>
   </section>
 
@@ -61,25 +61,29 @@
       <span>HTML</span>
       <span>CSS</span>
       <span>JavaScript</span>
-      <span>Git</span>
-      <span>React</span>
-      <span>Figma</span>
-      <span>UI/UX</span>
+      <span>Python</span>
+      <span>Java</span>
+      <span>C</span>
+      <span>GitHub</span>
+      <span>Web Development</span>
     </div>
   </section>
 
   <section id="projects" class="projects">
     <h2>Projects</h2>
     <div class="project">
-      <h3>Project 1</h3>
+      <h3>Project 1 - Network Sniffing Tool</h3>
+      <p>A tool that captures and analyzes network packets to understand data transmission across networks.</p>
       <a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">GitHub Link</a>
     </div>
     <div class="project">
-      <h3>Project 2</h3>
+      <h3>Project 2 - Phishing Detection System</h3>
+      <p>Built to identify and alert users of phishing links using intelligent scanning techniques.</p>
       <a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">GitHub Link</a>
     </div>
     <div class="project">
-      <h3>Project 3</h3>
+      <h3>Project 3 - Secure User Registration</h3>
+      <p>A registration system that ensures user data privacy using modern authentication and encryption.</p>
       <a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">GitHub Link</a>
     </div>
   </section>
@@ -90,12 +94,23 @@
   </section>
 
   <section class="game-section">
-    <h2>Typing Challenge</h2>
-    <div id="typing-game">
-      <p id="quote-display"></p>
-      <textarea id="quote-input" placeholder="Type the quote here..."></textarea>
-      <div id="typing-result"></div>
-    </div>
+    <h2>Skill Catcher Game</h2>
+    <canvas id="gameCanvas" width="300" height="300"></canvas>
+  </section>
+
+  <section class="quote-machine">
+    <h2>Quote Machine</h2>
+    <p id="quoteDisplay">Click the button for inspiration!</p>
+    <button onclick="newQuote()">New Quote</button>
+  </section>
+
+  <section class="smart-additions">
+    <h2>Smart Additions</h2>
+    <ul>
+      <li>Scroll progress indicator</li>
+      <li>Dark/Light mode toggle</li>
+      <li>Animated quote loader</li>
+    </ul>
   </section>
 
   <section class="contact" id="contact">
@@ -106,8 +121,9 @@
       <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
       <button type="submit" class="btn btn-primary">Send Message</button>
     </form>
-    <p>Email: <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
-    <p>Phone: <a href="tel:+919840329368">98403 29368</a></p>
+    <p>Email: <a href="mailto:syedsameer.sbecse@gmail.com"><strong>syedsameer.sbecse@gmail.com</strong></a></p>
+    <p>Phone: <a href="tel:+919840329368"><strong>+91 98403 29368</strong></a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank">www.linkedin.com/in/syed-sameer-dev</a></p>
   </section>
 
   <footer>
