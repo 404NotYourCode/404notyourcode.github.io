@@ -1,126 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Syed Sameer's Digital Portfolio - A journey of originality, design, and passion." />
-  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Syed Sameer — Developer | Designer | Creator. Portfolio showcasing projects, game, and contact info." />
+  <meta property="og:title" content="Syed Sameer Portfolio" />
+  <meta property="og:description" content="Built with purpose. Driven by passion. Defined by originality." />
+  <meta property="og:image" content="logo.png" />
+  <link rel="icon" href="logo.png" type="image/png" />
   <title>Syed Sameer | Portfolio</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
-  <script defer src="script.js"></script>
 </head>
+
 <body>
   <canvas id="star-bg"></canvas>
-
-  <header>
-    <nav class="nav-container">
-      <div class="logo">
-        <img src="logo.png" alt="Syed Sameer Logo" />
-      </div>
-      <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <div class="cursor"></div>
+  <header class="hero">
+    <img src="logo.png" alt="Logo" class="logo" />
+    <h1 id="typing-text"></h1>
+    <p class="subheading">Web Developer | Designer | Innovator</p>
+    <a href="#projects" class="btn">View Projects</a>
   </header>
 
-  <section id="hero" class="hero-section">
-    <div class="hero-content">
-      <h1 class="typing" id="typing-text"></h1>
-      <p>Built with purpose. Driven by passion. Defined by originality.<br>I don’t just create, I leave a mark.</p>
-      <a href="#contact" class="btn">Let's Connect</a>
-    </div>
+  <section class="about" id="about">
+    <h2>About Me</h2>
+    <p>
+      Hey, I’m Syed Sameer — a passionate learner, creative thinker, and someone who believes in growing a little stronger every single day.
+      I come from a background marked by curiosity, dedication, and a hunger to build something meaningful. Whether it's technology, design,
+      or self-improvement, I love diving deep into what I do and pushing my limits.
+    </p>
+    <p>
+      Every line of code I write, every design I touch, and every challenge I face is a step towards becoming the person I dream to be.
+      I don’t believe in shortcuts — I believe in consistency, vision, and effort.
+    </p>
+    <p>
+      My journey is still unfolding, but I’m proud of how far I’ve come — and excited for what lies ahead. If you're reading this, thank you for being a part of my story.
+    </p>
   </section>
 
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>Hey, I’m Syed Sameer — a passionate learner, creative thinker, and someone who believes in growing a little stronger every single day. I come from a background marked by curiosity, dedication, and a hunger to build something meaningful. Whether it's technology, design, or self-improvement, I love diving deep into what I do and pushing my limits.</p>
-    <p>Every line of code I write, every design I touch, and every challenge I face is a step towards becoming the person I dream to be. I don’t believe in shortcuts — I believe in consistency, vision, and effort.</p>
-    <p>My journey is still unfolding, but I’m proud of how far I’ve come — and excited for what lies ahead. If you're reading this, thank you for being a part of my story.</p>
+  <section class="quotes">
+    <h2>Quotes</h2>
     <blockquote>
-      <p>"I came from silence, walked through storms, and now I speak with purpose — not to prove, but to inspire."<br>— Syed Sameer</p>
-      <p>"I wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise. My name doesn't echo yet—but when it does, the world will listen."</p>
+      Built with purpose. Driven by passion. Defined by originality. — I don’t just create, I leave a mark.
+    </blockquote>
+    <blockquote>
+      “I came from silence, walked through storms, and now I speak with purpose — not to prove, but to inspire.” — Syed Sameer
+    </blockquote>
+    <blockquote>
+      "I wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise. My name doesn't echo yet—but when it does, the world will listen."
     </blockquote>
   </section>
 
-  <section id="skills" class="section">
+  <section class="skills">
     <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill">
-        <h3>HTML/CSS</h3>
-        <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
-      </div>
-      <div class="skill">
-        <h3>JavaScript</h3>
-        <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
-      </div>
-      <div class="skill">
-        <h3>UI/UX Design</h3>
-        <div class="skill-bar"><div class="skill-level" style="width: 75%;"></div></div>
-      </div>
-      <div class="skill">
-        <h3>React</h3>
-        <div class="skill-bar"><div class="skill-level" style="width: 70%;"></div></div>
-      </div>
+    <div class="skills-list">
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+      <span>Git</span>
+      <span>React</span>
+      <span>Figma</span>
+      <span>UI/UX</span>
     </div>
   </section>
 
-  <section id="projects" class="section">
+  <section id="projects" class="projects">
     <h2>Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <h3>Project 1</h3>
-        <p><a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">View on GitHub</a></p>
-      </div>
-      <div class="project-card">
-        <h3>Project 2</h3>
-        <p><a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">View on GitHub</a></p>
-      </div>
-      <div class="project-card">
-        <h3>Project 3</h3>
-        <p><a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">View on GitHub</a></p>
-      </div>
-      <div class="project-card">
-        <h3>Resume</h3>
-        <p><a href="https://github.com/404NotYourCode/404NotYourCode-404notyourcode.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" target="_blank">Download Resume</a></p>
-      </div>
+    <div class="project">
+      <h3>Project 1</h3>
+      <a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">GitHub Link</a>
+    </div>
+    <div class="project">
+      <h3>Project 2</h3>
+      <a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">GitHub Link</a>
+    </div>
+    <div class="project">
+      <h3>Project 3</h3>
+      <a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">GitHub Link</a>
     </div>
   </section>
 
-  <section id="game" class="section">
+  <section class="resume">
+    <h2>Resume</h2>
+    <a class="btn" href="https://github.com/404NotYourCode/404NotYourCode-404notyourcode.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" target="_blank">Download Resume</a>
+  </section>
+
+  <section class="game-section">
     <h2>Mini Game</h2>
     <canvas id="gameCanvas" width="300" height="300"></canvas>
-    <p class="game-instruction">Use Arrow Keys to Move the Red Box!</p>
   </section>
 
-  <section id="contact" class="section">
-    <h2>Contact Me</h2>
+  <section class="contact" id="contact">
+    <h2>Contact</h2>
     <form id="contact-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
       <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
       <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
       <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
+      <button type="submit" class="btn btn-primary">Send Message</button>
     </form>
-    <div class="contact-info">
-      <p>Email: <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
-      <p>Phone: <a href="tel:+919840329368">+91 98403 29368</a></p>
-    </div>
+    <p>Email: <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
+    <p>Phone: <a href="tel:+919840329368">98403 29368</a></p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Syed Sameer. All rights reserved.</p>
-    <div class="social-links">
-      <a href="https://github.com/404NotYourCode" target="_blank">GitHub</a> |
-      <a href="https://www.linkedin.com/in/syed-sameer/" target="_blank">LinkedIn</a>
-    </div>
+    <p>&copy; 2025 Syed Sameer. Built with ❤️ and purpose.</p>
   </footer>
 
-  <button id="scrollTopBtn">⬆️</button>
+  <button id="scrollTopBtn">⬆</button>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
