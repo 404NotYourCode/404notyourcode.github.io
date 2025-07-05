@@ -22,7 +22,7 @@
   <header class="hero">
     <img src="logo.png" alt="Logo" class="logo" />
     <h1 id="typing-text"></h1>
-    <p class="subheading">Web Developer | Cybersecurity | Designer | Innovator</p>
+    <p class="subheading">Web Developer | Designer | Innovator</p>
     <a href="#projects" class="btn">View Projects</a>
   </header>
 
@@ -93,9 +93,15 @@
   </section>
 
   <section class="game-section">
-    <h2>Rocket Escape Game</h2>
-    <canvas id="flappyCanvas" width="400" height="500"></canvas>
-    <button id="retryBtn" style="display:none;" class="btn">Try Again</button>
+    <h2>Rock Paper Scissors Game</h2>
+    <div id="rps-game">
+      <div class="choices">
+        <button class="rps-btn" data-choice="rock">🪨 Rock</button>
+        <button class="rps-btn" data-choice="paper">📄 Paper</button>
+        <button class="rps-btn" data-choice="scissors">✂️ Scissors</button>
+      </div>
+      <div id="rps-result"></div>
+    </div>
   </section>
 
   <section class="contact" id="contact">
