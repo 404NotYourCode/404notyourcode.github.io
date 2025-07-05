@@ -1,178 +1,173 @@
-// DOM elements
+// Typing animation
+const text = "Hi, I'm Syed Sameer";
+let i = 0;
+const typingText = document.getElementById("typing-text");
+function typeWriter() {
+  if (i < text.length) {
+    typingText.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 100);
+  }
+}
+typeWriter();
+
+// Cursor glow
+const cursor = document.querySelector('.cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = `${e.pageX}px`;
+  cursor.style.top = `${e.pageY}px`;
+});
+
+// Scroll to top
+const scrollBtn = document.getElementById("scrollTopBtn");
+window.onscroll = function () {
+  scrollBtn.style.display = window.scrollY > 200 ? "block" : "none";
+};
+scrollBtn.onclick = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+// Background Stars
+const starCanvas = document.getElementById("star-bg");
+const starCtx = starCanvas.getContext("2d");
+starCanvas.width = window.innerWidth;
+starCanvas.height = window.innerHeight;
+
+let stars = [];
+for (let i = 0; i < 100; i++) {
+  stars.push({
+    x: Math.random() * starCanvas.width,
+    y: Math.random() * starCanvas.height,
+    radius: Math.random() * 1.5,
+    speed: Math.random() * 0.5 + 0.2
+  });
+}
+function animateStars() {
+  starCtx.clearRect(0, 0, starCanvas.width, starCanvas.height);
+  stars.forEach(star => {
+    star.y += star.speed;
+    if (star.y > starCanvas.height) star.y = 0;
+    starCtx.beginPath();
+    starCtx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    starCtx.fillStyle = "white";
+    starCtx.fill();
+  });
+  requestAnimationFrame(animateStars);
+}
+animateStars();
+
+// Game
 const canvas = document.getElementById("flappyCanvas");
 const ctx = canvas.getContext("2d");
-const retryBtn = document.getElementById("retryBtn");
 const jumpSound = document.getElementById("jumpSound");
 const hitSound = document.getElementById("hitSound");
 const bgMusic = document.getElementById("bgMusic");
+const retryBtn = document.getElementById("retryBtn");
 
-let gravity = 0.6;
-let lift = -10;
+let rocketImg = new Image();
+rocketImg.src = "rocket-sprite.png"; // Use a small rocket sprite sheet
+
 let frame = 0;
-let interval;
+let rocket = { x: 50, y: 200, width: 40, height: 40, velocity: 0, gravity: 0.6, lift: -10 };
+let pipes = [];
+let score = 0;
+let gameRunning = true;
+let gameStarted = false;
 let gameOverShown = false;
 
-// Rocket sprite setup
-const rocketImg = new Image();
-rocketImg.src = "rocket-sprite.png"; // Sprite sheet: multiple frames of rocket
-const SPRITE_WIDTH = 64;
-const SPRITE_HEIGHT = 64;
-const TOTAL_FRAMES = 4;
-
-// Player
-let player = {
-  x: 50,
-  y: 150,
-  width: SPRITE_WIDTH,
-  height: SPRITE_HEIGHT,
-  velocity: 0,
-  spriteFrame: 0
-};
-
-// Obstacle array
-let pipes = [];
-
-function resetGame() {
-  player.y = 150;
-  player.velocity = 0;
-  pipes = [];
-  frame = 0;
-  gameOverShown = false;
-  retryBtn.style.display = "none";
-  bgMusic.currentTime = 0;
-  bgMusic.play();
-  if (interval) clearInterval(interval);
-  interval = setInterval(draw, 1000 / 60);
-}
-
 function drawRocket() {
-  const frameX = player.spriteFrame * SPRITE_WIDTH;
-  ctx.drawImage(
-    rocketImg,
-    frameX,
-    0,
-    SPRITE_WIDTH,
-    SPRITE_HEIGHT,
-    player.x,
-    player.y,
-    SPRITE_WIDTH,
-    SPRITE_HEIGHT
-  );
+  ctx.drawImage(rocketImg, (frame % 2) * 64, 0, 64, 64, rocket.x, rocket.y, rocket.width, rocket.height);
 }
 
-function draw() {
+function drawPipes() {
+  pipes.forEach(pipe => {
+    ctx.fillStyle = "lime";
+    ctx.fillRect(pipe.x, 0, pipe.width, pipe.top);
+    ctx.fillRect(pipe.x, pipe.top + pipe.gap, pipe.width, canvas.height);
+  });
+}
+
+function updateGame() {
+  if (!gameRunning) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  frame++;
 
-  // Background
-  ctx.fillStyle = "#080808";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  rocket.velocity += rocket.gravity;
+  rocket.y += rocket.velocity;
+  if (rocket.y + rocket.height > canvas.height || rocket.y < 0) endGame();
 
-  // Player
-  player.velocity += gravity;
-  player.y += player.velocity;
-
-  // Animate sprite
-  if (frame % 5 === 0) {
-    player.spriteFrame = (player.spriteFrame + 1) % TOTAL_FRAMES;
-  }
-  drawRocket();
-
-  // Prevent going off top
-  if (player.y < 0) player.y = 0;
-
-  // Pipes
-  if (frame % 90 === 0) {
-    let height = Math.random() * 200 + 100;
-    pipes.push({
-      x: canvas.width,
-      y: height,
-      width: 50,
-      gap: 140
-    });
+  if (frame % 100 === 0) {
+    let top = Math.random() * (canvas.height / 2);
+    pipes.push({ x: canvas.width, top, width: 40, gap: 120 });
   }
 
-  for (let i = 0; i < pipes.length; i++) {
-    let p = pipes[i];
-    p.x -= 2;
-
-    // Top pipe
-    ctx.fillStyle = "#444";
-    ctx.fillRect(p.x, 0, p.width, p.y);
-
-    // Bottom pipe
-    ctx.fillStyle = "#444";
-    ctx.fillRect(p.x, p.y + p.gap, p.width, canvas.height);
-
-    // Collision detection
+  pipes.forEach(pipe => {
+    pipe.x -= 2;
     if (
-      player.x + player.width > p.x &&
-      player.x < p.x + p.width &&
-      (player.y < p.y || player.y + player.height > p.y + p.gap)
+      rocket.x < pipe.x + pipe.width &&
+      rocket.x + rocket.width > pipe.x &&
+      (rocket.y < pipe.top || rocket.y + rocket.height > pipe.top + pipe.gap)
     ) {
       endGame();
     }
-  }
+  });
 
-  // Remove off-screen pipes
-  pipes = pipes.filter(p => p.x + p.width > 0);
+  pipes = pipes.filter(pipe => pipe.x + pipe.width > 0);
 
-  // Ground collision
-  if (player.y + player.height > canvas.height) {
-    endGame();
-  }
+  drawPipes();
+  drawRocket();
+
+  ctx.fillStyle = "#fff";
+  ctx.font = "20px sans-serif";
+  ctx.fillText(`Score: ${score}`, 10, 20);
+
+  if (frame % 50 === 0) score++;
+
+  frame++;
+  requestAnimationFrame(updateGame);
 }
 
 function endGame() {
-  clearInterval(interval);
   if (!gameOverShown) {
+    gameRunning = false;
     hitSound.play();
-    bgMusic.pause();
-    ctx.fillStyle = "white";
-    ctx.font = "28px Inter";
-    ctx.fillText("Game Over", 140, 250);
-    retryBtn.style.display = "inline-block";
+    ctx.fillStyle = "red";
+    ctx.font = "30px sans-serif";
+    ctx.fillText("Game Over", canvas.width / 2 - 80, canvas.height / 2);
+    retryBtn.style.display = "block";
     gameOverShown = true;
   }
 }
 
+function resetGame() {
+  rocket.y = 200;
+  rocket.velocity = 0;
+  pipes = [];
+  score = 0;
+  frame = 0;
+  gameRunning = true;
+  gameOverShown = false;
+  retryBtn.style.display = "none";
+  updateGame();
+}
+
 function jump() {
-  player.velocity = lift;
+  if (!gameStarted) {
+    bgMusic.play();
+    gameStarted = true;
+    updateGame();
+  }
+  rocket.velocity = rocket.lift;
   jumpSound.play();
 }
 
-// Controls
 document.addEventListener("keydown", e => {
-  if (e.code === "Space" || e.code === "ArrowUp") {
-    jump();
-  }
+  if (e.code === "Space" || e.code === "ArrowUp") jump();
 });
+canvas.addEventListener("click", jump);
+retryBtn.addEventListener("click", resetGame);
 
-retryBtn.addEventListener("click", () => {
-  resetGame();
-});
-
-// Start game when sprite is ready
-rocketImg.onload = () => {
-  resetGame();
-};
-
-// Scroll to top button
-const scrollTopBtn = document.getElementById("scrollTopBtn");
-window.onscroll = function () {
-  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-    scrollTopBtn.style.display = "block";
-  } else {
-    scrollTopBtn.style.display = "none";
-  }
-};
-scrollTopBtn.onclick = function () {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-};
-
-// Cursor effect
-const cursor = document.querySelector(".cursor");
-document.addEventListener("mousemove", e => {
-  cursor.style.left = e.pageX + "px";
-  cursor.style.top = e.pageY + "px";
+// Resize star background
+window.addEventListener("resize", () => {
+  starCanvas.width = window.innerWidth;
+  starCanvas.height = window.innerHeight;
 });
