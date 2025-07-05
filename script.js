@@ -1,68 +1,63 @@
-// Typing Effect
+// Typing animation
 const typingText = document.getElementById("typing-text");
-const text = "Syed Sameer | Developer | Designer | Dreamer";
+const texts = ["Syed Sameer", "Developer", "Designer", "Creator"];
 let index = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-function typeWriter() {
-  if (index < text.length) {
-    typingText.innerHTML += text.charAt(index);
-    index++;
-    setTimeout(typeWriter, 100);
+function type() {
+  const currentText = texts[index];
+  if (isDeleting) {
+    typingText.textContent = currentText.substring(0, charIndex--);
+    if (charIndex < 0) {
+      isDeleting = false;
+      index = (index + 1) % texts.length;
+    }
+  } else {
+    typingText.textContent = currentText.substring(0, charIndex++);
+    if (charIndex > currentText.length) {
+      isDeleting = true;
+      setTimeout(type, 1000);
+      return;
+    }
   }
+  setTimeout(type, isDeleting ? 60 : 100);
 }
-typeWriter();
+type();
 
-// Scroll to Top Button
-const scrollBtn = document.getElementById("scrollTopBtn");
+// Scroll to top button
+const scrollTopBtn = document.getElementById("scrollTopBtn");
 window.onscroll = () => {
-  scrollBtn.style.display = window.scrollY > 400 ? "block" : "none";
+  scrollTopBtn.style.display = window.scrollY > 100 ? "block" : "none";
 };
-scrollBtn.onclick = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
+scrollTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-// Starry Background
+// Star background animation
 const canvas = document.getElementById("star-bg");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let stars = [];
-for (let i = 0; i < 250; i++) {
-  stars.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 1.5 + 0.5,
-    d: Math.random() * 0.5 + 0.05,
-  });
-}
-
-function drawStars() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#fff";
-  ctx.beginPath();
-  for (let i = 0; i < stars.length; i++) {
-    let s = stars[i];
-    ctx.moveTo(s.x, s.y);
-    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2, true);
-  }
-  ctx.fill();
-  updateStars();
-}
-
-function updateStars() {
-  for (let i = 0; i < stars.length; i++) {
-    let s = stars[i];
-    s.y += s.d;
-    if (s.y > canvas.height) {
-      s.y = 0;
-      s.x = Math.random() * canvas.width;
-    }
-  }
-}
+let stars = Array.from({ length: 100 }, () => ({
+  x: Math.random() * canvas.width,
+  y: Math.random() * canvas.height,
+  r: Math.random() * 1.5 + 0.5,
+  dx: (Math.random() - 0.5) * 0.5,
+  dy: (Math.random() - 0.5) * 0.5
+}));
 
 function animateStars() {
-  drawStars();
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  stars.forEach(star => {
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+    ctx.fillStyle = "#fff";
+    ctx.fill();
+    star.x += star.dx;
+    star.y += star.dy;
+    if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
+    if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
+  });
   requestAnimationFrame(animateStars);
 }
 animateStars();
@@ -72,11 +67,29 @@ window.addEventListener("resize", () => {
   canvas.height = window.innerHeight;
 });
 
-// Background Music Control
-const bgMusic = document.getElementById("bgMusic");
-document.body.addEventListener("click", () => {
-  if (bgMusic.paused) {
-    bgMusic.volume = 0.5;
-    bgMusic.play();
-  }
-}, { once: true });
+// Rock Paper Scissors Game
+const rpsButtons = document.querySelectorAll(".rps-btn");
+const rpsResult = document.getElementById("rps-result");
+
+rpsButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const userChoice = btn.getAttribute("data-choice");
+    const choices = ["rock", "paper", "scissors"];
+    const compChoice = choices[Math.floor(Math.random() * 3)];
+
+    let result;
+    if (userChoice === compChoice) {
+      result = "It's a draw!";
+    } else if (
+      (userChoice === "rock" && compChoice === "scissors") ||
+      (userChoice === "paper" && compChoice === "rock") ||
+      (userChoice === "scissors" && compChoice === "paper")
+    ) {
+      result = `You win! ${userChoice} beats ${compChoice}`;
+    } else {
+      result = `You lose! ${compChoice} beats ${userChoice}`;
+    }
+
+    rpsResult.textContent = result;
+  });
+});
