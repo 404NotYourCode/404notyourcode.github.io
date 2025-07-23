@@ -25,15 +25,15 @@
     <h1 id="typing-text"></h1>
     <p class="subheading">Cybersecurity | Web Developer | Designer | Innovator</p>
     <a href="#projects" class="btn">View Projects</a>
-    <button id="themeToggle" class="btn btn-primary">Toggle Theme</button>
   </header>
+
   <section class="about" id="about">
     <h2>👨‍💻 About Me</h2>
     <p>
-      I’m a cybersecurity student on a mission to explore, build, and understand real-world security. I started out of curiosity — now I’m diving deep into the tools, technologies, and techniques that power modern security.
+      Passionate about cybersecurity and digital defense, I'm on a mission to decode the internet's dark corners. I explore, analyze, and create with purpose.
     </p>
     <p>
-      I don’t have all the answers yet — but I’m building, learning, and sharing every step of the journey. My goal? To grow into someone who not only solves problems, but brings clarity, value, and peace — to myself and those around me.
+      From curious beginnings to uncovering the power of ethical hacking, I’ve grown to believe that knowledge shared is power multiplied. My portfolio reflects not just skills, but the mindset of a builder in progress.
     </p>
   </section>
 
@@ -74,6 +74,7 @@
       <li>Programming Languages: Python, C, SQL</li>
       <li>Network Tools: Wireshark, Tsurmex</li>
       <li>Python: Regex, Log Parsing</li>
+      <li>Platforms: Linux, Bash</li>
     </ul>
   </section>
 
@@ -81,36 +82,40 @@
     <h2>Projects</h2>
     <div class="project-cards">
       <div class="card">
-        <h3>Network Packet Analyzer</h3>
-        <p>Python tool using Scapy to inspect and analyze packet flows.</p>
-        <p><strong>Tools:</strong> Python, Scapy</p>
-        <a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">GitHub ↗</a>
+        <h3>Sniffing Analysis Tool</h3>
+        <p>Analyzes Wireshark-captured traffic to identify sender/receiver details.</p>
+        <a href="#">View Project</a>
       </div>
       <div class="card">
-        <h3>CloudTrail Log Parser</h3>
-        <p>Automates parsing of AWS CloudTrail logs for suspicious activity.</p>
-        <p><strong>Tools:</strong> Python, AWS</p>
-        <a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">GitHub ↗</a>
+        <h3>Phishing Awareness Presentation</h3>
+        <p>Basic awareness PPT to educate users about phishing threats and scams.</p>
+        <a href="#">Download PPT</a>
       </div>
       <div class="card">
-        <h3>Linux Security Hardener</h3>
-        <p>Script that audits and applies basic Linux hardening measures.</p>
-        <p><strong>Tools:</strong> Bash, Security</p>
-        <a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">GitHub ↗</a>
+        <h3>Securing User Registration Systems</h3>
+        <p>Documented security practices for safe user registration.</p>
+        <a href="#">Download DOCX</a>
+      </div>
+      <div class="card">
+        <h3>Phishing URL Detector</h3>
+        <p>Machine Learning-based detection of phishing URLs using Python.</p>
+        <a href="#">GitHub ↗</a>
       </div>
     </div>
   </section>
 
 <section class="resources" id="resources">
   <h2>📚 Resources</h2>
-  <p>I’m currently curating my favorite learning materials, tools, and blog links that have helped me grow in cybersecurity and development.</p>
+  <p>These are the handpicked resources I personally use or recommend for anyone diving into cybersecurity and dev.</p>
   <ul>
     <li><a href="https://roadmap.sh/cyber-security" target="_blank">Cybersecurity Roadmap</a></li>
-    <li><a href="https://github.com" target="_blank">My GitHub Repos</a></li>
-    <!-- More links as you grow -->
+    <li><a href="https://owasp.org/www-project-top-ten/" target="_blank">OWASP Top 10</a></li>
+    <li><a href="https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters" target="_blank">Bug Bounty Starter Pack</a></li>
+    <li><a href="https://portswigger.net/web-security" target="_blank">PortSwigger Labs</a></li>
+    <li><a href="https://www.hackthebox.com/" target="_blank">Hack The Box</a></li>
+    <li><a href="https://github.com/404NotYourCode" target="_blank">My GitHub Repos</a></li>
   </ul>
 </section>
-
 
   <section class="resume">
     <h2>Resume</h2>
@@ -118,13 +123,14 @@
   </section>
 
   <section class="game" id="game">
-    <h2>Play Rock Paper Scissors</h2>
+    <h2>🎮 Rock Paper Scissors — Win Coins!</h2>
     <div class="rps">
       <button class="rps-btn" data-choice="rock">✊ Rock</button>
       <button class="rps-btn" data-choice="paper">🖐 Paper</button>
       <button class="rps-btn" data-choice="scissors">✌ Scissors</button>
     </div>
     <p id="rps-result"></p>
+    <p id="rps-score">Coins: 0</p>
   </section>
 
   <section class="contact" id="contact">
@@ -159,5 +165,4 @@
 
   <script src="script.js"></script>
 </body>
-
 </html>
