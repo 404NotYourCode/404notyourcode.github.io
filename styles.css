@@ -1,4 +1,4 @@
-/* Reset */
+/* === Global === */
 * {
   margin: 0;
   padding: 0;
@@ -7,14 +7,15 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #000;
-  color: #fff;
-  overflow-x: hidden;
-  position: relative;
+  background-color: #0e0e10;
+  color: #f1f1f1;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  padding-bottom: 100px;
 }
 
 a {
-  color: #ff4a57;
+  color: #4db8ff;
   text-decoration: none;
 }
 
@@ -22,221 +23,194 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Space Background Canvas */
-#star-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -2;
-  width: 100%;
-  height: 100%;
-  background: #000;
-}
-
-/* Header */
+/* === Hero Section === */
 .hero {
   text-align: center;
-  padding: 80px 20px 40px;
+  padding: 4rem 1rem;
+  background: radial-gradient(circle at top, #1a1a1d, #0e0e10);
 }
 
 .logo {
   width: 120px;
   height: auto;
-  margin-bottom: 20px;
-  border-radius: 50%;
+  margin-bottom: 1rem;
 }
 
-#typing-text {
+.name {
   font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 10px;
-  color: #fff;
+  color: #00e6e6;
+  margin-bottom: 0.5rem;
 }
 
 .subheading {
   font-size: 1.2rem;
-  color: #ccc;
+  margin-bottom: 1.5rem;
+  color: #bbb;
 }
 
 .btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 28px;
-  background: #ff4a57;
-  color: #fff;
+  padding: 0.7rem 1.5rem;
+  margin: 0.5rem;
   border: none;
-  border-radius: 30px;
+  background-color: #4db8ff;
+  color: #000;
+  font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s ease;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-  background: #e63946;
+  background-color: #00b8e6;
 }
 
 .btn-primary {
-  background: #1d3557;
+  background-color: #008cff;
+  color: #fff;
 }
 
-.btn-primary:hover {
-  background: #457b9d;
+#themeToggle {
+  margin-top: 1rem;
 }
 
-/* Sections */
+/* === Sections === */
 section {
-  padding: 60px 20px;
+  padding: 4rem 1rem;
   max-width: 900px;
-  margin: 0 auto;
+  margin: auto;
 }
 
 h2 {
   font-size: 2rem;
-  margin-bottom: 20px;
-  text-align: center;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #4db8ff;
+  display: inline-block;
+  padding-bottom: 0.3rem;
 }
 
-/* Quotes Section */
-.quotes {
-  background-color: #111;
-  padding: 40px 20px;
-  border-radius: 12px;
+p {
+  margin-bottom: 1rem;
 }
 
-.quote-card {
-  border-left: 4px solid #ff4a57;
-  padding-left: 20px;
-  margin: 20px 0;
-  font-style: italic;
-}
-
-.quote-card span {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-  color: #ccc;
-}
-
-/* Motto */
-.motto {
-  text-align: center;
-  font-size: 1.4rem;
-  font-weight: 500;
-}
-
-/* Skills */
+/* === Skills === */
 .skills-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-  font-weight: 500;
+  gap: 1rem;
 }
 
 .skills-list span {
-  padding: 8px 16px;
-  border: 1px solid #ff4a57;
+  background-color: #1f1f21;
+  padding: 0.5rem 1rem;
   border-radius: 20px;
-  color: #ff4a57;
-}
-
-/* Projects */
-.projects .project {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.resume {
-  text-align: center;
-}
-
-/* Game */
-.rps {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.rps-btn {
-  margin: 10px;
-  padding: 14px 24px;
-  font-size: 1rem;
-  background-color: #222;
-  color: white;
-  border: 2px solid #ff4a57;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.rps-btn:hover {
-  background-color: #ff4a57;
-  color: #000;
-}
-
-#rps-result {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 1.2rem;
   font-weight: bold;
+  color: #4db8ff;
 }
 
-/* Contact & Feedback Forms */
+/* === Tools & Resources === */
+.tools ul, .resources ul {
+  list-style: square inside;
+  padding-left: 1rem;
+  margin-top: 1rem;
+}
+
+.tools li, .resources li {
+  margin-bottom: 0.5rem;
+}
+
+/* === Quote Cards === */
+.quote-card {
+  background-color: #1a1a1d;
+  border-left: 4px solid #4db8ff;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 6px;
+  font-style: italic;
+  color: #ccc;
+}
+
+/* === Projects === */
+.project-cards {
+  display: grid;
+  gap: 2rem;
+}
+
+.card {
+  background-color: #1a1a1d;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  color: #00e6e6;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #4db8ff;
+}
+
+/* === Forms === */
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  max-width: 600px;
-  margin: 0 auto;
+  gap: 1rem;
 }
 
 input, textarea {
-  padding: 10px 15px;
-  border-radius: 8px;
-  border: 1px solid #444;
-  background-color: #111;
-  color: #fff;
-  resize: none;
+  padding: 0.8rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #1f1f21;
+  color: #f1f1f1;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 30px 10px;
-  background-color: #111;
-  font-size: 0.9rem;
+button[type="submit"] {
+  align-self: flex-start;
 }
 
-/* Scroll Top Button */
+/* === Scroll to Top === */
 #scrollTopBtn {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  padding: 10px;
-  border-radius: 50%;
+  padding: 0.6rem 0.8rem;
+  background-color: #00b8e6;
+  color: #000;
   border: none;
-  background: #ff4a57;
-  color: white;
+  border-radius: 50%;
   cursor: pointer;
-  z-index: 100;
-  font-size: 20px;
-  display: none;
-  box-shadow: 0 0 10px #ff4a57;
+  font-size: 1.2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-#scrollTopBtn:hover {
-  background-color: #e63946;
+/* === Footer === */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #0e0e10;
+  color: #777;
+  font-size: 0.9rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  #typing-text {
-    font-size: 2rem;
+/* === Responsive === */
+@media (min-width: 768px) {
+  .project-cards {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .btn {
-    padding: 10px 20px;
-  }
-
-  .logo {
-    width: 90px;
+@media (min-width: 1024px) {
+  .project-cards {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
