@@ -1,15 +1,28 @@
 /* Global Styles */
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  height: 100%;
   font-family: 'Inter', sans-serif;
-  background: #fff;
-  color: #333;
+  background: #000;
+  color: #fff;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+canvas#star-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #000;
 }
 
 h1, h2, h3 {
   font-weight: 700;
-  color: #111;
+  color: #fff;
 }
 
 section {
@@ -21,9 +34,9 @@ section {
 /* Hero Section */
 .hero {
   text-align: center;
-  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
   padding: 6rem 2rem 4rem;
   position: relative;
+  background: transparent;
 }
 
 .logo {
@@ -40,7 +53,7 @@ section {
 
 .subheading {
   font-size: 1.2rem;
-  color: #444;
+  color: #ccc;
   margin-bottom: 1.5rem;
 }
 
@@ -69,22 +82,24 @@ section {
 }
 
 .quote-card {
-  background: #eee;
+  background: rgba(255, 255, 255, 0.1);
   border-left: 5px solid #0077cc;
   padding: 1rem;
   margin: 1rem auto;
   max-width: 700px;
   font-style: italic;
+  color: #ddd;
 }
 
 /* Skills & Tools */
 .skills-list span, .tools li {
   display: inline-block;
-  background: #f0f0f0;
+  background: #333;
   padding: 0.5rem 1rem;
   margin: 0.4rem;
   border-radius: 5px;
   font-size: 0.95rem;
+  color: #eee;
 }
 
 .tools ul {
@@ -109,7 +124,7 @@ section {
 .cert img {
   width: 100%;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(255,255,255,0.1);
 }
 
 .cert-details ul {
@@ -129,10 +144,10 @@ section {
 }
 
 .card {
-  border: 1px solid #ddd;
+  border: 1px solid #444;
   border-radius: 8px;
   padding: 1rem;
-  background: #fafafa;
+  background: #111;
   transition: transform 0.2s;
 }
 
@@ -141,7 +156,7 @@ section {
 }
 
 .card a {
-  color: #0077cc;
+  color: #66b2ff;
   font-weight: bold;
   text-decoration: none;
 }
@@ -189,7 +204,9 @@ form {
 input, textarea {
   padding: 0.8rem;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #666;
+  background: #111;
+  color: #fff;
   font-family: inherit;
   font-size: 1rem;
 }
@@ -223,9 +240,9 @@ input, textarea {
 footer {
   text-align: center;
   padding: 2rem;
-  background: #f0f0f0;
+  background: #111;
   font-size: 0.9rem;
-  color: #555;
+  color: #aaa;
 }
 
 /* Responsive */
