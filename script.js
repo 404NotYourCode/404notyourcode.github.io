@@ -1,118 +1,93 @@
-// Typing effect
+// Typing animation
+const text = "Cybersecurity | Web Developer | Designer | Innovator";
+let index = 0;
 const typingText = document.getElementById("typing-text");
-const words = ["Cybersecurity Student", "Developer", "Bug Hunter", "Lifelong Learner"];
-let wordIndex = 0;
-let charIndex = 0;
 
 function typeEffect() {
-  if (charIndex < words[wordIndex].length) {
-    typingText.textContent += words[wordIndex].charAt(charIndex);
-    charIndex++;
+  if (index < text.length) {
+    typingText.innerHTML += text.charAt(index);
+    index++;
     setTimeout(typeEffect, 100);
-  } else {
-    setTimeout(() => {
-      typingText.textContent = "";
-      charIndex = 0;
-      wordIndex = (wordIndex + 1) % words.length;
-      typeEffect();
-    }, 2000);
   }
 }
 typeEffect();
 
-// Rock Paper Scissors game with coins
-let coins = 0;
-const rpsButtons = document.querySelectorAll(".rps-btn");
-const rpsResult = document.getElementById("rps-result");
-const rpsScore = document.getElementById("rps-score");
-
-rpsButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const choices = ["rock", "paper", "scissors"];
-    const userChoice = btn.dataset.choice;
-    const botChoice = choices[Math.floor(Math.random() * choices.length)];
-    let result = "";
-
-    if (userChoice === botChoice) {
-      result = `It's a tie! You both chose ${userChoice}.`;
-    } else if (
-      (userChoice === "rock" && botChoice === "scissors") ||
-      (userChoice === "paper" && botChoice === "rock") ||
-      (userChoice === "scissors" && botChoice === "paper")
-    ) {
-      result = `You win! ${userChoice} beats ${botChoice}. +10 coins!`;
-      coins += 10;
-    } else {
-      result = `You lose! ${botChoice} beats ${userChoice}. -5 coins.`;
-      coins = Math.max(0, coins - 5);
-    }
-
-    rpsResult.textContent = result;
-    rpsScore.textContent = `Coins: ${coins}`;
-  });
-});
-
-// Scroll to top button
+// Scroll-to-top button
 const scrollTopBtn = document.getElementById("scrollTopBtn");
+
 window.addEventListener("scroll", () => {
-  scrollTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+  scrollTopBtn.style.display = window.scrollY > 400 ? "block" : "none";
 });
+
 scrollTopBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-// Starry space background animation
+// Rock Paper Scissors Game
+const choices = ["rock", "paper", "scissors"];
+const buttons = document.querySelectorAll(".rps-btn");
+const result = document.getElementById("rps-result");
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const userChoice = button.dataset.choice;
+    const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+    const outcome = getResult(userChoice, computerChoice);
+
+    result.innerHTML = `
+      <strong>You:</strong> ${userChoice} <br>
+      <strong>Computer:</strong> ${computerChoice} <br>
+      <strong>Result:</strong> ${outcome}
+    `;
+  });
+});
+
+function getResult(user, computer) {
+  if (user === computer) return "Draw!";
+  if (
+    (user === "rock" && computer === "scissors") ||
+    (user === "paper" && computer === "rock") ||
+    (user === "scissors" && computer === "paper")
+  ) {
+    return "You Win! 🎉";
+  }
+  return "You Lose 😢";
+}
+
+// Starry animated background
 const canvas = document.getElementById("star-bg");
 const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 let stars = [];
-let numStars = 150;
-
-function initStars() {
-  stars = [];
-  for (let i = 0; i < numStars; i++) {
-    stars.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      radius: Math.random() * 1.2,
-      speed: Math.random() * 0.5 + 0.1,
-    });
-  }
-}
-
-function drawStars() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "white";
-  stars.forEach((star) => {
-    ctx.beginPath();
-    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-    ctx.fill();
-  });
-}
-
-function moveStars() {
-  stars.forEach((star) => {
-    star.y += star.speed;
-    if (star.y > canvas.height) {
-      star.y = 0;
-      star.x = Math.random() * canvas.width;
-    }
+for (let i = 0; i < 120; i++) {
+  stars.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    radius: Math.random() * 1.2,
+    dx: Math.random() * 0.5,
+    dy: Math.random() * 0.5
   });
 }
 
 function animateStars() {
-  drawStars();
-  moveStars();
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#ffffff";
+  stars.forEach((star) => {
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    ctx.fill();
+    star.x += star.dx;
+    star.y += star.dy;
+    if (star.x > canvas.width) star.x = 0;
+    if (star.y > canvas.height) star.y = 0;
+  });
   requestAnimationFrame(animateStars);
 }
+animateStars();
 
-function resizeCanvas() {
+window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  initStars();
-}
-
-window.addEventListener("resize", resizeCanvas);
-
-resizeCanvas();
-animateStars();
+});
