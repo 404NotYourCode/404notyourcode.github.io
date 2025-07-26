@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,244 +6,237 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #0b0f1a;
-  color: #f0f0f0;
-  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+  background-color: #000;
+  color: #fff;
   overflow-x: hidden;
   position: relative;
 }
 
-h1, h2 {
-  color: #00bcd4;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
 a {
-  color: #64ffda;
+  color: #ff4a57;
   text-decoration: none;
-  transition: 0.3s;
 }
 
 a:hover {
-  color: #ff4081;
+  text-decoration: underline;
 }
 
-/* Layout Sections */
-section {
-  padding: 3rem 2rem;
-  max-width: 1000px;
-  margin: auto;
+/* Space Background Canvas */
+#star-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+/* Header */
+.hero {
+  text-align: center;
+  padding: 80px 20px 40px;
 }
 
 .logo {
-  width: 80px;
-  margin-bottom: 1rem;
-  animation: float 3s ease-in-out infinite;
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 50%;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.hero {
-  text-align: center;
-  padding-top: 5rem;
-}
-
-.name {
+#typing-text {
   font-size: 2.5rem;
-  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #fff;
 }
 
 .subheading {
   font-size: 1.2rem;
-  margin-bottom: 1rem;
   color: #ccc;
 }
 
-.hero-icons a {
-  margin: 0 1rem;
-  font-weight: bold;
-  display: inline-block;
-}
-
 .btn {
-  background: #00bcd4;
-  color: #000;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  margin-top: 1rem;
   display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background: #ff4a57;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .btn:hover {
-  background: #ff4081;
-  color: #fff;
+  background: #e63946;
 }
 
-/* About Section */
-.about ul {
-  margin-top: 1rem;
-  padding-left: 1.5rem;
+.btn-primary {
+  background: #1d3557;
 }
 
-.about li {
-  list-style: '🧠 ';
-  margin-bottom: 0.5rem;
+.btn-primary:hover {
+  background: #457b9d;
+}
+
+/* Sections */
+section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 /* Quotes Section */
+.quotes {
+  background-color: #111;
+  padding: 40px 20px;
+  border-radius: 12px;
+}
+
 .quote-card {
-  background: #1a2238;
-  padding: 1rem;
-  margin: 1rem 0;
-  border-left: 5px solid #00bcd4;
-  border-radius: 5px;
+  border-left: 4px solid #ff4a57;
+  padding-left: 20px;
+  margin: 20px 0;
   font-style: italic;
 }
 
-/* Skills Section */
+.quote-card span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #ccc;
+}
+
+/* Motto */
+.motto {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+/* Skills */
 .skills-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 12px;
   justify-content: center;
+  font-weight: 500;
 }
 
 .skills-list span {
-  background: #293241;
-  padding: 0.5rem 1rem;
-  border-radius: 30px;
-  font-size: 0.9rem;
-  color: #64ffda;
-}
-
-/* Certificates */
-.cert-list {
-  padding-left: 1rem;
-  list-style-type: circle;
-}
-
-.cert-list li {
-  margin: 0.4rem 0;
+  padding: 8px 16px;
+  border: 1px solid #ff4a57;
+  border-radius: 20px;
+  color: #ff4a57;
 }
 
 /* Projects */
-.project-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-.card {
-  background: #1a1a2e;
-  padding: 1rem;
-  border: 1px solid #00bcd4;
-  border-radius: 10px;
-  transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.03);
-  background: #212c3d;
-}
-
-/* Game Section */
-.game {
-  background: #111827;
-  border-radius: 10px;
-  padding: 2rem;
+.projects .project {
+  margin-bottom: 20px;
   text-align: center;
 }
 
-#game-container input,
-#game-container button {
-  margin: 0.5rem;
-  padding: 0.6rem;
+.resume {
+  text-align: center;
+}
+
+/* Game */
+.rps {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.rps-btn {
+  margin: 10px;
+  padding: 14px 24px;
   font-size: 1rem;
+  background-color: #222;
+  color: white;
+  border: 2px solid #ff4a57;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
-#word-display {
-  font-size: 2rem;
-  letter-spacing: 0.3rem;
-  margin: 1rem 0;
+.rps-btn:hover {
+  background-color: #ff4a57;
+  color: #000;
 }
 
-#hint {
-  font-size: 1rem;
-  color: #aaa;
+#rps-result {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
-/* Contact */
+/* Contact & Feedback Forms */
 form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-form input,
-form textarea {
-  padding: 0.75rem;
-  border: none;
-  border-radius: 5px;
-  background: #1f2937;
+input, textarea {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #111;
   color: #fff;
-}
-
-form input:focus,
-form textarea:focus {
-  outline: 2px solid #00bcd4;
-}
-
-/* Feedback Section */
-.feedback {
-  text-align: center;
-  background: #0f172a;
-  border-left: 5px solid #00bcd4;
-  padding: 2rem;
-  margin-top: 2rem;
-  border-radius: 10px;
-}
-
-/* Scroll Button */
-#scrollTopBtn {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: #00bcd4;
-  color: #000;
-  border: none;
-  padding: 0.8rem 1rem;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  cursor: pointer;
-  z-index: 999;
-  display: none;
-}
-
-#scrollTopBtn:hover {
-  background-color: #ff4081;
-  color: #fff;
+  resize: none;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 2rem;
-  background: #000;
-  color: #888;
+  padding: 30px 10px;
+  background-color: #111;
   font-size: 0.9rem;
 }
 
-/* Star Background Canvas */
-canvas#star-bg {
+/* Scroll Top Button */
+#scrollTopBtn {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  bottom: 30px;
+  right: 30px;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #ff4a57;
+  color: white;
+  cursor: pointer;
+  z-index: 100;
+  font-size: 20px;
+  display: none;
+  box-shadow: 0 0 10px #ff4a57;
+}
+
+#scrollTopBtn:hover {
+  background-color: #e63946;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #typing-text {
+    font-size: 2rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+  }
+
+  .logo {
+    width: 90px;
+  }
 }
