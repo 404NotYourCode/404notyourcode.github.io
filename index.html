@@ -1,146 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Syed Sameer Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="logo.png" />
+  <meta name="description" content="Syed Sameer — Developer | Designer | Creator. Portfolio showcasing projects, game, and contact info." />
+  <meta property="og:title" content="Syed Sameer Portfolio" />
+  <meta property="og:description" content="Built with purpose. Driven by passion. Defined by originality." />
+  <meta property="og:image" content="logo.png" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <title>Syed Sameer | Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <canvas id="star-bg"></canvas>
-
-  <section class="hero">
+  <div class="cursor"></div>
+  <header class="hero">
     <img src="logo.png" alt="Logo" class="logo" />
-    <h1 class="name">Syed Sameer</h1>
-    <p class="subheading">Aspiring Cybersecurity & Automation Enthusiast</p>
-    <div class="hero-icons">
-      <a href="https://github.com/august04-oss" target="_blank">🐙 GitHub</a>
-      <a href="https://www.linkedin.com/in/syed-sameer-1a127a267/" target="_blank">💼 LinkedIn</a>
-      <a href="https://github.com/404NotYourCode/Resume/raw/main/Syed_Sameer_Resume.pdf" class="btn" target="_blank">📄 Resume</a>
-    </div>
-  </section>
+    <h1 id="typing-text"></h1>
+    <p class="subheading">Cybersecurity | Web Developer | Designer | Innovator</p>
+    <a href="#projects" class="btn">View Projects</a>
+  </header>
 
-  <section class="about">
-    <h2>🧑‍💻 About Me</h2>
-    <p>I’m S. Syed Sameer, a passionate and self-driven Computer Science Engineering student specializing in Cybersecurity. From breaking down digital threats to building secure systems, I’m fueled by a deep curiosity and a desire to protect the online world.<br><br>
-    My journey began not with resources, but with relentless determination and a heart set on mastering code, networks, and security protocols. I believe in learning by doing—whether it's developing tools, diving into ethical hacking, or educating others about phishing awareness.<br><br>
-    I’m currently exploring:
-    <ul>
-      <li>🛡️ Network Security</li>
-      <li>💻 Ethical Hacking</li>
-      <li>☁️ Cloud Security (AWS, Azure)</li>
-      <li>🐍🐧 Python & Linux scripting</li>
-      <li>🔐 IAM, SSO, MFA, SIEM Tools</li>
-      <li>💡 Real-world tech problem solving</li>
-    </ul>
+  <section class="about" id="about">
+    <h2>About Me</h2>
+    <p>
+      Hey, I’m Syed Sameer — a passionate learner, creative thinker, and someone who believes in growing a little stronger every single day.
+      I come from a background marked by curiosity, dedication, and a hunger to build something meaningful. Whether it's technology, design,
+      or self-improvement, I love diving deep into what I do and pushing my limits.
+    </p>
+    <p>
+      Every line of code I write, every design I touch, and every challenge I face is a step towards becoming the person I dream to be.
+      I don’t believe in shortcuts — I believe in consistency, vision, and effort.
+    </p>
+    <p>
+      My journey is still unfolding, but I’m proud of how far I’ve come — and excited for what lies ahead. If you're reading this, thank you for being a part of my story.
     </p>
   </section>
 
   <section class="quotes">
-    <h2>💬 Words I Live By</h2>
-    <div class="quote-card">“Built with purpose. Driven by passion. Defined by originality.”</div>
-    <div class="quote-card">“I came from silence, walked through storms, and now I speak with purpose — not to prove, but to inspire.”</div>
-    <div class="quote-card">“I wasn't born to follow footsteps—I carve new paths where none exist.”</div>
-    <div class="quote-card">"Believe. Build. Become."</div>
+    <h2>Words I Live By</h2>
+    <div class="quote-card">
+      <p>“Built with purpose. Driven by passion. Defined by originality. — I don’t just create, I leave a mark.”</p>
+      
+    </div>
+    <div class="quote-card">
+      <p>“I came from silence, walked through storms, and now I speak with purpose — not to prove, but to inspire.”</p>
+      
+    </div>
+    <div class="quote-card">
+      <p>“I wasn't born to follow footsteps—I carve new paths where none exist. In silence, I build. In storms, I rise. My name doesn't echo yet—but when it does, the world will listen.”</p>
+      
+    </div>
+  </section>
+
+  <section class="motto">
+    <h2>"Believe. Build. Become."</h2>
+    <p>Believe in your vision, build with passion, and become the best version of yourself.</p>
   </section>
 
   <section class="skills">
-    <h2>🛠️ Tools & Skills</h2>
+    <h2>Skills</h2>
     <div class="skills-list">
-      <span>Python</span>
-      <span>C</span>
-      <span>SQL</span>
-      <span>Linux</span>
-      <span>Wireshark</span>
-      <span>Burp Suite</span>
-      <span>Splunk</span>
-      <span>Git</span>
-      <span>Nmap</span>
-      <span>Scapy</span>
       <span>HTML</span>
       <span>CSS</span>
       <span>JavaScript</span>
+      <span>Git</span>
+      <span>React</span>
+      <span>Figma</span>
+      <span>UI/UX</span>
     </div>
   </section>
 
-  <section class="certificates">
-    <h2>📜 Certificates</h2>
-    <ul class="cert-list">
-      <li>Cybersecurity Analyst Job Simulation – Tata Forage</li>
-      <li>Virtual Internship – Code Alpha</li>
-      <li>Intro to Python – IBM</li>
-      <li>Automation Anywhere Developer Series (5 certs)</li>
-      <li>Intro to Cybersecurity – Simplilearn</li>
-      <li>Data Science Foundations – Great Learning</li>
-      <li>Intro to Machine Learning with R – Simplilearn</li>
-      <li>Computational Thinking – MIT (Cursa)</li>
-      <li>Database with SQL – CS50 (Cursa)</li>
-      <li>Operating Systems – Neso Academy</li>
-      <li>Campus Ambassador – Inspire AI</li>
-      <li>PostgreSQL Training – IIT Bombay</li>
-      <li>Python 3.4.3 Training – IIT Bombay</li>
-      <li>Swachh Bharat Appreciation Certificate</li>
-      <li>Typewriting English – Govt. of Tamil Nadu</li>
-      <li>Hindi Language Certifications (9 Levels)</li>
-    </ul>
-  </section>
-
-  <section class="projects">
-    <h2>🚀 Projects</h2>
-    <div class="project-cards">
-      <div class="card">
-        <p><a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">Network Sniffing Tool</a></p>
-        <p>Monitor packets and sniff suspicious activity</p>
-      </div>
-      <div class="card">
-        <p><a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">Phishing Awareness Presentation</a></p>
-        <p>Educating users on spotting phishing attacks</p>
-      </div>
-      <div class="card">
-        <p><a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">Secure User Registration</a></p>
-        <p>Basic system with password validation</p>
-      </div>
-      <div class="card">
-        <p><a href="https://github.com/august04-oss/phishing-url-detector" target="_blank">Phishing URL Detector</a></p>
-        <p>Real-time tool to detect malicious links</p>
-      </div>
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Project 1</h3>
+      <a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">GitHub Link</a>
+    </div>
+    <div class="project">
+      <h3>Project 2</h3>
+      <a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">GitHub Link</a>
+    </div>
+    <div class="project">
+      <h3>Project 3</h3>
+      <a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">GitHub Link</a>
     </div>
   </section>
 
-  <section class="game">
-    <h2>🎮 Cybersecurity Word Guess Game</h2>
-    <div id="game-container">
-      <p id="word-display"></p>
-      <p id="hint"></p>
-      <p>Lives: <span id="lives"></span></p>
-      <input type="text" id="guess-input" maxlength="1" placeholder="Type a letter..." />
-      <button onclick="submitGuess()">Guess</button>
-      <p id="message"></p>
-    </div>
+  <section class="resume">
+    <h2>Resume</h2>
+    <a class="btn" href="https://github.com/404NotYourCode/404notyourcode.github.io/blob/main/Syed_Sameer_Resume.pdf"_blank">Download Resume</a>
   </section>
 
-  <section class="contact">
-    <h2>📬 Contact Me</h2>
-    <form action="https://formspree.io/f/mwkglwqg" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn btn-primary">Send</button>
+  <section class="game" id="game">
+    <h2>Play Rock Paper Scissors</h2>
+    <div class="rps">
+      <button class="rps-btn" data-choice="rock">✊ Rock</button>
+      <button class="rps-btn" data-choice="paper">🖐 Paper</button>
+      <button class="rps-btn" data-choice="scissors">✌ Scissors</button>
+    </div>
+    <p id="rps-result"></p>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact</h2>
+    <form id="contact-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
+      <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+    <p>Email: <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
+    <p>Phone: <a href="tel:+919840329368">98403 29368</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank">www.linkedin.com/in/syed-sameer-dev</a></p>
+  </section>
+
+  <section class="feedback" id="feedback">
+    <h2>Feedback</h2>
+    <p>Have any suggestions or thoughts about my portfolio? I'd love to hear them.</p>
+    <form id="feedback-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
+      <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+      <textarea name="feedback" rows="4" placeholder="Your Feedback" required></textarea>
+      <button type="submit" class="btn">Submit Feedback</button>
     </form>
   </section>
 
-  <section class="feedback">
-    <h2>📝 Feedback</h2>
-    <p>If you’ve visited my portfolio, I’d love to hear your thoughts! Whether it's praise, ideas, or improvements — feel free to drop me a message above.</p>
-  </section>
-
-  <button id="scrollTopBtn" onclick="scrollToTop()">⬆️</button>
-
   <footer>
-    &copy; 2025 Syed Sameer. Built with 💙 for cybersecurity & growth.
+    <p>&copy; 2025 Syed Sameer. Built with ❤️ and purpose.</p>
   </footer>
+
+  <button id="scrollTopBtn">⬆</button>
 
   <script src="script.js"></script>
 </body>
+
 </html>
