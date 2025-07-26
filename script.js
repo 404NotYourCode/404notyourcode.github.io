@@ -1,144 +1,95 @@
-// === Cybersecurity Word Guess Game ===
-const words = [
-  { word: "firewall", hint: "Blocks unauthorized access" },
-  { word: "phishing", hint: "Fake emails tricking users" },
-  { word: "malware", hint: "Malicious software" },
-  { word: "encryption", hint: "Converts data into unreadable form" },
-  { word: "vpn", hint: "Secure private network tunnel" },
-  { word: "password", hint: "Basic security authentication" },
-  { word: "hacking", hint: "Unauthorized access to systems" },
-  { word: "botnet", hint: "Network of infected devices" },
-];
+// Typing animation
+const typingText = document.getElementById("typing-text");
+const texts = ["Syed Sameer", "Developer", "Designer", "Creator"];
+let index = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-let selectedWord = "";
-let hint = "";
-let displayWord = [];
-let lives = 6;
-let guessedLetters = [];
-
-function startGame() {
-  const random = words[Math.floor(Math.random() * words.length)];
-  selectedWord = random.word.toLowerCase();
-  hint = random.hint;
-  displayWord = Array(selectedWord.length).fill("_");
-  lives = 6;
-  guessedLetters = [];
-  updateDisplay();
-}
-
-function updateDisplay() {
-  document.getElementById("word-display").textContent = displayWord.join(" ");
-  document.getElementById("hint").textContent = `Hint: ${hint}`;
-  document.getElementById("lives").textContent = lives;
-  document.getElementById("message").textContent = "";
-  document.getElementById("guess-input").value = "";
-}
-
-function submitGuess() {
-  const input = document.getElementById("guess-input");
-  const guess = input.value.toLowerCase();
-
-  if (!guess || guess.length !== 1 || guessedLetters.includes(guess)) {
-    return;
-  }
-
-  guessedLetters.push(guess);
-  let correct = false;
-
-  for (let i = 0; i < selectedWord.length; i++) {
-    if (selectedWord[i] === guess) {
-      displayWord[i] = guess;
-      correct = true;
+function type() {
+  const currentText = texts[index];
+  if (isDeleting) {
+    typingText.textContent = currentText.substring(0, charIndex--);
+    if (charIndex < 0) {
+      isDeleting = false;
+      index = (index + 1) % texts.length;
+    }
+  } else {
+    typingText.textContent = currentText.substring(0, charIndex++);
+    if (charIndex > currentText.length) {
+      isDeleting = true;
+      setTimeout(type, 1000);
+      return;
     }
   }
-
-  if (!correct) lives--;
-
-  updateDisplay();
-
-  if (!displayWord.includes("_")) {
-    document.getElementById("message").textContent = "🎉 You guessed it right!";
-    setTimeout(startGame, 3000);
-  } else if (lives === 0) {
-    document.getElementById("message").textContent = `❌ Game over! Word was: ${selectedWord}`;
-    setTimeout(startGame, 3000);
-  }
+  setTimeout(type, isDeleting ? 60 : 100);
 }
+type();
 
-document.getElementById("guess-input").addEventListener("keypress", (e) => {
-  if (e.key === "Enter") submitGuess();
-});
-
-startGame();
-
-
-// === Scroll to Top Button ===
+// Scroll to top button
 const scrollTopBtn = document.getElementById("scrollTopBtn");
-
-window.onscroll = function () {
+window.onscroll = () => {
   scrollTopBtn.style.display = window.scrollY > 100 ? "block" : "none";
 };
+scrollTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-
-// === Animated Starry Background ===
+// Star background animation
 const canvas = document.getElementById("star-bg");
 const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-let stars = [];
-const starCount = 100;
-
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-
-function createStars() {
-  stars = [];
-  for (let i = 0; i < starCount; i++) {
-    stars.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      radius: Math.random() * 1.5,
-      speed: Math.random() * 0.5 + 0.1,
-    });
-  }
-}
-
-function drawStars() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#00bcd4";
-  for (const star of stars) {
-    ctx.beginPath();
-    ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
-    ctx.fill();
-  }
-}
-
-function updateStars() {
-  for (const star of stars) {
-    star.y += star.speed;
-    if (star.y > canvas.height) {
-      star.y = 0;
-      star.x = Math.random() * canvas.width;
-    }
-  }
-}
+let stars = Array.from({ length: 100 }, () => ({
+  x: Math.random() * canvas.width,
+  y: Math.random() * canvas.height,
+  r: Math.random() * 1.5 + 0.5,
+  dx: (Math.random() - 0.5) * 0.5,
+  dy: (Math.random() - 0.5) * 0.5
+}));
 
 function animateStars() {
-  drawStars();
-  updateStars();
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  stars.forEach(star => {
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+    ctx.fillStyle = "#fff";
+    ctx.fill();
+    star.x += star.dx;
+    star.y += star.dy;
+    if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
+    if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
+  });
   requestAnimationFrame(animateStars);
 }
+animateStars();
 
 window.addEventListener("resize", () => {
-  resizeCanvas();
-  createStars();
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 });
 
-resizeCanvas();
-createStars();
-animateStars();
+// Rock Paper Scissors Game
+const rpsButtons = document.querySelectorAll(".rps-btn");
+const rpsResult = document.getElementById("rps-result");
+
+rpsButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const userChoice = btn.getAttribute("data-choice");
+    const choices = ["rock", "paper", "scissors"];
+    const compChoice = choices[Math.floor(Math.random() * 3)];
+
+    let result;
+    if (userChoice === compChoice) {
+      result = "It's a draw!";
+    } else if (
+      (userChoice === "rock" && compChoice === "scissors") ||
+      (userChoice === "paper" && compChoice === "rock") ||
+      (userChoice === "scissors" && compChoice === "paper")
+    ) {
+      result = `You win! ${userChoice} beats ${compChoice}`;
+    } else {
+      result = `You lose! ${compChoice} beats ${userChoice}`;
+    }
+
+    rpsResult.textContent = result;
+  });
+});
