@@ -74,6 +74,11 @@ animateStars();
 // Rock Paper Scissors Game
 const rpsButtons = document.querySelectorAll(".rps-btn");
 const rpsResult = document.getElementById("rps-result");
+const rpsScore = document.getElementById("rps-score");
+
+let wins = 0;
+let losses = 0;
+let draws = 0;
 
 rpsButtons.forEach(button => {
   button.addEventListener("click", () => {
@@ -85,16 +90,35 @@ rpsButtons.forEach(button => {
 
     if (userChoice === compChoice) {
       result = `🤝 It's a draw! Both chose ${userChoice}.`;
+      draws++;
     } else if (
       (userChoice === "rock" && compChoice === "scissors") ||
       (userChoice === "paper" && compChoice === "rock") ||
       (userChoice === "scissors" && compChoice === "paper")
     ) {
       result = `✅ You win! ${userChoice} beats ${compChoice}.`;
+      wins++;
     } else {
       result = `❌ You lose! ${compChoice} beats ${userChoice}.`;
+      losses++;
     }
 
     rpsResult.textContent = result;
+    rpsScore.textContent = `Wins: ${wins} | Losses: ${losses} | Draws: ${draws}`;
   });
+});
+
+// Custom Cursor Animation
+const cursor = document.querySelector(".cursor");
+document.addEventListener("mousemove", e => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+// GSAP Entrance Animations
+window.addEventListener("load", () => {
+  gsap.from(".hero .logo", { y: -100, opacity: 0, duration: 1 });
+  gsap.from(".hero h1", { x: -200, opacity: 0, delay: 0.5, duration: 1 });
+  gsap.from(".hero .subheading", { x: 200, opacity: 0, delay: 0.7, duration: 1 });
+  gsap.from(".hero .btn", { scale: 0, opacity: 0, delay: 1, duration: 0.8 });
 });
