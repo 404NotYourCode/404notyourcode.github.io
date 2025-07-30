@@ -1,248 +1,258 @@
-/* Base Setup */
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Outfit', sans-serif;
+  background: #0d0d0d;
+  color: #ffffff;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: #0d1117;
-  color: #e6edf3;
-  overflow-x: hidden;
-  line-height: 1.6;
+section {
+  padding: 5rem 10vw;
   position: relative;
+  z-index: 2;
 }
 
-canvas#star-bg {
+/* Star Canvas Background */
+#star-bg {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -1;
-}
-
-h1, h2, h3 {
-  font-weight: 700;
-  color: #00bfff;
-  margin-bottom: 0.5em;
-}
-
-section {
-  padding: 4rem 2rem;
-  max-width: 1100px;
-  margin: auto;
-}
-
-/* Hero */
-.hero {
-  text-align: center;
-  padding: 6rem 2rem;
-  background: linear-gradient(to right, #0d1117, #161b22);
-  border-bottom: 1px solid #21262d;
-}
-.hero .logo {
-  width: 80px;
-  margin-bottom: 1rem;
-  filter: drop-shadow(0 0 5px #00bfff);
-}
-.subheading {
-  font-weight: 300;
-  margin-bottom: 2rem;
-  color: #9baec8;
-}
-
-.btn {
-  display: inline-block;
-  background: #00bfff;
-  color: #fff;
-  padding: 0.7rem 1.5rem;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  box-shadow: 0 0 10px #00bfff66;
-}
-.btn:hover {
-  background: #009acd;
-  transform: scale(1.05);
-}
-
-/* Section Titles */
-section > h2 {
-  border-bottom: 2px solid #00bfff;
-  display: inline-block;
-  margin-bottom: 2rem;
-}
-
-/* Timeline */
-.timeline ul {
-  list-style: none;
-  padding-left: 1rem;
-  border-left: 3px solid #00bfff;
-}
-.timeline li {
-  margin-bottom: 1rem;
-  padding-left: 1rem;
-  position: relative;
-}
-.timeline li::before {
-  content: '';
-  position: absolute;
-  left: -0.5rem;
-  top: 0.5rem;
-  width: 10px;
-  height: 10px;
-  background: #00bfff;
-  border-radius: 50%;
-}
-
-/* Skills */
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-.skills-list span {
-  background: #21262d;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  color: #00bfff;
-  font-weight: 500;
-  transition: all 0.3s;
-}
-.skills-list span:hover {
-  background: #00bfff;
-  color: #fff;
-}
-
-/* Projects */
-.projects .project {
-  background: #161b22;
-  border-left: 4px solid #00bfff;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #00bfff22;
-}
-.projects a {
-  color: #00bfff;
-  text-decoration: underline;
-}
-
-/* Contact & Feedback Forms */
-form input,
-form textarea {
-  width: 100%;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border: none;
-  border-radius: 8px;
-  background: #21262d;
-  color: #e6edf3;
-  transition: background 0.3s;
-}
-form input:focus,
-form textarea:focus {
-  background: #2d333b;
-  outline: none;
-}
-form button {
-  background: #00bfff;
-  color: #fff;
-  border: none;
-  padding: 0.7rem 1.5rem;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-}
-form button:hover {
-  background: #009acd;
-  transform: scale(1.05);
-}
-
-/* Game Section */
-.rps {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 1rem;
-  flex-wrap: wrap;
-}
-.rps-btn {
-  background: #21262d;
-  border: 2px solid #00bfff;
-  color: #00bfff;
-  padding: 0.7rem 1.5rem;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.3s;
-}
-.rps-btn:hover {
-  background: #00bfff;
-  color: #fff;
-  transform: scale(1.05);
-}
-#rps-result, #rps-score {
-  text-align: center;
-  margin-top: 1rem;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 2rem;
-  background: #0d1117;
-  color: #9baec8;
-  font-size: 0.9rem;
-  border-top: 1px solid #21262d;
-}
-
-/* Scroll to Top */
-#scrollTopBtn {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #00bfff;
-  color: #fff;
-  border: none;
-  padding: 0.7rem 1rem;
-  border-radius: 50%;
-  cursor: pointer;
-  display: none;
-  z-index: 1000;
-  box-shadow: 0 0 10px #00bfff99;
-}
-#scrollTopBtn:hover {
-  background: #009acd;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .skills-list {
-    justify-content: center;
-  }
-  .hero {
-    padding: 4rem 1rem;
-  }
-  section {
-    padding: 3rem 1rem;
-  }
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
 }
 
 /* Cursor */
 .cursor {
-  width: 15px;
-  height: 15px;
-  border: 2px solid #00bfff;
+  position: fixed;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  position: absolute;
+  background: #00ffff;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  z-index: 10000;
-  transition: transform 0.1s ease-out;
+  z-index: 999;
+  transition: transform 0.15s ease;
+}
+
+/* Scroll Top Button */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 0.6rem 1rem;
+  border: none;
+  background: #00ffff;
+  color: #000;
+  font-weight: bold;
+  border-radius: 8px;
+  display: none;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,255,255,0.3);
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero .logo {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.hero #typing-text {
+  color: #00ffff;
+}
+
+.subheading {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  max-width: 600px;
+  color: #ccc;
+}
+
+.btn {
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  background: #00ffff;
+  color: #000;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #00cccc;
+}
+
+/* About Section */
+.about {
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  backdrop-filter: blur(8px);
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #ccc;
+}
+
+/* Projects Section */
+.projects {
+  text-align: center;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(0,255,255,0.05);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  color: #00ffff;
+}
+
+.card p {
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #00ffff;
+  text-decoration: underline;
+}
+
+/* Game Section */
+.rps {
+  text-align: center;
+  background: #111;
+  padding: 4rem 2rem;
+}
+
+.rps h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+.rps-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.rps-btn {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  background: #222;
+  color: #fff;
+  border: 1px solid #00ffff;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.rps-btn:hover {
+  background: #00ffff;
+  color: #000;
+}
+
+#rps-result,
+#rps-score {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Contact Section */
+.contact {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact p {
+  margin-bottom: 2rem;
+  color: #ccc;
+}
+
+.socials {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.socials a {
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.socials a:hover {
+  color: #00cccc;
+}
+
+/* Footer */
+footer {
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  background: #000;
+  color: #666;
 }
