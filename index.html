@@ -3,83 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Syed Sameer — Developer | Designer | Creator. Portfolio showcasing projects, games, and contact info." />
+  <meta property="og:title" content="Syed Sameer Portfolio" />
+  <meta property="og:description" content="Built with purpose. Driven by passion. Defined by originality." />
+  <meta property="og:image" content="logo.png" />
+  <link rel="icon" href="logo.png" type="image/png" />
   <title>Syed Sameer | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
-  <!-- Custom Cursor -->
+  <canvas id="star-bg"></canvas>
   <div class="cursor"></div>
 
-  <!-- Star Background -->
-  <canvas id="star-bg"></canvas>
+  <header class="hero">
+    <img src="logo.png" alt="Logo" class="logo" />
+    <h1 id="typing-text" aria-label="Typing Animation Name"></h1>
+    <p class="subheading">Cybersecurity | Web Developer | Designer | Innovator</p>
+    <a href="#projects" class="btn">View Projects</a>
+  </header>
 
-  <!-- Scroll to Top Button -->
-  <button id="scrollTopBtn" title="Back to Top">↑</button>
+  <main>
+    <!-- About -->
+    <section class="about" id="about">
+      <h2>About Me</h2>
+      <p>Hey, I’m Syed Sameer — a passionate learner, creative thinker, and someone who believes in growing a little stronger every single day. My background is built on curiosity, effort, and the urge to build meaningful experiences.</p>
+      <p>Whether it's coding, design, or cybersecurity, I dive deep and push boundaries. Every project is a step closer to my purpose — creating with impact.</p>
+      <p>Thank you for being here — you're part of this journey.</p>
+    </section>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="logo">🧠</div>
-    <h1>I'm <span id="typing-text"></span></h1>
-    <p class="subheading">Building modern websites with emotion, motion, and precision.</p>
-    <a href="#projects" class="btn">Explore Work ↓</a>
-  </section>
-
-  <!-- About Section -->
-  <section class="about" id="about">
-    <h2>About Me</h2>
-    <p>
-      I'm a web developer passionate about creating interactive and visually stunning web experiences. From design systems to micro-interactions, I focus on the details that matter.
-    </p>
-  </section>
-
-  <!-- Projects Section -->
-  <section class="projects" id="projects">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <div class="card">
-        <h3>Project One</h3>
-        <p>A creative landing page built with vanilla JS and scroll-triggered animations.</p>
-        <a href="#" target="_blank">View Demo</a>
+    <!-- Quotes -->
+    <section class="quotes">
+      <h2>Words I Live By</h2>
+      <div class="quote-card">
+        <p>“Built with purpose. Driven by passion. Defined by originality.”</p>
       </div>
-      <div class="card">
-        <h3>Project Two</h3>
-        <p>Responsive portfolio with animated transitions and starry background effects.</p>
-        <a href="#" target="_blank">View Demo</a>
+      <div class="quote-card">
+        <p>“I came from silence, walked through storms, and now I speak with purpose — not to prove, but to inspire.”</p>
       </div>
-    </div>
-  </section>
+      <div class="quote-card">
+        <p>“I wasn't born to follow footsteps—I carve new paths. In silence, I build. In storms, I rise.”</p>
+      </div>
+    </section>
 
-  <!-- Rock Paper Scissors Game -->
-  <section class="rps" id="game">
-    <h2>Mini Game 🎮</h2>
-    <div class="rps-buttons">
-      <button class="rps-btn" data-choice="rock">🪨 Rock</button>
-      <button class="rps-btn" data-choice="paper">📄 Paper</button>
-      <button class="rps-btn" data-choice="scissors">✂️ Scissors</button>
-    </div>
-    <p id="rps-result">Choose to play!</p>
-    <p id="rps-score">Wins: 0 | Losses: 0 | Draws: 0</p>
-  </section>
+    <!-- Motto -->
+    <section class="motto">
+      <h2>"Believe. Build. Become."</h2>
+      <p>Believe in your vision, build with passion, and become the best version of yourself.</p>
+    </section>
 
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <h2>Let's Connect</h2>
-    <p>Reach out for collaborations, projects, or just a friendly hello 👋</p>
-    <a href="mailto:sameer@example.com" class="btn">Email Me</a>
-    <div class="socials">
-      <a href="#" target="_blank">Instagram</a>
-      <a href="#" target="_blank">GitHub</a>
-      <a href="#" target="_blank">LinkedIn</a>
-    </div>
-  </section>
+    <!-- Skills -->
+    <section class="skills">
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Git</span><span>React</span><span>Figma</span>
+        <span>UI/UX</span><span>Python</span><span>Java</span><span>Cybersecurity</span><span>SQL</span><span>RPA</span><span>Linux</span>
+      </div>
+    </section>
 
+    <!-- Projects -->
+    <section id="projects" class="projects">
+      <h2>Projects</h2>
+      <div class="project"><h3>Simple Network Sniffer</h3><a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">GitHub Link</a></div>
+      <div class="project"><h3>Easy Guide to Avoiding Phishing Scams</h3><a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">GitHub Link</a></div>
+      <div class="project"><h3>Securing User Registration Systems</h3><a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">GitHub Link</a></div>
+      <div class="project"><h3>Phishing URL Detector</h3><a href="https://github.com/august04-oss/phishing-url-detector" target="_blank">GitHub Link</a></div>
+      <div class="project"><h3>Password Cracking & Hashing</h3><a href="https://github.com/august04-oss/password-cracking-and-hashing" target="_blank">GitHub Link</a></div>
+      <div class="project"><h3>Cryptography Algorithms</h3><a href="https://github.com/august04-oss/cryptography-algorithms" target="_blank">GitHub Link</a></div>
+    </section>
+
+    <!-- Resume -->
+    <section class="resume">
+      <h2>Resume</h2>
+      <p><a class="btn" href="https://github.com/404NotYourCode/404notyourcode.github.io/blob/main/Syed_Sameer_Resume.pdf" target="_blank">Download Resume</a></p>
+    </section>
+
+    <!-- Game -->
+    <section class="game" id="game">
+      <h2>Play Rock Paper Scissors</h2>
+      <div class="rps">
+        <button class="rps-btn" data-choice="rock">✊ Rock</button>
+        <button class="rps-btn" data-choice="paper">🖐 Paper</button>
+        <button class="rps-btn" data-choice="scissors">✌ Scissors</button>
+      </div>
+      <p id="rps-result" class="rps-output"></p>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <h2>Contact</h2>
+      <form id="contact-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
+        <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+      <div class="contact-info">
+        <p>Email: <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
+        <p>Phone: <a href="tel:+919840329368">+91 98403 29368</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank">syed-sameer-dev</a></p>
+        <p>GitHub 1: <a href="https://github.com/august04-oss" target="_blank">august04-oss</a></p>
+        <p>GitHub 2: <a href="https://github.com/404NotYourCode" target="_blank">404NotYourCode</a></p>
+      </div>
+    </section>
+
+    <!-- Feedback -->
+    <section class="feedback" id="feedback">
+      <h2>Feedback</h2>
+      <p>Have suggestions or thoughts about my portfolio? I'd love to hear them.</p>
+      <form id="feedback-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
+        <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+        <textarea name="feedback" rows="4" placeholder="Your Feedback" required></textarea>
+        <button type="submit" class="btn">Submit Feedback</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Syed Sameer. Crafted with ♥</p>
+    <p>&copy; 2025 Syed Sameer. Built with ❤️ and purpose.</p>
   </footer>
+
+  <!-- Scroll to Top -->
+  <button id="scrollTopBtn" title="Scroll to top">⬆</button>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
 </body>
 </html>
