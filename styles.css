@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -37,16 +38,20 @@ section {
 .hero {
   text-align: center;
   padding: 6rem 2rem;
+  background: linear-gradient(to right, #0d1117, #161b22);
+  border-bottom: 1px solid #21262d;
 }
 .hero .logo {
   width: 80px;
   margin-bottom: 1rem;
+  filter: drop-shadow(0 0 5px #00bfff);
 }
 .subheading {
   font-weight: 300;
   margin-bottom: 2rem;
   color: #9baec8;
 }
+
 .btn {
   display: inline-block;
   background: #00bfff;
@@ -54,10 +59,62 @@ section {
   padding: 0.7rem 1.5rem;
   border-radius: 30px;
   text-decoration: none;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  box-shadow: 0 0 10px #00bfff66;
 }
 .btn:hover {
   background: #009acd;
+  transform: scale(1.05);
+}
+
+/* Section Titles */
+section > h2 {
+  border-bottom: 2px solid #00bfff;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+/* Timeline */
+.timeline ul {
+  list-style: none;
+  padding-left: 1rem;
+  border-left: 3px solid #00bfff;
+}
+.timeline li {
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  position: relative;
+}
+.timeline li::before {
+  content: '';
+  position: absolute;
+  left: -0.5rem;
+  top: 0.5rem;
+  width: 10px;
+  height: 10px;
+  background: #00bfff;
+  border-radius: 50%;
+}
+
+/* Skills */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.skills-list span {
+  background: #21262d;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: #00bfff;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+.skills-list span:hover {
+  background: #00bfff;
+  color: #fff;
 }
 
 /* Projects */
@@ -67,37 +124,14 @@ section {
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 8px;
+  box-shadow: 0 0 10px #00bfff22;
 }
 .projects a {
   color: #00bfff;
   text-decoration: underline;
 }
 
-/* Skills */
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-.skills-list span {
-  background: #21262d;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  color: #00bfff;
-  font-weight: 500;
-}
-
-/* Quotes */
-.quote-card {
-  background: #161b22;
-  border-left: 4px solid #00bfff;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  font-style: italic;
-}
-
-/* Contact */
+/* Contact & Feedback Forms */
 form input,
 form textarea {
   width: 100%;
@@ -107,8 +141,13 @@ form textarea {
   border-radius: 8px;
   background: #21262d;
   color: #e6edf3;
+  transition: background 0.3s;
 }
-
+form input:focus,
+form textarea:focus {
+  background: #2d333b;
+  outline: none;
+}
 form button {
   background: #00bfff;
   color: #fff;
@@ -116,9 +155,41 @@ form button {
   padding: 0.7rem 1.5rem;
   border-radius: 30px;
   cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
 }
 form button:hover {
   background: #009acd;
+  transform: scale(1.05);
+}
+
+/* Game Section */
+.rps {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.rps-btn {
+  background: #21262d;
+  border: 2px solid #00bfff;
+  color: #00bfff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+.rps-btn:hover {
+  background: #00bfff;
+  color: #fff;
+  transform: scale(1.05);
+}
+#rps-result, #rps-score {
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
 /* Footer */
@@ -128,6 +199,7 @@ footer {
   background: #0d1117;
   color: #9baec8;
   font-size: 0.9rem;
+  border-top: 1px solid #21262d;
 }
 
 /* Scroll to Top */
@@ -143,6 +215,7 @@ footer {
   cursor: pointer;
   display: none;
   z-index: 1000;
+  box-shadow: 0 0 10px #00bfff99;
 }
 #scrollTopBtn:hover {
   background: #009acd;
@@ -152,6 +225,12 @@ footer {
 @media (max-width: 768px) {
   .skills-list {
     justify-content: center;
+  }
+  .hero {
+    padding: 4rem 1rem;
+  }
+  section {
+    padding: 3rem 1rem;
   }
 }
 
@@ -166,39 +245,4 @@ footer {
   pointer-events: none;
   z-index: 10000;
   transition: transform 0.1s ease-out;
-}
-
-/* Section Titles */
-section > h2 {
-  border-bottom: 2px solid #00bfff;
-  display: inline-block;
-  margin-bottom: 2rem;
-}
-
-/* Rock Paper Scissors */
-.rps {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 1rem;
-}
-.rps-btn {
-  background: #21262d;
-  border: 2px solid #00bfff;
-  color: #00bfff;
-  padding: 0.7rem 1.5rem;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-.rps-btn:hover {
-  background: #00bfff;
-  color: #fff;
-}
-
-/* Form Spacing */
-.contact form,
-.feedback form {
-  max-width: 600px;
-  margin: auto;
 }
