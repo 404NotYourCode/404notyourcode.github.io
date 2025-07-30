@@ -1,111 +1,128 @@
-// ----- Typing Effect -----
+// Typing Animation
 const typingText = document.getElementById("typing-text");
-const phrases = [
-  "Hi, I'm Syed Sameer.",
-  "Cybersecurity Enthusiast.",
-  "Creative Developer.",
-  "Driven by Purpose."
-];
-let i = 0, j = 0, isDeleting = false;
+const texts = ["Syed Sameer", "Web Developer", "UI/UX Designer", "Creative Coder"];
+let index = 0;
+let charIndex = 0;
+let isDeleting = false;
 
 function type() {
-  const currentPhrase = phrases[i];
-  const speed = isDeleting ? 40 : 100;
+  const currentText = texts[index];
+  typingText.textContent = isDeleting
+    ? currentText.substring(0, --charIndex)
+    : currentText.substring(0, ++charIndex);
 
-  typingText.textContent = currentPhrase.slice(0, j);
-
-  if (!isDeleting && j < currentPhrase.length) {
-    j++;
-  } else if (isDeleting && j > 0) {
-    j--;
+  if (!isDeleting && charIndex === currentText.length) {
+    isDeleting = true;
+    setTimeout(type, 1000);
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    index = (index + 1) % texts.length;
+    setTimeout(type, 300);
   } else {
-    isDeleting = !isDeleting;
-    if (!isDeleting) i = (i + 1) % phrases.length;
+    setTimeout(type, isDeleting ? 60 : 120);
   }
-
-  setTimeout(type, speed);
 }
 type();
 
-// ----- Starry Background -----
+// Scroll to Top Button
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+window.onscroll = () => {
+  scrollTopBtn.style.display = window.scrollY > 150 ? "block" : "none";
+};
+scrollTopBtn.onclick = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+// Star Background Animation
 const canvas = document.getElementById("star-bg");
 const ctx = canvas.getContext("2d");
 
-let stars = [], numStars = 150;
+let stars = [];
 
-function initStars() {
+function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  stars = Array.from({ length: numStars }, () => ({
+  stars = Array.from({ length: 120 }, () => ({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    radius: Math.random() * 1.2,
-    speed: Math.random() * 0.5 + 0.2
+    r: Math.random() * 1.5 + 0.5,
+    dx: (Math.random() - 0.5) * 0.3,
+    dy: (Math.random() - 0.5) * 0.3
   }));
 }
-function drawStars() {
+
+function animateStars() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#ffffff";
-  stars.forEach(star => {
+  for (const star of stars) {
     ctx.beginPath();
-    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+    ctx.fillStyle = "#ffffff";
     ctx.fill();
-    star.y += star.speed;
-    if (star.y > canvas.height) {
-      star.y = 0;
-      star.x = Math.random() * canvas.width;
-    }
-  });
-  requestAnimationFrame(drawStars);
+    star.x += star.dx;
+    star.y += star.dy;
+
+    if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
+    if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
+  }
+  requestAnimationFrame(animateStars);
 }
-window.addEventListener("resize", initStars);
-initStars();
-drawStars();
 
-// ----- Scroll to Top Button -----
-const scrollTopBtn = document.getElementById("scrollTopBtn");
-window.onscroll = () => {
-  scrollTopBtn.style.display = window.scrollY > 500 ? "block" : "none";
-};
-scrollTopBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+animateStars();
 
-// ----- Custom Cursor -----
-const cursor = document.querySelector(".cursor");
-document.addEventListener("mousemove", e => {
-  cursor.style.left = e.pageX + "px";
-  cursor.style.top = e.pageY + "px";
-});
-
-// ----- Rock Paper Scissors -----
+// Rock Paper Scissors Game
 const rpsButtons = document.querySelectorAll(".rps-btn");
 const rpsResult = document.getElementById("rps-result");
+const rpsScore = document.getElementById("rps-score");
 
-rpsButtons.forEach(btn =>
-  btn.addEventListener("click", () => {
-    const userChoice = btn.dataset.choice;
+let wins = 0, losses = 0, draws = 0;
+
+rpsButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const userChoice = button.getAttribute("data-choice");
     const choices = ["rock", "paper", "scissors"];
-    const computerChoice = choices[Math.floor(Math.random() * 3)];
+    const compChoice = choices[Math.floor(Math.random() * choices.length)];
 
     let result = "";
-    if (userChoice === computerChoice) result = "It's a draw!";
-    else if (
-      (userChoice === "rock" && computerChoice === "scissors") ||
-      (userChoice === "scissors" && computerChoice === "paper") ||
-      (userChoice === "paper" && computerChoice === "rock")
+
+    if (userChoice === compChoice) {
+      result = `🤝 It's a draw! Both chose ${userChoice}.`;
+      draws++;
+    } else if (
+      (userChoice === "rock" && compChoice === "scissors") ||
+      (userChoice === "paper" && compChoice === "rock") ||
+      (userChoice === "scissors" && compChoice === "paper")
     ) {
-      result = `You Win! ${userChoice} beats ${computerChoice}`;
+      result = `✅ You win! ${userChoice} beats ${compChoice}.`;
+      wins++;
     } else {
-      result = `You Lose! ${computerChoice} beats ${userChoice}`;
+      result = `❌ You lose! ${compChoice} beats ${userChoice}.`;
+      losses++;
     }
 
     rpsResult.textContent = result;
-  })
-);
+    rpsScore.textContent = `Wins: ${wins} | Losses: ${losses} | Draws: ${draws}`;
+  });
+});
 
-// ----- Optional: Dark/Light Mode Toggle (future expansion) -----
-// const toggleBtn = document.getElementById("theme-toggle");
-// toggleBtn.addEventListener("click", () => {
-//   document.body.classList.toggle("light-theme");
-// });
+// Custom Cursor Movement
+const cursor = document.querySelector(".cursor");
+document.addEventListener("mousemove", e => {
+  cursor.style.left = `${e.clientX}px`;
+  cursor.style.top = `${e.clientY}px`;
+});
+
+// GSAP Page Entrance Animations
+window.addEventListener("load", () => {
+  gsap.from(".hero .logo", { y: -80, opacity: 0, duration: 1 });
+  gsap.from(".hero h1", { x: -150, opacity: 0, delay: 0.4, duration: 1 });
+  gsap.from(".hero .subheading", { x: 150, opacity: 0, delay: 0.6, duration: 1 });
+  gsap.from(".hero .btn", { scale: 0, opacity: 0, delay: 0.9, duration: 0.6 });
+});
+
+// Optional: Add hover animation for cursor
+document.querySelectorAll("a, button, .rps-btn").forEach(el => {
+  el.addEventListener("mouseenter", () => cursor.style.transform = "scale(1.5)");
+  el.addEventListener("mouseleave", () => cursor.style.transform = "scale(1)");
+});ss
