@@ -1,69 +1,71 @@
-// Typing animation
+// ===========================
+// Typing Animation
+// ===========================
 const typingText = document.getElementById("typing-text");
-const texts = ["Syed Sameer", "Developer", "Designer", "Creator"];
-let index = 0;
-let charIndex = 0;
-let isDeleting = false;
+const texts = ["Syed Sameer", "Web Developer", "UI/UX Designer", "Creative Coder"];
+let index = 0, charIndex = 0, isDeleting = false;
 
 function type() {
-  const currentText = texts[index];
-  if (isDeleting) {
-    typingText.textContent = currentText.substring(0, charIndex--);
-    if (charIndex < 0) {
-      isDeleting = false;
-      index = (index + 1) % texts.length;
-    }
-  } else {
-    typingText.textContent = currentText.substring(0, charIndex++);
-    if (charIndex > currentText.length) {
-      isDeleting = true;
-      setTimeout(type, 1000);
-      return;
-    }
+  const current = texts[index];
+  typingText.textContent = current.substring(0, charIndex);
+  charIndex += isDeleting ? -1 : 1;
+
+  if (!isDeleting && charIndex === current.length + 1) {
+    isDeleting = true;
+    setTimeout(type, 1000);
+    return;
   }
-  setTimeout(type, isDeleting ? 50 : 100);
+  if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    index = (index + 1) % texts.length;
+  }
+
+  setTimeout(type, isDeleting ? 60 : 120);
 }
 type();
 
-// Scroll to top button
+// ===========================
+// Scroll-to-Top Button
+// ===========================
 const scrollTopBtn = document.getElementById("scrollTopBtn");
-window.onscroll = () => {
+window.addEventListener("scroll", () => {
   scrollTopBtn.style.display = window.scrollY > 150 ? "block" : "none";
-};
-scrollTopBtn.onclick = () => {
+});
+scrollTopBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
-};
+});
 
-// Star background animation
+// ===========================
+// Starfield Background
+// ===========================
 const canvas = document.getElementById("star-bg");
 const ctx = canvas.getContext("2d");
-
 let stars = [];
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  stars = Array.from({ length: 120 }, () => ({
+  stars = Array.from({ length: 150 }, () => ({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    r: Math.random() * 1.5 + 0.5,
-    dx: (Math.random() - 0.5) * 0.3,
-    dy: (Math.random() - 0.5) * 0.3
+    r: Math.random() * 1.2 + 0.4,
+    dx: (Math.random() - 0.5) * 0.2,
+    dy: (Math.random() - 0.5) * 0.2,
   }));
 }
 
 function animateStars() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (const star of stars) {
+  stars.forEach(star => {
     ctx.beginPath();
     ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-    ctx.fillStyle = "#ffffff";
+    ctx.fillStyle = "#fff";
     ctx.fill();
     star.x += star.dx;
     star.y += star.dy;
     if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
     if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
-  }
+  });
   requestAnimationFrame(animateStars);
 }
 
@@ -71,54 +73,56 @@ window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
 animateStars();
 
-// Rock Paper Scissors Game
+// ===========================
+// Rock-Paper-Scissors Game
+// ===========================
 const rpsButtons = document.querySelectorAll(".rps-btn");
 const rpsResult = document.getElementById("rps-result");
 const rpsScore = document.getElementById("rps-score");
-
-let wins = 0;
-let losses = 0;
-let draws = 0;
+let wins = 0, losses = 0, draws = 0;
 
 rpsButtons.forEach(button => {
   button.addEventListener("click", () => {
-    const userChoice = button.getAttribute("data-choice");
-    const choices = ["rock", "paper", "scissors"];
-    const compChoice = choices[Math.floor(Math.random() * choices.length)];
+    const user = button.dataset.choice;
+    const options = ["rock", "paper", "scissors"];
+    const comp = options[Math.floor(Math.random() * 3)];
+    let outcome = "";
 
-    let result = "";
-
-    if (userChoice === compChoice) {
-      result = `🤝 It's a draw! Both chose ${userChoice}.`;
+    if (user === comp) {
       draws++;
+      outcome = `🤝 Draw! Both chose ${user}.`;
     } else if (
-      (userChoice === "rock" && compChoice === "scissors") ||
-      (userChoice === "paper" && compChoice === "rock") ||
-      (userChoice === "scissors" && compChoice === "paper")
+      (user === "rock" && comp === "scissors") ||
+      (user === "paper" && comp === "rock") ||
+      (user === "scissors" && comp === "paper")
     ) {
-      result = `✅ You win! ${userChoice} beats ${compChoice}.`;
       wins++;
+      outcome = `✅ You win! ${user} beats ${comp}.`;
     } else {
-      result = `❌ You lose! ${compChoice} beats ${userChoice}.`;
       losses++;
+      outcome = `❌ You lose! ${comp} beats ${user}.`;
     }
 
-    rpsResult.textContent = result;
+    rpsResult.textContent = outcome;
     rpsScore.textContent = `Wins: ${wins} | Losses: ${losses} | Draws: ${draws}`;
   });
 });
 
-// Custom Cursor Animation
+// ===========================
+// Custom Cursor
+// ===========================
 const cursor = document.querySelector(".cursor");
 document.addEventListener("mousemove", e => {
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
+  cursor.style.left = `${e.clientX}px`;
+  cursor.style.top = `${e.clientY}px`;
 });
 
+// ===========================
 // GSAP Entrance Animations
+// ===========================
 window.addEventListener("load", () => {
   gsap.from(".hero .logo", { y: -100, opacity: 0, duration: 1 });
-  gsap.from(".hero h1", { x: -200, opacity: 0, delay: 0.5, duration: 1 });
-  gsap.from(".hero .subheading", { x: 200, opacity: 0, delay: 0.7, duration: 1 });
-  gsap.from(".hero .btn", { scale: 0, opacity: 0, delay: 1, duration: 0.8 });
+  gsap.from(".hero h1", { x: -200, opacity: 0, delay: 0.4, duration: 1 });
+  gsap.from(".hero .subheading", { x: 200, opacity: 0, delay: 0.6, duration: 1 });
+  gsap.from(".hero .btn", { scale: 0.5, opacity: 0, delay: 0.8, duration: 0.6 });
 });
