@@ -3,125 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Syed Sameer — Developer | Designer | Creator. Portfolio showcasing projects, game, and contact info." />
+  <meta name="description" content="Syed Sameer — Developer | Designer | Creator. Portfolio showcasing projects, games, and contact info." />
   <meta property="og:title" content="Syed Sameer Portfolio" />
   <meta property="og:description" content="Built with purpose. Driven by passion. Defined by originality." />
   <meta property="og:image" content="logo.png" />
-  <link rel="icon" href="logo.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="logo.png" type="image/png" />
   <title>Syed Sameer | Portfolio</title>
 
-  <!-- Styles & Fonts -->
+  <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
-
-  <!-- Animate on Scroll -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
+
 <body>
   <canvas id="star-bg"></canvas>
   <div class="cursor"></div>
 
-  <header class="hero" data-aos="fade-down">
+  <header class="hero">
     <img src="logo.png" alt="Logo" class="logo" />
-    <h1 id="typing-text"></h1>
+    <h1 id="typing-text" aria-label="Typing Animation Name"></h1>
     <p class="subheading">Cybersecurity | Web Developer | Designer | Innovator</p>
     <a href="#projects" class="btn">View Projects</a>
   </header>
 
-  <section id="about" class="about" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>
-      Hey, I’m Syed Sameer — a passionate learner, creative thinker, and someone who believes in growing a little
-      stronger every single day. My background is built on curiosity, effort, and the urge to build meaningful
-      experiences.
-    </p>
-    <p>
-      Whether it's coding, design, or cybersecurity, I dive deep and push boundaries. Every project is a step closer to
-      my purpose — creating with impact.
-    </p>
-    <p>Thank you for being here — you're part of this journey.</p>
-  </section>
+  <main>
+    <!-- About -->
+    <section class="about" id="about">
+      <h2>About Me</h2>
+      <p>Hey, I’m Syed Sameer — a passionate learner, creative thinker, and someone who believes in growing a little stronger every single day. My background is built on curiosity, effort, and the urge to build meaningful experiences.</p>
+      <p>Whether it's coding, design, or cybersecurity, I dive deep and push boundaries. Every project is a step closer to my purpose — creating with impact.</p>
+      <p>Thank you for being here — you're part of this journey.</p>
+    </section>
 
-  <section class="quotes" data-aos="fade-up">
-    <h2>Words I Live By</h2>
-    <div class="quote-card">“Built with purpose. Driven by passion. Defined by originality.”</div>
-    <div class="quote-card">“I came from silence, walked through storms, and now I speak with purpose — not to prove, but to inspire.”</div>
-    <div class="quote-card">“I wasn't born to follow footsteps—I carve new paths. In silence, I build. In storms, I rise.”</div>
-  </section>
+    <!-- Quotes -->
+    <section class="quotes">
+      <h2>Words I Live By</h2>
+      <div class="quote-card">
+        <p>“Built with purpose. Driven by passion. Defined by originality.”</p>
+      </div>
+      <div class="quote-card">
+        <p>“I came from silence, walked through storms, and now I speak with purpose — not to prove, but to inspire.”</p>
+      </div>
+      <div class="quote-card">
+        <p>“I wasn't born to follow footsteps—I carve new paths. In silence, I build. In storms, I rise.”</p>
+      </div>
+    </section>
 
-  <section class="motto" data-aos="zoom-in">
-    <h2>"Believe. Build. Become."</h2>
-    <p>Believe in your vision, build with passion, and become the best version of yourself.</p>
-  </section>
+    <!-- Motto -->
+    <section class="motto">
+      <h2>"Believe. Build. Become."</h2>
+      <p>Believe in your vision, build with passion, and become the best version of yourself.</p>
+    </section>
 
-  <section class="skills" data-aos="fade-up">
-    <h2>Skills</h2>
-    <div class="skills-list">
-      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Git</span><span>React</span><span>Figma</span><span>UI/UX</span><span>Python</span><span>Java</span><span>Cybersecurity</span><span>SQL</span><span>RPA</span><span>Linux</span>
-    </div>
-  </section>
+    <!-- Skills -->
+    <section class="skills">
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Git</span><span>React</span><span>Figma</span>
+        <span>UI/UX</span><span>Python</span><span>Java</span><span>Cybersecurity</span><span>SQL</span><span>RPA</span><span>Linux</span>
+      </div>
+    </section>
 
-  <section id="projects" class="projects" data-aos="fade-up">
-    <h2>Projects</h2>
-    <div class="project"><h3>Simple Network Sniffer</h3><a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">GitHub Link</a></div>
-    <div class="project"><h3>Easy Guide to Avoiding Phishing Scams</h3><a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">GitHub Link</a></div>
-    <div class="project"><h3>Securing User Registration Systems</h3><a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">GitHub Link</a></div>
-    <div class="project"><h3>Phishing URL Detector</h3><a href="https://github.com/august04-oss/phishing-url-detector" target="_blank">GitHub Link</a></div>
-    <div class="project"><h3>Password Cracking & Hashing</h3><a href="https://github.com/august04-oss/password-cracking-and-hashing" target="_blank">GitHub Link</a></div>
-    <div class="project"><h3>Cryptography Algorithms</h3><a href="https://github.com/august04-oss/cryptography-algorithms" target="_blank">GitHub Link</a></div>
-  </section>
+    <!-- Projects -->
+    <section id="projects" class="projects">
+      <h2>Projects</h2>
+      <div class="project"><h3>Simple Network Sniffer</h3><a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">GitHub Link</a></div>
+      <div class="project"><h3>Easy Guide to Avoiding Phishing Scams</h3><a href="https://github.com/august04-oss/codealpha_taks-02" target="_blank">GitHub Link</a></div>
+      <div class="project"><h3>Securing User Registration Systems</h3><a href="https://github.com/august04-oss/codealpha_taks-03" target="_blank">GitHub Link</a></div>
+      <div class="project"><h3>Phishing URL Detector</h3><a href="https://github.com/august04-oss/phishing-url-detector" target="_blank">GitHub Link</a></div>
+      <div class="project"><h3>Password Cracking & Hashing</h3><a href="https://github.com/august04-oss/password-cracking-and-hashing" target="_blank">GitHub Link</a></div>
+      <div class="project"><h3>Cryptography Algorithms</h3><a href="https://github.com/august04-oss/cryptography-algorithms" target="_blank">GitHub Link</a></div>
+    </section>
 
-  <section class="resume" data-aos="fade-up">
-    <h2>Resume</h2>
-    <a class="btn" href="https://github.com/404NotYourCode/404notyourcode.github.io/blob/main/Syed_Sameer_Resume.pdf" target="_blank">Download Resume</a>
-  </section>
+    <!-- Resume -->
+    <section class="resume">
+      <h2>Resume</h2>
+      <p><a class="btn" href="https://github.com/404NotYourCode/404notyourcode.github.io/blob/main/Syed_Sameer_Resume.pdf" target="_blank">Download Resume</a></p>
+    </section>
 
-  <section id="game" class="game" data-aos="fade-up">
-    <h2>Play Rock Paper Scissors</h2>
-    <div class="rps">
-      <button class="rps-btn" data-choice="rock">✊ Rock</button>
-      <button class="rps-btn" data-choice="paper">🖐 Paper</button>
-      <button class="rps-btn" data-choice="scissors">✌ Scissors</button>
-    </div>
-    <p id="rps-result"></p>
-  </section>
+    <!-- Game -->
+    <section class="game" id="game">
+      <h2>Play Rock Paper Scissors</h2>
+      <div class="rps">
+        <button class="rps-btn" data-choice="rock">✊ Rock</button>
+        <button class="rps-btn" data-choice="paper">🖐 Paper</button>
+        <button class="rps-btn" data-choice="scissors">✌ Scissors</button>
+      </div>
+      <p id="rps-result" class="rps-output"></p>
+    </section>
 
-  <section id="contact" class="contact" data-aos="fade-up">
-    <h2>Contact</h2>
-    <form id="contact-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
-    </form>
-    <p>Email: <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
-    <p>Phone: <a href="tel:+919840329368">+91 98403 29368</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank">syed-sameer-dev</a></p>
-    <p>GitHub: <a href="https://github.com/august04-oss" target="_blank">august04-oss</a></p>
-    <p>GitHub: <a href="https://github.com/404NotYourCode" target="_blank">404NotYourCode</a></p>
-  </section>
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <h2>Contact</h2>
+      <form id="contact-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
+        <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+      <div class="contact-info">
+        <p>Email: <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
+        <p>Phone: <a href="tel:+919840329368">+91 98403 29368</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank">syed-sameer-dev</a></p>
+        <p>GitHub 1: <a href="https://github.com/august04-oss" target="_blank">august04-oss</a></p>
+        <p>GitHub 2: <a href="https://github.com/404NotYourCode" target="_blank">404NotYourCode</a></p>
+      </div>
+    </section>
 
-  <section id="feedback" class="feedback" data-aos="fade-up">
-    <h2>Feedback</h2>
-    <p>Have suggestions or thoughts about my portfolio? I'd love to hear them.</p>
-    <form id="feedback-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="feedback" rows="4" placeholder="Your Feedback" required></textarea>
-      <button type="submit" class="btn">Submit Feedback</button>
-    </form>
-  </section>
+    <!-- Feedback -->
+    <section class="feedback" id="feedback">
+      <h2>Feedback</h2>
+      <p>Have suggestions or thoughts about my portfolio? I'd love to hear them.</p>
+      <form id="feedback-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
+        <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+        <textarea name="feedback" rows="4" placeholder="Your Feedback" required></textarea>
+        <button type="submit" class="btn">Submit Feedback</button>
+      </form>
+    </section>
+  </main>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Syed Sameer. Built with ❤️ and purpose.</p>
   </footer>
 
-  <button id="scrollTopBtn" title="Scroll to top" aria-label="Scroll to top">⬆</button>
+  <!-- Scroll to Top -->
+  <button id="scrollTopBtn" title="Scroll to top">⬆</button>
 
+  <!-- Scripts -->
   <script src="script.js"></script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init();</script>
 </body>
 </html>
