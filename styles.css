@@ -45,9 +45,12 @@ body {
 }
 
 .logo {
-  width: 90px;
+  width: 180px; /* 🔥 Try 180–220px for bold impact */
   margin-bottom: 1rem;
   animation: float 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
 }
 
 @keyframes float {
