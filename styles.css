@@ -11,14 +11,14 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #0d1117;
-  color: #f0f6fc;
+  background-color: #000000;
+  color: #ffffff;
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
 }
 
-/* Canvas background */
+/* Canvas Background */
 #star-bg {
   position: fixed;
   top: 0;
@@ -26,11 +26,11 @@ body {
   z-index: -1;
 }
 
-/* Cursor */
+/* Custom Cursor */
 .cursor {
   width: 15px;
   height: 15px;
-  border: 2px solid #00bfff;
+  border: 2px solid #FFD700;
   border-radius: 50%;
   position: absolute;
   pointer-events: none;
@@ -38,14 +38,14 @@ body {
   transition: transform 0.15s ease;
 }
 
-/* Hero section */
+/* Hero Section */
 .hero {
   text-align: center;
   padding: 6rem 2rem 4rem;
 }
 
-.hero .logo {
-  width: 80px;
+.logo {
+  width: 90px;
   margin-bottom: 1rem;
   animation: float 3s ease-in-out infinite;
 }
@@ -57,23 +57,24 @@ body {
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 700;
+  color: #FFD700;
   margin-bottom: 1rem;
-  color: #00bfff;
 }
 
 .subheading {
   font-size: 1.2rem;
-  color: #a1b1c9;
+  color: #f0f0f0;
   margin-bottom: 2rem;
 }
 
+/* Buttons */
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background: #00bfff;
-  color: #0d1117;
+  background: #FFD700;
+  color: #000000;
   border: none;
   border-radius: 999px;
   font-weight: bold;
@@ -83,18 +84,18 @@ body {
 }
 
 .btn:hover {
-  background: #009cd6;
+  background: #FACC15;
 }
 
 .btn-primary {
   background: transparent;
-  border: 2px solid #00bfff;
-  color: #00bfff;
+  border: 2px solid #FFD700;
+  color: #FFD700;
 }
 
 .btn-primary:hover {
-  background: #00bfff;
-  color: #0d1117;
+  background: #FFD700;
+  color: #000000;
 }
 
 /* Sections */
@@ -106,7 +107,7 @@ section {
 
 section h2 {
   font-size: 2rem;
-  color: #00bfff;
+  color: #FFD700;
   margin-bottom: 1rem;
   text-align: center;
 }
@@ -115,34 +116,6 @@ section h2 {
 .about p {
   margin-bottom: 1rem;
   font-size: 1.05rem;
-  text-align: center;
-}
-
-/* Quotes */
-.quotes {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-.quote-card {
-  background: #161b22;
-  border-left: 4px solid #00bfff;
-  padding: 1rem;
-  max-width: 600px;
-  border-radius: 8px;
-  font-style: italic;
-}
-
-/* Motto */
-.motto h2 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-
-.motto p {
   text-align: center;
 }
 
@@ -156,29 +129,31 @@ section h2 {
 }
 
 .skills-list span {
-  background: #1f2937;
+  background: #111111;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.95rem;
-  border: 1px solid #00bfff;
+  border: 1px solid #FFD700;
+  color: #FFD700;
 }
 
 /* Projects */
 .project {
-  background: #161b22;
+  background: #111111;
   margin-bottom: 1.5rem;
   padding: 1rem;
   border-radius: 10px;
-  border-left: 3px solid #00bfff;
+  border-left: 3px solid #FFD700;
 }
 
 .project h3 {
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
+  color: #ffffff;
 }
 
 .project a {
-  color: #58a6ff;
+  color: #FFD700;
   text-decoration: none;
 }
 
@@ -192,7 +167,7 @@ section h2 {
   margin-top: 1rem;
 }
 
-/* Game Section */
+/* Game */
 .rps {
   display: flex;
   justify-content: center;
@@ -203,17 +178,17 @@ section h2 {
 .rps-btn {
   padding: 1rem;
   font-size: 1.1rem;
-  border: 2px solid #00bfff;
+  border: 2px solid #FFD700;
   background: transparent;
-  color: #00bfff;
+  color: #FFD700;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .rps-btn:hover {
-  background: #00bfff;
-  color: #0d1117;
+  background: #FFD700;
+  color: #000000;
 }
 
 .rps-output {
@@ -222,7 +197,7 @@ section h2 {
   font-weight: bold;
 }
 
-/* Contact & Feedback */
+/* Forms */
 form {
   display: flex;
   flex-direction: column;
@@ -232,27 +207,28 @@ form {
 
 input, textarea {
   padding: 0.75rem;
-  border: 1px solid #2f3542;
-  background: #1c1f26;
-  color: #f0f6fc;
+  border: 1px solid #333333;
+  background: #111111;
+  color: #ffffff;
   border-radius: 6px;
   font-size: 1rem;
 }
 
 input:focus, textarea:focus {
   outline: none;
-  border-color: #00bfff;
+  border-color: #FFD700;
 }
 
+/* Contact Info */
 .contact-info p,
 .contact-info a {
   text-align: center;
-  color: #a1b1c9;
+  color: #cccccc;
   font-size: 0.95rem;
 }
 
 .contact-info a {
-  color: #58a6ff;
+  color: #FFD700;
   text-decoration: none;
 }
 
@@ -265,18 +241,18 @@ footer {
   text-align: center;
   padding: 2rem 1rem;
   font-size: 0.9rem;
-  background: #161b22;
+  background: #111111;
   margin-top: 3rem;
-  color: #a1b1c9;
+  color: #cccccc;
 }
 
-/* Scroll to top button */
+/* Scroll to Top */
 #scrollTopBtn {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background-color: #00bfff;
-  color: #0d1117;
+  background-color: #FFD700;
+  color: #000000;
   border: none;
   padding: 0.75rem 1rem;
   font-size: 1.2rem;
@@ -288,7 +264,7 @@ footer {
 }
 
 #scrollTopBtn:hover {
-  background-color: #009cd6;
+  background-color: #FACC15;
 }
 
 /* Responsive */
