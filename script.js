@@ -26,8 +26,8 @@ type();
 const scrollTopBtn = document.getElementById("scrollTopBtn");
 window.addEventListener("scroll", () => {
   if (window.scrollY > 150) {
-    gsap.to(scrollTopBtn, { scale: 1, opacity: 1, duration: 0.3 });
     scrollTopBtn.style.display = "block";
+    gsap.to(scrollTopBtn, { scale: 1, opacity: 1, duration: 0.3 });
   } else {
     gsap.to(scrollTopBtn, { scale: 0, opacity: 0, duration: 0.3 });
     setTimeout(() => scrollTopBtn.style.display = "none", 300);
@@ -116,8 +116,8 @@ document.querySelectorAll("a, button, .rps-btn").forEach(el => {
 // GSAP Entrance Animations
 window.addEventListener("load", () => {
   gsap.from(".logo", { y: -80, opacity: 0, duration: 1 });
-  gsap.from(".hero h1", { x: -150, opacity: 0, delay: 0.4, duration: 1 });
-  gsap.from(".subheading", { x: 150, opacity: 0, delay: 0.6, duration: 1 });
+  gsap.from(".typing-container", { x: -150, opacity: 0, delay: 0.4, duration: 1 });
+  gsap.from(".subheading-box", { x: 150, opacity: 0, delay: 0.6, duration: 1 });
   gsap.from(".btn", { scale: 0, opacity: 0, delay: 0.9, duration: 0.6 });
 });
 
