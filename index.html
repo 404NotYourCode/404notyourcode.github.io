@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Syed Sameer — Cybersecurity Engineer | Web Developer | Creative Coder. Explore projects, skills, and contact info." />
+  <meta name="description" content="Syed Sameer — Cybersecurity Engineer | Web Developer | Creative Coder. Explore projects, skills, certifications, and blog." />
   <meta property="og:title" content="Syed Sameer Portfolio" />
   <meta property="og:description" content="Built with purpose. Driven by passion. Defined by originality." />
   <meta property="og:image" content="Logo_1.png" />
@@ -12,60 +12,95 @@
 
   <!-- Fonts & Styles -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <!-- Background Canvas -->
   <canvas id="star-bg"></canvas>
   <div class="cursor"></div>
 
   <!-- Hero Section -->
   <header class="hero">
     <img src="Logo_1.png" alt="Syed Sameer Logo" class="logo" />
-<div class="typing-container">
-  <h1 id="typing-text"></h1>
-</div>
-<p class="subheading-box">
-  Cybersecurity Engineer | Web Developer | Creative Coder
-</p>
-
-    <a href="https://github.com/404NotYourCode/404notyourcode.github.io/blob/main/Syed_Sameer_Resume.pdf" class="btn">Download CV</a>
+    <div class="typing-container">
+      <h1 id="typing-text"></h1>
+    </div>
+    <p class="subheading-box">Cybersecurity Engineer | Web Developer | Creative Coder</p>
+    <a href="Syed_Sameer_Resume.pdf" class="btn">Download CV</a>
   </header>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <main>
     <!-- About -->
     <section id="about" class="about">
       <h2>About Me</h2>
-      <p>Hey, I’m Syed Sameer — a passionate learner, creative thinker, and someone who believes in growing a little stronger every single day. My background is built on curiosity, effort, and the urge to build meaningful experiences.</p>
-      <p>Whether it's coding, design, or cybersecurity, I dive deep and push boundaries. Every project is a step closer to my purpose — creating with impact.</p>
+      <p>I’m Syed Sameer — a passionate learner, creative thinker, and someone who believes in growing stronger every day. My background blends curiosity, effort, and the drive to build meaningful experiences across cybersecurity and web development.</p>
     </section>
 
     <!-- Skills -->
-    <section class="skills" id="skills">
+    <section id="skills" class="skills">
       <h2>Skills</h2>
       <div class="skills-list">
         <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Flask</span>
-        <span>Machine Learning</span><span>Cybersecurity</span><span>Git</span><span>SQL</span><span>Linux</span>
+        <span>Machine Learning</span><span>Git</span><span>SQL</span><span>Linux</span>
+        <span>Nmap</span><span>Wireshark</span><span>Burp Suite</span><span>Metasploit</span><span>SIEM</span><span>OWASP ZAP</span>
       </div>
     </section>
 
     <!-- Projects -->
     <section id="projects" class="projects">
       <h2>Projects</h2>
-      <div class="project"><h3>Simple Network Sniffer</h3><a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">GitHub Link</a></div>
-      <div class="project"><h3>Phishing Detection Tool <em>(In Progress)</em></h3><a href="https://github.com/august04-oss/phishing-url-detector" target="_blank">GitHub Link</a></div>
-      <div class="project"><h3>Password Cracking & Hashing</h3><a href="https://github.com/august04-oss/password-cracking-and-hashing" target="_blank">GitHub Link</a></div>
+      <div class="project">
+        <h3>Simple Network Sniffer</h3>
+        <p>A Python-based tool to monitor and log network packets. Built using socket programming and raw packet analysis.</p>
+        <a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">GitHub Link</a>
+      </div>
+      <div class="project">
+        <h3>Phishing Detection Tool <em>(Beta)</em></h3>
+        <p>Detects malicious URLs using ML models and Flask backend. UI integration in progress. Next: dashboard and bulk testing.</p>
+        <a href="https://github.com/august04-oss/phishing-url-detector" target="_blank">GitHub Link</a>
+      </div>
+      <div class="project">
+        <h3>Password Cracking & Hashing</h3>
+        <p>Explores brute-force techniques and hashing algorithms. Includes dictionary attacks and hash validation.</p>
+        <a href="https://github.com/august04-oss/password-cracking-and-hashing" target="_blank">GitHub Link</a>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="certifications">
+      <h2>Certifications</h2>
+      <ul>
+        <li>TryHackMe: Cybersecurity Fundamentals</li>
+        <li>HackTheBox: Linux Privilege Escalation</li>
+        <li>Coursera: Introduction to Cybersecurity</li>
+        <li>Planned: CEH, CompTIA Security+</li>
+      </ul>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="blog">
+      <h2>Blog / Articles</h2>
+      <p>Coming soon: reflections on phishing detection, ethical hacking, and building secure web apps.</p>
     </section>
 
     <!-- Resume -->
-    <section class="resume" id="resume">
+    <section id="resume" class="resume">
       <h2>Resume</h2>
-      <p><a class="btn" href="https://github.com/404NotYourCode/404notyourcode.github.io/blob/main/Syed_Sameer_Resume.pdf" target="_blank">Download Resume</a></p>
+      <p><a class="btn" href="Syed_Sameer_Resume.pdf" target="_blank">Download Resume</a></p>
     </section>
 
     <!-- Game -->
-    <section class="game" id="game">
+    <section id="game" class="game">
       <h2>Play Rock Paper Scissors</h2>
       <div class="rps">
         <button class="rps-btn" data-choice="rock">✊ Rock</button>
@@ -77,9 +112,9 @@
     </section>
 
     <!-- Contact -->
-    <section class="contact" id="contact">
+    <section id="contact" class="contact">
       <h2>Contact</h2>
-      <form id="contact-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
+      <form action="https://formspree.io/f/mrbkzqnd" method="POST">
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="email" placeholder="Your Email" required />
         <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
@@ -91,17 +126,6 @@
         <p>LinkedIn: <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank">syed-sameer-dev</a></p>
         <p>GitHub: <a href="https://github.com/404NotYourCode" target="_blank">404NotYourCode</a></p>
       </div>
-    </section>
-
-    <!-- Feedback -->
-    <section class="feedback" id="feedback">
-      <h2>Feedback</h2>
-      <form id="feedback-form" action="https://formspree.io/f/mrbkzqnd" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="feedback" rows="4" placeholder="Your Feedback" required></textarea>
-        <button type="submit" class="btn">Submit Feedback</button>
-      </form>
     </section>
   </main>
 
