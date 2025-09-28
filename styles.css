@@ -38,6 +38,29 @@ body {
   transition: transform 0.15s ease;
 }
 
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  background: #111111;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar a {
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #FACC15;
+}
+
 /* Hero Section */
 .hero {
   text-align: center;
@@ -45,12 +68,10 @@ body {
 }
 
 .logo {
-  width: 180px; /* 🔥 Try 180–220px for bold impact */
+  width: 180px;
   margin-bottom: 1rem;
   animation: float 3s ease-in-out infinite;
   transition: transform 0.3s ease;
-}
-
 }
 
 @keyframes float {
@@ -59,9 +80,9 @@ body {
   100% { transform: translateY(0); }
 }
 
-/* Typing Container Fix */
+/* Typing Container */
 .typing-container {
-  height: 2.8rem; /* Match the tallest text in your typing animation */
+  height: 2.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,13 +106,6 @@ body {
   display: inline-block;
 }
 
-
-.subheading {
-  font-size: 1.2rem;
-  color: #f0f0f0;
-  margin-bottom: 2rem;
-}
-
 /* Buttons */
 .btn {
   display: inline-block;
@@ -104,7 +118,7 @@ body {
   cursor: pointer;
   text-decoration: none;
   transition: background 0.3s ease;
-}  
+}
 
 .btn:hover {
   background: #FACC15;
@@ -175,6 +189,12 @@ section h2 {
   color: #ffffff;
 }
 
+.project p {
+  font-size: 0.95rem;
+  color: #cccccc;
+  margin-bottom: 0.5rem;
+}
+
 .project a {
   color: #FFD700;
   text-decoration: none;
@@ -182,6 +202,26 @@ section h2 {
 
 .project a:hover {
   text-decoration: underline;
+}
+
+/* Certifications */
+.certifications ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+.certifications li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #f0f0f0;
+}
+
+/* Blog */
+.blog p {
+  text-align: center;
+  font-size: 1rem;
+  color: #cccccc;
 }
 
 /* Resume */
@@ -302,6 +342,11 @@ footer {
 
   .rps {
     flex-direction: column;
+    gap: 1rem;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
     gap: 1rem;
   }
 }
