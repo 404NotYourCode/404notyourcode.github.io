@@ -1,136 +1,170 @@
-// Typing Animation
-const typingText = document.getElementById("typing-text");
-const texts = ["Syed Sameer", "Cybersecurity Engineer", "Web Developer", "Creative Coder"];
-let index = 0, charIndex = 0, isDeleting = false;
-
-function type() {
-  const current = texts[index];
-  typingText.textContent = isDeleting
-    ? current.substring(0, --charIndex)
-    : current.substring(0, ++charIndex);
-
-  if (!isDeleting && charIndex === current.length) {
-    isDeleting = true;
-    setTimeout(type, 1000);
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    index = (index + 1) % texts.length;
-    setTimeout(type, 300);
-  } else {
-    setTimeout(type, isDeleting ? 60 : 120);
-  }
-}
-type();
-
-// Scroll-to-Top Button
-const scrollTopBtn = document.getElementById("scrollTopBtn");
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 150) {
-    scrollTopBtn.style.display = "block";
-    gsap.to(scrollTopBtn, { scale: 1, opacity: 1, duration: 0.3 });
-  } else {
-    gsap.to(scrollTopBtn, { scale: 0, opacity: 0, duration: 0.3 });
-    setTimeout(() => scrollTopBtn.style.display = "none", 300);
-  }
-});
-scrollTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
-// Starfield Canvas
+/* === STARFIELD BACKGROUND (optimized) === */
 const canvas = document.getElementById("star-bg");
 const ctx = canvas.getContext("2d");
-let stars = [];
 
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  stars = Array.from({ length: 120 }, () => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    r: Math.random() * 1.5 + 0.5,
-    dx: (Math.random() - 0.5) * 0.3,
-    dy: (Math.random() - 0.5) * 0.3
+let stars = [];
+let animId = null;
+let prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function computeStarCount(width, height) {
+  const area = width * height;
+  return Math.max(40, Math.min(300, Math.floor(area / 6000)));
+}
+
+function createStars(width, height) {
+  const count = computeStarCount(width, height);
+  stars = Array.from({ length: count }, () => ({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    r: Math.random() * 1.6 + 0.2,
+    d: Math.random() * 0.9 + 0.2
   }));
 }
-function animateStars() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  stars.forEach(star => {
-    ctx.beginPath();
-    ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-    ctx.fillStyle = "#ffffff";
-    ctx.fill();
-    star.x += star.dx;
-    star.y += star.dy;
-    if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
-    if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
-  });
-  requestAnimationFrame(animateStars);
+
+function resizeCanvas() {
+  const dpr = window.devicePixelRatio || 1;
+  const cssW = window.innerWidth;
+  const cssH = window.innerHeight;
+  canvas.width = Math.floor(cssW * dpr);
+  canvas.height = Math.floor(cssH * dpr);
+  canvas.style.width = cssW + "px";
+  canvas.style.height = cssH + "px";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  createStars(cssW, cssH);
 }
-window.addEventListener("resize", resizeCanvas);
+
 resizeCanvas();
-animateStars();
+let resizeTimeout;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(resizeCanvas, 150);
+});
 
-// Rock Paper Scissors Game
-const rpsButtons = document.querySelectorAll(".rps-btn");
-const rpsResult = document.getElementById("rps-result");
-const rpsScore = document.getElementById("rps-score");
-let wins = 0, losses = 0, draws = 0;
-
-rpsButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    const user = button.dataset.choice;
-    const choices = ["rock", "paper", "scissors"];
-    const comp = choices[Math.floor(Math.random() * choices.length)];
-    let result = "";
-
-    if (user === comp) {
-      result = `🤝 It's a draw! Both chose ${user}.`;
-      draws++;
-    } else if (
-      (user === "rock" && comp === "scissors") ||
-      (user === "paper" && comp === "rock") ||
-      (user === "scissors" && comp === "paper")
-    ) {
-      result = `✅ You win! ${user} beats ${comp}.`;
-      wins++;
-    } else {
-      result = `❌ You lose! ${comp} beats ${user}.`;
-      losses++;
-    }
-
-    rpsResult.textContent = result;
-    rpsScore.textContent = `Wins: ${wins} | Losses: ${losses} | Draws: ${draws}`;
+function drawStars() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "white";
+  stars.forEach(s => {
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fill();
   });
-});
+}
 
-// Custom Cursor
-const cursor = document.querySelector(".cursor");
-document.addEventListener("mousemove", e => {
-  cursor.style.left = `${e.clientX}px`;
-  cursor.style.top = `${e.clientY}px`;
-});
-document.querySelectorAll("a, button, .rps-btn").forEach(el => {
-  el.addEventListener("mouseenter", () => cursor.style.transform = "scale(1.5)");
-  el.addEventListener("mouseleave", () => cursor.style.transform = "scale(1)");
-});
-
-// GSAP Entrance Animations
-window.addEventListener("load", () => {
-  gsap.from(".logo", { y: -80, opacity: 0, duration: 1 });
-  gsap.from(".typing-container", { x: -150, opacity: 0, delay: 0.4, duration: 1 });
-  gsap.from(".subheading-box", { x: 150, opacity: 0, delay: 0.6, duration: 1 });
-  gsap.from(".btn", { scale: 0, opacity: 0, delay: 0.9, duration: 0.6 });
-});
-
-// GSAP Scroll Reveal
-gsap.utils.toArray("section").forEach(section => {
-  gsap.from(section, {
-    scrollTrigger: {
-      trigger: section,
-      start: "top 80%",
-      toggleActions: "play none none none"
-    },
-    opacity: 0,
-    y: 50,
-    duration: 1
+function animateStars() {
+  if (prefersReduced) {
+    drawStars(); // static if reduced-motion
+    return;
+  }
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "white";
+  stars.forEach(s => {
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fill();
+    s.y += s.d;
+    if (s.y > window.innerHeight) s.y = -s.r;
   });
-});
+  animId = requestAnimationFrame(animateStars);
+}
+
+drawStars();
+if (!prefersReduced) {
+  animateStars();
+}
+
+/* === MOTIVATIONAL QUOTES === */
+const quotes = [
+  "Nothing kills you faster than your own mind. Don't stress over things out of control.",
+  "Having someone you can call crying, and end the call laughing is a true blessing!",
+  `Your "normal" day is someone's dream, so be thankful every day.`,
+  "What you see daily shapes you. Your feed trains your brain each day.",
+  "You'll be alone in the most difficult times of your life. These times make you wise, mature, and fearless.",
+  "When you have a heart of gold and pure intentions, you don't lose anyone—they lose you.",
+  "It's on you. To get you. Where you want to be.",
+  "One day, you'll realize that your dream died because you chose comfort over effort. Don't let that regret haunt you forever.",
+  "Some people talk to you in their free time, and some people free their time to talk to you. Make sure you know the difference.",
+  "Just because I give you advice doesn't mean I'm smarter than you. It means I've done more stupid things than you.",
+  "The most dangerous anger comes from someone with a good heart. They hold it in, stay calm, and forgive—until one day they can't anymore. Don't push a good person too far.",
+  "If you have the power to eat alone in a restaurant or sit alone in a cinema, then you can do anything in your life.",
+  "What they hate in you is missing in them. Keep shining.",
+  "Cry as hard as you want, but when you stop crying, make sure you never cry for the same reason again.",
+  "A pen can make mistakes but a pencil can't because it has a good friend: an eraser. A true friend helps fix your mistakes.",
+  "Dress well, even when you are alone. Treat yourself with the respect you deserve.",
+  "Drinking a lot of water every day helps you avoid drama, because you're too busy peeing. Stay hydrated.",
+  "Never become so thirsty that you drink from every cup presented to you. That's how you get poisoned.",
+  "No flower grows without rain, and no person grows without pain.",
+  "The best way to keep a prisoner from escaping is to make sure he never knows he is in prison.",
+  "Slow success builds character. Fast success builds ego.",
+  "The faker you are, the bigger your circle will be. The realer you are, the smaller your circle becomes.",
+  "Your mind is a magnet. Think blessings, attract blessings. Think problems, attract problems. Choose your thoughts wisely.",
+  "Be the change you wish to see in the world."
+];
+
+const quoteEl = document.getElementById("quote-text");
+if (quoteEl) quoteEl.setAttribute("aria-live", "polite");
+
+function showRandomQuote() {
+  if (!quoteEl) return;
+  quoteEl.style.opacity = 0;
+  setTimeout(() => {
+    quoteEl.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+    quoteEl.style.opacity = 1;
+  }, 320);
+}
+showRandomQuote();
+const quoteInterval = prefersReduced ? 15000 : 7000;
+const quoteTimer = setInterval(showRandomQuote, quoteInterval);
+
+/* === ROCK PAPER SCISSORS GAME (with persistence) === */
+let playerScore = 0, botScore = 0;
+const stored = (() => {
+  try {
+    return JSON.parse(localStorage.getItem("rps-scores"));
+  } catch (e) {
+    return null;
+  }
+})();
+if (stored && typeof stored.player === "number" && typeof stored.bot === "number") {
+  playerScore = stored.player;
+  botScore = stored.bot;
+  const scoreEl = document.getElementById("rps-score");
+  if (scoreEl) scoreEl.textContent = `Your Score: ${playerScore} | Bot Score: ${botScore}`;
+}
+
+function saveScores() {
+  try {
+    localStorage.setItem("rps-scores", JSON.stringify({ player: playerScore, bot: botScore }));
+  } catch (e) {
+    // ignore storage errors
+  }
+}
+
+function playRPS(playerChoice) {
+  const choices = ["rock", "paper", "scissors"];
+  const botChoice = choices[Math.floor(Math.random() * choices.length)];
+  const resultEl = document.getElementById("rps-result");
+  const scoreEl = document.getElementById("rps-score");
+
+  if (!resultEl || !scoreEl) return;
+
+  if (playerChoice === botChoice) {
+    resultEl.textContent = "🤝 It's a tie!";
+  } else if (
+    (playerChoice === "rock" && botChoice === "scissors") ||
+    (playerChoice === "paper" && botChoice === "rock") ||
+    (playerChoice === "scissors" && botChoice === "paper")
+  ) {
+    resultEl.textContent = `✅ You win! ${playerChoice} beats ${botChoice}.`;
+    playerScore++;
+  } else {
+    resultEl.textContent = `❌ You lose! ${botChoice} beats ${playerChoice}.`;
+    botScore++;
+  }
+
+  scoreEl.textContent = `Your Score: ${playerScore} | Bot Score: ${botScore}`;
+  saveScores();
+}
+
+/* expose function globally (keeps existing inline onclick handlers working) */
+window.playRPS = playRPS;
