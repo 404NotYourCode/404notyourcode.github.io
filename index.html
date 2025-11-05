@@ -3,144 +3,125 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Syed Sameer — Cybersecurity Engineer | Web Developer | Creative Coder. Explore projects, skills, certifications, and blog." />
-  <meta property="og:title" content="Syed Sameer Portfolio" />
-  <meta property="og:description" content="Built with purpose. Driven by passion. Defined by originality." />
-  <meta property="og:image" content="Logo_1.png" />
-  <link rel="icon" href="Logo_1.png" type="image/png" />
-  <title>Syed Sameer | Cybersecurity Portfolio</title>
+  <title>Syed Sameer | Aspiring Cybersecurity Expert</title>
 
-  <!-- Fonts & Styles -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+  <!-- SEO & Social -->
+  <meta name="description" content="Syed Sameer — aspiring cybersecurity expert. Projects in cryptography, phishing detection, network sniffing, and secure registration systems.">
+  <meta name="author" content="Syed Sameer">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Syed Sameer — Aspiring Cybersecurity Expert">
+  <meta property="og:description" content="Projects and certifications in cybersecurity, cryptography, phishing detection, and more.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/syedsameer-xtech/syedsameer-xtech.github.io/main/Logo_0.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://syedsameer-xtech.github.io/">
+
+  <!-- Fonts & performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://raw.githubusercontent.com/syedsameer-xtech/syedsameer-xtech.github.io/main/Logo_0.png" type="image/png">
+
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <!-- Background Canvas -->
-  <canvas id="star-bg"></canvas>
-  <div class="cursor"></div>
 
-  <!-- Hero Section -->
+  <!-- LOGO -->
+  <button class="logo-btn" onclick="location.href='index.html'" aria-label="Home" title="Home">
+    <img src="https://raw.githubusercontent.com/syedsameer-xtech/syedsameer-xtech.github.io/main/Logo_0.png" alt="Syed Sameer logo" />
+  </button>
+
+  <!-- STARFIELD BACKGROUND -->
+  <canvas id="star-bg" aria-hidden="true"></canvas>
+  <noscript>
+    <div style="position:fixed;inset:0;background:radial-gradient(circle at 30% 50%,#020202,#000);z-index:-2"></div>
+  </noscript>
+
+  <!-- HERO -->
   <header class="hero">
-    <img src="Logo_1.png" alt="Syed Sameer Logo" class="logo" />
-    <div class="typing-container">
-      <h1 id="typing-text"></h1>
+    <div class="hero-box">
+      <h1>Syed Sameer</h1>
     </div>
-    <p class="subheading-box">Cybersecurity Engineer | Web Developer | Creative Coder</p>
-    <a href="Syed_Sameer_Resume.pdf" class="btn">Download CV</a>
+    <p class="tagline">Aspiring Cybersecurity Expert</p>
   </header>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#blog">Blog</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <main>
-    <!-- About -->
-    <section id="about" class="about">
+  <!-- ABOUT -->
+  <section class="about-section">
+    <div class="about-container">
       <h2>About Me</h2>
-      <p>I’m Syed Sameer — a passionate learner, creative thinker, and someone who believes in growing stronger every day. My background blends curiosity, effort, and the drive to build meaningful experiences across cybersecurity and web development.</p>
-    </section>
+      <p>
+        I'm <strong>Syed Sameer</strong>, an aspiring cybersecurity expert passionate about securing digital systems
+        and understanding how they work. I enjoy developing security tools, learning new technologies,
+        and constantly improving my skills in ethical hacking and system protection.
+      </p>
+    </div>
+  </section>
 
-    <!-- Skills -->
-    <section id="skills" class="skills">
-      <h2>Skills</h2>
-      <div class="skills-list">
-        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Flask</span>
-        <span>Machine Learning</span><span>Git</span><span>SQL</span><span>Linux</span>
-        <span>Nmap</span><span>Wireshark</span><span>Burp Suite</span><span>Metasploit</span><span>SIEM</span><span>OWASP ZAP</span>
-      </div>
-    </section>
+  <!-- QUOTES -->
+  <section class="quotes-section">
+    <div class="quotes-box">
+      <p id="quote-text" aria-live="polite">Loading wisdom...</p>
+    </div>
+  </section>
 
-    <!-- Projects -->
-    <section id="projects" class="projects">
-      <h2>Projects</h2>
-      <div class="project">
-        <h3>Simple Network Sniffer</h3>
-        <p>A Python-based tool to monitor and log network packets. Built using socket programming and raw packet analysis.</p>
-        <a href="https://github.com/august04-oss/codealpha_tasks-01" target="_blank">GitHub Link</a>
-      </div>
-      <div class="project">
-        <h3>Phishing Detection Tool <em>(Beta)</em></h3>
-        <p>Detects malicious URLs using ML models and Flask backend. UI integration in progress. Next: dashboard and bulk testing.</p>
-        <a href="https://github.com/august04-oss/phishing-url-detector" target="_blank">GitHub Link</a>
-      </div>
-      <div class="project">
-        <h3>Password Cracking & Hashing</h3>
-        <p>Explores brute-force techniques and hashing algorithms. Includes dictionary attacks and hash validation.</p>
-        <a href="https://github.com/august04-oss/password-cracking-and-hashing" target="_blank">GitHub Link</a>
-      </div>
-    </section>
+  <!-- SKILLS -->
+  <section class="skills-section">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>Python</li><li>JavaScript</li><li>HTML & CSS</li><li>Flask</li><li>Machine Learning</li>
+      <li>Cybersecurity</li><li>Linux</li><li>Git / GitHub</li><li>SQL</li><li>Java</li><li>C</li>
+    </ul>
+  </section>
 
-    <!-- Certifications -->
-    <section id="certifications" class="certifications">
-      <h2>Certifications</h2>
-      <ul>
-        <li>TryHackMe: Cybersecurity Fundamentals</li>
-        <li>HackTheBox: Linux Privilege Escalation</li>
-        <li>Coursera: Introduction to Cybersecurity</li>
-        <li>Planned: CEH, CompTIA Security+</li>
-      </ul>
-    </section>
+  <!-- PROJECTS -->
+  <section class="projects-section">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <a href="https://github.com/syedsameer-xtech/cryptography-algorithms" target="_blank" rel="noopener" class="project-card">🔐 Cryptography Algorithms</a>
+      <a href="https://github.com/syedsameer-xtech/password-cracking-and-hashing" target="_blank" rel="noopener" class="project-card">🔑 Password Cracking & Hashing</a>
+      <a href="https://github.com/syedsameer-xtech/phishing-url-detector" target="_blank" rel="noopener" class="project-card">🎣 Phishing URL Detector</a>
+      <a href="https://github.com/syedsameer-xtech/Securing-User-Registration-Systems" target="_blank" rel="noopener" class="project-card">🛡️ Securing User Registration Systems</a>
+      <a href="https://github.com/syedsameer-xtech/Easy-Guide-to-Avoiding-Phishing-Scams" target="_blank" rel="noopener" class="project-card">📘 Easy Guide to Avoid Phishing</a>
+      <a href="https://github.com/syedsameer-xtech/Simple_Network_Sniffer" target="_blank" rel="noopener" class="project-card">🌐 Simple Network Sniffer</a>
+    </div>
+  </section>
 
-    <!-- Blog -->
-    <section id="blog" class="blog">
-      <h2>Blog / Articles</h2>
-      <p>Coming soon: reflections on phishing detection, ethical hacking, and building secure web apps.</p>
-    </section>
+  <!-- CERTIFICATES -->
+  <section class="certificates-section">
+    <h2>Certificates</h2>
+    <div class="certificates-grid">
+      <div class="certificate-box">Cisco NetAcad – Introduction to Cybersecurity</div>
+      <div class="certificate-box">IBM – Introduction to Python</div>
+      <div class="certificate-box">IIT Bombay – Python 3.4.3</div>
+      <div class="certificate-box">Simplilearn – Machine Learning with R</div>
+      <div class="certificate-box">TATA Forage – Cybersecurity Analyst Simulation</div>
+    </div>
+    <a href="https://drive.google.com/drive/folders/1RB2iLHqzvsfokXb35whjumrMjJa8xS3G?usp=sharing" target="_blank" rel="noopener" class="see-more-btn">📂 See More Certificates</a>
+  </section>
 
-    <!-- Resume -->
-    <section id="resume" class="resume">
-      <h2>Resume</h2>
-      <p><a class="btn" href="Syed_Sameer_Resume.pdf" target="_blank">Download Resume</a></p>
-    </section>
+  <!-- ROCK PAPER SCISSORS GAME -->
+  <section class="game-section">
+    <h2>🎮 Rock Paper Scissors</h2>
+    <div id="rps-game">
+      <button onclick="playRPS('rock')">🪨 Rock</button>
+      <button onclick="playRPS('paper')">📄 Paper</button>
+      <button onclick="playRPS('scissors')">✂️ Scissors</button>
+      <p id="rps-result" aria-live="polite"></p>
+      <p id="rps-score">Your Score: 0 | Bot Score: 0</p>
+    </div>
+  </section>
 
-    <!-- Game -->
-    <section id="game" class="game">
-      <h2>Play Rock Paper Scissors</h2>
-      <div class="rps">
-        <button class="rps-btn" data-choice="rock">✊ Rock</button>
-        <button class="rps-btn" data-choice="paper">🖐 Paper</button>
-        <button class="rps-btn" data-choice="scissors">✌ Scissors</button>
-      </div>
-      <p id="rps-result" class="rps-output"></p>
-      <p id="rps-score" class="rps-output"></p>
-    </section>
+  <!-- CONTACT -->
+  <section class="contact-section">
+    <div class="contact-boxes">
+      <a href="mailto:syedsameer.xtech@gmail.com" class="contact-box">📧 Email</a>
+      <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank" rel="noopener" class="contact-box">🔗 LinkedIn</a>
+      <a href="https://github.com/syedsameer-xtech" target="_blank" rel="noopener" class="contact-box">🐙 GitHub</a>
+    </div>
+    <a href="https://github.com/syedsameer-xtech/syedsameer-xtech.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" target="_blank" rel="noopener" class="resume-btn">📄 View / Download Resume</a>
+  </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
-      <h2>Contact</h2>
-      <form action="https://formspree.io/f/mrbkzqnd" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-      </form>
-      <div class="contact-info">
-        <p>Email: <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
-        <p>Phone: <a href="tel:+919840329368">+91 98403 29368</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank">syed-sameer-dev</a></p>
-        <p>GitHub: <a href="https://github.com/404NotYourCode" target="_blank">404NotYourCode</a></p>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Syed Sameer. Built with ❤️ and purpose.</p>
-  </footer>
-
-  <!-- Scroll to Top -->
-  <button id="scrollTopBtn" title="Scroll to top">⬆</button>
-
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
