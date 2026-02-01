@@ -1,170 +1,236 @@
-/* === STARFIELD BACKGROUND (optimized) === */
-const canvas = document.getElementById("star-bg");
-const ctx = canvas.getContext("2d");
+/* Frontend interactions: navigation, reveals, portfolio filter, lightbox with focus trap, contact handling, testimonials */
+document.addEventListener('DOMContentLoaded', () => {
+  // Utilities
+  const qs = sel => document.querySelector(sel);
+  const qsa = sel => Array.from(document.querySelectorAll(sel));
 
-let stars = [];
-let animId = null;
-let prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-function computeStarCount(width, height) {
-  const area = width * height;
-  return Math.max(40, Math.min(300, Math.floor(area / 6000)));
-}
-
-function createStars(width, height) {
-  const count = computeStarCount(width, height);
-  stars = Array.from({ length: count }, () => ({
-    x: Math.random() * width,
-    y: Math.random() * height,
-    r: Math.random() * 1.6 + 0.2,
-    d: Math.random() * 0.9 + 0.2
-  }));
-}
-
-function resizeCanvas() {
-  const dpr = window.devicePixelRatio || 1;
-  const cssW = window.innerWidth;
-  const cssH = window.innerHeight;
-  canvas.width = Math.floor(cssW * dpr);
-  canvas.height = Math.floor(cssH * dpr);
-  canvas.style.width = cssW + "px";
-  canvas.style.height = cssH + "px";
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-  createStars(cssW, cssH);
-}
-
-resizeCanvas();
-let resizeTimeout;
-window.addEventListener("resize", () => {
-  clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(resizeCanvas, 150);
-});
-
-function drawStars() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "white";
-  stars.forEach(s => {
-    ctx.beginPath();
-    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-    ctx.fill();
-  });
-}
-
-function animateStars() {
-  if (prefersReduced) {
-    drawStars(); // static if reduced-motion
-    return;
+  // Header nav toggle
+  const navToggle = qs('.nav-toggle');
+  const nav = qs('.nav');
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('active');
+    });
   }
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "white";
-  stars.forEach(s => {
-    ctx.beginPath();
-    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-    ctx.fill();
-    s.y += s.d;
-    if (s.y > window.innerHeight) s.y = -s.r;
-  });
-  animId = requestAnimationFrame(animateStars);
-}
 
-drawStars();
-if (!prefersReduced) {
-  animateStars();
-}
-
-/* === MOTIVATIONAL QUOTES === */
-const quotes = [
-  "Nothing kills you faster than your own mind. Don't stress over things out of control.",
-  "Having someone you can call crying, and end the call laughing is a true blessing!",
-  `Your "normal" day is someone's dream, so be thankful every day.`,
-  "What you see daily shapes you. Your feed trains your brain each day.",
-  "You'll be alone in the most difficult times of your life. These times make you wise, mature, and fearless.",
-  "When you have a heart of gold and pure intentions, you don't lose anyone—they lose you.",
-  "It's on you. To get you. Where you want to be.",
-  "One day, you'll realize that your dream died because you chose comfort over effort. Don't let that regret haunt you forever.",
-  "Some people talk to you in their free time, and some people free their time to talk to you. Make sure you know the difference.",
-  "Just because I give you advice doesn't mean I'm smarter than you. It means I've done more stupid things than you.",
-  "The most dangerous anger comes from someone with a good heart. They hold it in, stay calm, and forgive—until one day they can't anymore. Don't push a good person too far.",
-  "If you have the power to eat alone in a restaurant or sit alone in a cinema, then you can do anything in your life.",
-  "What they hate in you is missing in them. Keep shining.",
-  "Cry as hard as you want, but when you stop crying, make sure you never cry for the same reason again.",
-  "A pen can make mistakes but a pencil can't because it has a good friend: an eraser. A true friend helps fix your mistakes.",
-  "Dress well, even when you are alone. Treat yourself with the respect you deserve.",
-  "Drinking a lot of water every day helps you avoid drama, because you're too busy peeing. Stay hydrated.",
-  "Never become so thirsty that you drink from every cup presented to you. That's how you get poisoned.",
-  "No flower grows without rain, and no person grows without pain.",
-  "The best way to keep a prisoner from escaping is to make sure he never knows he is in prison.",
-  "Slow success builds character. Fast success builds ego.",
-  "The faker you are, the bigger your circle will be. The realer you are, the smaller your circle becomes.",
-  "Your mind is a magnet. Think blessings, attract blessings. Think problems, attract problems. Choose your thoughts wisely.",
-  "Be the change you wish to see in the world."
-];
-
-const quoteEl = document.getElementById("quote-text");
-if (quoteEl) quoteEl.setAttribute("aria-live", "polite");
-
-function showRandomQuote() {
-  if (!quoteEl) return;
-  quoteEl.style.opacity = 0;
-  setTimeout(() => {
-    quoteEl.textContent = quotes[Math.floor(Math.random() * quotes.length)];
-    quoteEl.style.opacity = 1;
-  }, 320);
-}
-showRandomQuote();
-const quoteInterval = prefersReduced ? 15000 : 7000;
-const quoteTimer = setInterval(showRandomQuote, quoteInterval);
-
-/* === ROCK PAPER SCISSORS GAME (with persistence) === */
-let playerScore = 0, botScore = 0;
-const stored = (() => {
-  try {
-    return JSON.parse(localStorage.getItem("rps-scores"));
-  } catch (e) {
-    return null;
-  }
-})();
-if (stored && typeof stored.player === "number" && typeof stored.bot === "number") {
-  playerScore = stored.player;
-  botScore = stored.bot;
-  const scoreEl = document.getElementById("rps-score");
-  if (scoreEl) scoreEl.textContent = `Your Score: ${playerScore} | Bot Score: ${botScore}`;
-}
-
-function saveScores() {
-  try {
-    localStorage.setItem("rps-scores", JSON.stringify({ player: playerScore, bot: botScore }));
-  } catch (e) {
-    // ignore storage errors
-  }
-}
-
-function playRPS(playerChoice) {
-  const choices = ["rock", "paper", "scissors"];
-  const botChoice = choices[Math.floor(Math.random() * choices.length)];
-  const resultEl = document.getElementById("rps-result");
-  const scoreEl = document.getElementById("rps-score");
-
-  if (!resultEl || !scoreEl) return;
-
-  if (playerChoice === botChoice) {
-    resultEl.textContent = "🤝 It's a tie!";
-  } else if (
-    (playerChoice === "rock" && botChoice === "scissors") ||
-    (playerChoice === "paper" && botChoice === "rock") ||
-    (playerChoice === "scissors" && botChoice === "paper")
-  ) {
-    resultEl.textContent = `✅ You win! ${playerChoice} beats ${botChoice}.`;
-    playerScore++;
+  // Reveal on scroll
+  const revealEls = qsa('.reveal');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries, o) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          o.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.12});
+    revealEls.forEach(el => obs.observe(el));
   } else {
-    resultEl.textContent = `❌ You lose! ${botChoice} beats ${playerChoice}.`;
-    botScore++;
+    revealEls.forEach(el => el.classList.add('active'));
   }
 
-  scoreEl.textContent = `Your Score: ${playerScore} | Bot Score: ${botScore}`;
-  saveScores();
-}
+  // Portfolio filtering
+  const filters = qsa('.filter');
+  const items = qsa('.portfolio-item');
 
-/* expose function globally (keeps existing inline onclick handlers working) */
-window.playRPS = playRPS;
+  function applyFilter(category) {
+    items.forEach(it => {
+      const cats = (it.dataset.category || '').toLowerCase();
+      if (category === 'all' || cats.includes(category)) {
+        it.style.display = '';
+      } else {
+        it.style.display = 'none';
+      }
+    });
+  }
+
+  filters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filters.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const category = btn.dataset.filter;
+      applyFilter(category);
+      // set aria-selected
+      filters.forEach(f => f.setAttribute('aria-selected', String(f === btn)));
+    });
+  });
+
+  // Lightbox / modal with focus trap
+  const lightbox = qs('#lightbox');
+  const lightboxImg = qs('#lightbox-img');
+  const lightboxCaption = qs('#lightbox-caption');
+  const lbClose = qs('.lightbox-close');
+  const lbPrev = qs('#lb-prev');
+  const lbNext = qs('#lb-next');
+  let currentIndex = -1;
+  let visibleItems = items.filter(it => it.style.display !== 'none');
+
+  function updateVisibleItems() {
+    visibleItems = items.filter(it => it.style.display !== 'none');
+  }
+
+  function openLightbox(index) {
+    updateVisibleItems();
+    if (!visibleItems.length) return;
+    currentIndex = (index + visibleItems.length) % visibleItems.length;
+    const node = visibleItems[currentIndex];
+    const img = node.querySelector('img');
+    lightboxImg.src = img.currentSrc || img.src;
+    lightboxImg.alt = img.alt || '';
+    lightboxCaption.textContent = node.querySelector('h3') ? node.querySelector('h3').textContent : node.querySelector('figcaption')?.textContent || '';
+    lightbox.setAttribute('aria-hidden', 'false');
+    // Save focused element
+    lastFocused = document.activeElement;
+    // Focus management
+    const focusable = getFocusableElements(lightbox);
+    if (focusable.length) focusable[0].focus();
+    document.body.style.overflow = 'hidden'; // prevent background scroll
+    trapFocus(lightbox);
+  }
+
+  function closeLightbox() {
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightboxImg.src = '';
+    lightboxCaption.textContent = '';
+    document.body.style.overflow = '';
+    releaseFocusTrap();
+    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+  }
+
+  // Add click/keyboard handler to portfolio items
+  items.forEach((it, i) => {
+    it.addEventListener('click', () => {
+      // Recompute visible index to account for filtering
+      updateVisibleItems();
+      const idx = visibleItems.indexOf(it);
+      if (idx >= 0) openLightbox(idx);
+    });
+    it.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        updateVisibleItems();
+        const idx = visibleItems.indexOf(it);
+        if (idx >= 0) openLightbox(idx);
+      }
+    });
+  });
+
+  // Lightbox controls
+  lbClose?.addEventListener('click', closeLightbox);
+  lbPrev?.addEventListener('click', () => { openLightbox(currentIndex - 1); });
+  lbNext?.addEventListener('click', () => { openLightbox(currentIndex + 1); });
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.getAttribute('aria-hidden') === 'false') closeLightbox();
+    if (e.key === 'ArrowLeft' && lightbox.getAttribute('aria-hidden') === 'false') openLightbox(currentIndex - 1);
+    if (e.key === 'ArrowRight' && lightbox.getAttribute('aria-hidden') === 'false') openLightbox(currentIndex + 1);
+  });
+
+  // Close by clicking backdrop
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // Focus trap implementation
+  let lastFocused = null;
+  let trap = null;
+  function getFocusableElements(container){
+    return Array.from(container.querySelectorAll('a, button, textarea, input, select, [tabindex]:not([tabindex="-1"])'))
+      .filter(el => !el.hasAttribute('disabled') && el.offsetParent !== null);
+  }
+
+  function trapFocus(container){
+    releaseFocusTrap();
+    const focusable = getFocusableElements(container);
+    if (!focusable.length) return;
+    let first = focusable[0];
+    let last = focusable[focusable.length - 1];
+    trap = (e) => {
+      if (e.key !== 'Tab') return;
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', trap);
+  }
+
+  function releaseFocusTrap(){
+    if (trap) {
+      document.removeEventListener('keydown', trap);
+      trap = null;
+    }
+  }
+
+  // Testimonials simple carousel
+  const testimonials = qsa('.testimonial');
+  const tPrev = qs('.test-prev');
+  const tNext = qs('.test-next');
+  let tIndex = testimonials.findIndex(t => t.classList.contains('active')) || 0;
+  function showTestimonial(i){
+    testimonials.forEach((t, idx) => t.classList.toggle('active', idx === i));
+  }
+  tPrev?.addEventListener('click', () => {
+    tIndex = (tIndex - 1 + testimonials.length) % testimonials.length;
+    showTestimonial(tIndex);
+  });
+  tNext?.addEventListener('click', () => {
+    tIndex = (tIndex + 1) % testimonials.length;
+    showTestimonial(tIndex);
+  });
+
+  // Contact form handling (progressive enhancement)
+  const contactForm = qs('#contactForm');
+  const formMessage = qs('#formMessage');
+
+  if (contactForm){
+    contactForm.addEventListener('submit', async (e) => {
+      // If action is a Formspree endpoint, let the browser handle it by default.
+      // We intercept to show friendly message and to support AJAX if desired.
+      e.preventDefault();
+      const action = contactForm.getAttribute('action') || '';
+      const formData = new FormData(contactForm);
+      formMessage.textContent = 'Sending…';
+      try {
+        if (action.includes('formspree.io')) {
+          // Use fetch to submit to Formspree for nicer in-page experience.
+          const res = await fetch(action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            formMessage.textContent = 'Thanks — your message has been sent. We will get back to you shortly.';
+            contactForm.reset();
+          } else {
+            const data = await res.json();
+            formMessage.textContent = data?.error || 'Oops — there was a problem sending your message.';
+          }
+        } else {
+          // Fallback: pretend it's sent (or replace with your server endpoint)
+          formMessage.textContent = 'Thanks — your message has been queued (configure your server endpoint).';
+          contactForm.reset();
+        }
+      } catch (err){
+        formMessage.textContent = 'Network error — please try again later.';
+        console.error(err);
+      }
+    });
+  }
+
+  // Set current year in footer
+  const yearEl = qs('#year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Small helper: close nav when link clicked (mobile)
+  qsa('.nav a').forEach(a => a.addEventListener('click', () => {
+    if (nav.classList.contains('active')) {
+      nav.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  }));
+});
