@@ -1,127 +1,274 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Syed Sameer | Aspiring Cybersecurity Expert</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>K&O Designs — Bespoke Kitchens & Interiors</title>
+  <meta name="description" content="K&O Designs — Bespoke kitchen design, 3D renderings, and premium installations. Crafting functional, beautiful spaces since 2014." />
+  <meta name="theme-color" content="#1a2e39">
 
-  <!-- SEO & Social -->
-  <meta name="description" content="Syed Sameer — aspiring cybersecurity expert. Projects in cryptography, phishing detection, network sniffing, and secure registration systems.">
-  <meta name="author" content="Syed Sameer">
-  <meta name="theme-color" content="#000000">
-  <meta property="og:title" content="Syed Sameer — Aspiring Cybersecurity Expert">
-  <meta property="og:description" content="Projects and certifications in cybersecurity, cryptography, phishing detection, and more.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/syedsameer-xtech/syedsameer-xtech.github.io/main/Logo_0.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://syedsameer-xtech.github.io/">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="K&O Designs — Bespoke Kitchens & Interiors" />
+  <meta property="og:description" content="Bespoke kitchen and office interiors with 3D design and expert installation." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Fonts & performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <!-- Favicon -->
-  <link rel="icon" href="https://raw.githubusercontent.com/syedsameer-xtech/syedsameer-xtech.github.io/main/Logo_0.png" type="image/png">
-
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+  <!-- Structured data: LocalBusiness (update phone/address in README) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "K&O Designs",
+    "description": "Bespoke kitchen and office interiors with 3D design and professional installation.",
+    "url": "https://YOUR_GITHUB_PAGES_URL_OR_DOMAIN",
+    "telephone": "+44-0000-000000",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "City",
+      "addressRegion": "Region",
+      "postalCode": "00000",
+      "streetAddress": "Street address"
+    }
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- LOGO -->
-  <button class="logo-btn" onclick="location.href='index.html'" aria-label="Home" title="Home">
-    <img src="https://raw.githubusercontent.com/syedsameer-xtech/syedsameer-xtech.github.io/main/Logo_0.png" alt="Syed Sameer logo" />
-  </button>
+  <header class="header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="/">K&O Designs</a>
 
-  <!-- STARFIELD BACKGROUND -->
-  <canvas id="star-bg" aria-hidden="true"></canvas>
-  <noscript>
-    <div style="position:fixed;inset:0;background:radial-gradient(circle at 30% 50%,#020202,#000);z-index:-2"></div>
-  </noscript>
+      <nav id="primary-nav" class="nav" aria-label="Primary">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-box">
-      <h1>Syed Sameer</h1>
+      <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
     </div>
-    <p class="tagline">Aspiring Cybersecurity Expert</p>
   </header>
 
-  <!-- ABOUT -->
-  <section class="about-section">
-    <div class="about-container">
-      <h2>About Me</h2>
-      <p>
-        I'm <strong>Syed Sameer</strong>, an aspiring cybersecurity expert passionate about securing digital systems
-        and understanding how they work. I enjoy developing security tools, learning new technologies,
-        and constantly improving my skills in ethical hacking and system protection.
-      </p>
+  <main id="main">
+    <!-- HERO -->
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" role="img" aria-label="Beautiful modern kitchen interior"></div>
+      <div class="container hero-content">
+        <h1 id="hero-title">Crafting Spaces, Inspiring Life</h1>
+        <p class="lead">Bespoke modern kitchens and productive office interiors — concept to installation.</p>
+        <div class="hero-ctas">
+          <a class="btn primary" href="#contact">Book a Free Consultation</a>
+          <a class="btn ghost" href="#portfolio">View Portfolio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about-section" aria-labelledby="about-title">
+      <div class="container">
+        <div class="grid about-grid">
+          <div class="about-media reveal">
+            <!-- Responsive picture: replace with your own images per README -->
+            <picture>
+              <source type="image/webp" srcset="
+                https://images.unsplash.com/photo-1583845112639-5374635146b3?auto=format&fit=crop&w=400&q=60 400w,
+                https://images.unsplash.com/photo-1583845112639-5374635146b3?auto=format&fit=crop&w=800&q=60 800w
+              ">
+              <img loading="lazy" alt="Founder portrait" src="https://images.unsplash.com/photo-1583845112639-5374635146b3?auto=format&fit=crop&w=800&q=80">
+            </picture>
+          </div>
+          <div class="about-copy reveal">
+            <h2 id="about-title">Your Vision, Our Expertise</h2>
+            <p>Founded on a passion for functional beauty, K&O Designs transforms homes and workplaces with meticulous care — from initial 3D renderings to final, flawless installation. We blend contemporary aesthetics with practical planning to create spaces you'll love living in.</p>
+            <ul class="about-list">
+              <li>Custom kitchen design & cabinetry</li>
+              <li>3D visualisations & planning</li>
+              <li>End-to-end project management</li>
+              <li>Commercial & residential installs</li>
+            </ul>
+            <a class="btn" href="#contact">Start Your Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section services-section" aria-labelledby="services-title">
+      <div class="container">
+        <h2 id="services-title" class="reveal">Services</h2>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <h3>Bespoke Kitchens</h3>
+            <p>Custom layouts, premium hardware, and finishes tailored to your lifestyle.</p>
+          </article>
+          <article class="service-card reveal">
+            <h3>Office Interiors</h3>
+            <p>Productive, ergonomic workspaces designed for teams of any size.</p>
+          </article>
+          <article class="service-card reveal">
+            <h3>3D Design & Consultation</h3>
+            <p>Photo-realistic renders to visualise every detail before install.</p>
+          </article>
+          <article class="service-card reveal">
+            <h3>Full Installation</h3>
+            <p>Experienced craftsmen ensure a seamless, durable installation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="section portfolio-section" aria-labelledby="portfolio-title">
+      <div class="container">
+        <h2 id="portfolio-title" class="reveal">Portfolio</h2>
+
+        <div class="portfolio-controls reveal" role="tablist" aria-label="Portfolio categories">
+          <button class="filter active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter" data-filter="kitchen" role="tab">Kitchens</button>
+          <button class="filter" data-filter="office" role="tab">Offices</button>
+          <button class="filter" data-filter="luxury" role="tab">Luxury</button>
+        </div>
+
+        <div class="portfolio-grid">
+          <!-- Portfolio items: update image URLs with your own high-res images -->
+          <figure class="portfolio-item reveal" tabindex="0" data-category="kitchen" role="button" aria-pressed="false">
+            <picture>
+              <source type="image/webp" srcset="
+                https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=400&q=60 400w,
+                https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=800&q=60 800w
+              ">
+              <img loading="lazy" alt="Minimalist Kitchen" src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=800&q=80">
+            </picture>
+            <figcaption><h3>Minimalist Kitchen</h3></figcaption>
+          </figure>
+
+          <figure class="portfolio-item reveal" tabindex="0" data-category="office" role="button" aria-pressed="false">
+            <picture>
+              <source type="image/webp" srcset="
+                https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&fit=crop&w=400&q=60 400w,
+                https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&fit=crop&w=800&q=60 800w
+              ">
+              <img loading="lazy" alt="Executive Office" src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&fit=crop&w=800&q=80">
+            </picture>
+            <figcaption><h3>Executive Office</h3></figcaption>
+          </figure>
+
+          <figure class="portfolio-item reveal" tabindex="0" data-category="luxury kitchen" data-category="luxury" role="button" aria-pressed="false">
+            <picture>
+              <source type="image/webp" srcset="
+                https://images.unsplash.com/photo-1617092569279-a745775c9e2b?auto=format&fit=crop&w=400&q=60 400w,
+                https://images.unsplash.com/photo-1617092569279-a745775c9e2b?auto=format&fit=crop&w=800&q=60 800w
+              ">
+              <img loading="lazy" alt="Luxury Family Kitchen" src="https://images.unsplash.com/photo-1617092569279-a745775c9e2b?auto=format&fit=crop&w=800&q=80">
+            </picture>
+            <figcaption><h3>Luxury Family Kitchen</h3></figcaption>
+          </figure>
+
+          <figure class="portfolio-item reveal" tabindex="0" data-category="office" role="button" aria-pressed="false">
+            <picture>
+              <source type="image/webp" srcset="
+                https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=60 400w,
+                https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=60 800w
+              ">
+              <img loading="lazy" alt="Open-plan Workspace" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80">
+            </picture>
+            <figcaption><h3>Open-Plan Workspace</h3></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="section testimonials-section" aria-labelledby="testimonials-title">
+      <div class="container">
+        <h2 id="testimonials-title" class="reveal">What Clients Say</h2>
+        <div class="testimonials reveal">
+          <blockquote class="testimonial active">
+            <p>"K&O Designs delivered beyond expectation. The whole team was professional and the finished kitchen is a dream."</p>
+            <footer>— A. Patel</footer>
+          </blockquote>
+          <blockquote class="testimonial">
+            <p>"Efficient, detail-oriented and with excellent taste. Our office remodel transformed our working day."</p>
+            <footer>— J. Li</footer>
+          </blockquote>
+          <div class="testimonials-controls">
+            <button aria-label="Previous testimonial" class="test-prev">◀</button>
+            <button aria-label="Next testimonial" class="test-next">▶</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact-section" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title" class="reveal">Start Your Project</h2>
+        <p class="reveal">Share some details and we'll get back to you with a plan and quote.</p>
+
+        <form id="contactForm" class="contact-form reveal" method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ID">
+          <div class="form-grid">
+            <label class="sr-only" for="name">Full Name</label>
+            <input id="name" name="name" type="text" placeholder="Full Name" required>
+
+            <label class="sr-only" for="email">Email address</label>
+            <input id="email" name="email" type="email" placeholder="Email address" required>
+
+            <label class="sr-only" for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" type="tel" placeholder="Phone (optional)">
+
+            <label class="sr-only" for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Tell us about your project..." required></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary">Send Inquiry</button>
+            <div id="formMessage" class="form-message" aria-live="polite"></div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div>
+        <strong>K&O Designs</strong>
+        <p>Handcrafted kitchens & interiors</p>
+      </div>
+      <div class="footer-meta">
+        <p>&copy; <span id="year"></span> K&O Designs</p>
+        <p><a href="mailto:hello@example.com">hello@example.com</a> · <a href="tel:+440000000000">+44 00 0000 0000</a></p>
+      </div>
     </div>
-  </section>
+  </footer>
 
-  <!-- QUOTES -->
-  <section class="quotes-section">
-    <div class="quotes-box">
-      <p id="quote-text" aria-live="polite">Loading wisdom...</p>
+  <!-- Image Lightbox Modal -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image viewer">
+    <button class="lightbox-close" aria-label="Close (Esc)">×</button>
+    <div class="lightbox-inner" tabindex="-1">
+      <img id="lightbox-img" alt="">
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+      <div class="lightbox-controls">
+        <button id="lb-prev" aria-label="Previous">◀</button>
+        <button id="lb-next" aria-label="Next">▶</button>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <!-- SKILLS -->
-  <section class="skills-section">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li>Python</li><li>JavaScript</li><li>HTML & CSS</li><li>Flask</li><li>Machine Learning</li>
-      <li>Cybersecurity</li><li>Linux</li><li>Git / GitHub</li><li>SQL</li><li>Java</li><li>C</li>
-    </ul>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="projects-section">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-      <a href="https://github.com/syedsameer-xtech/cryptography-algorithms" target="_blank" rel="noopener" class="project-card">🔐 Cryptography Algorithms</a>
-      <a href="https://github.com/syedsameer-xtech/password-cracking-and-hashing" target="_blank" rel="noopener" class="project-card">🔑 Password Cracking & Hashing</a>
-      <a href="https://github.com/syedsameer-xtech/phishing-url-detector" target="_blank" rel="noopener" class="project-card">🎣 Phishing URL Detector</a>
-      <a href="https://github.com/syedsameer-xtech/Securing-User-Registration-Systems" target="_blank" rel="noopener" class="project-card">🛡️ Securing User Registration Systems</a>
-      <a href="https://github.com/syedsameer-xtech/Easy-Guide-to-Avoiding-Phishing-Scams" target="_blank" rel="noopener" class="project-card">📘 Easy Guide to Avoid Phishing</a>
-      <a href="https://github.com/syedsameer-xtech/Simple_Network_Sniffer" target="_blank" rel="noopener" class="project-card">🌐 Simple Network Sniffer</a>
-    </div>
-  </section>
-
-  <!-- CERTIFICATES -->
-  <section class="certificates-section">
-    <h2>Certificates</h2>
-    <div class="certificates-grid">
-      <div class="certificate-box">Cisco NetAcad – Introduction to Cybersecurity</div>
-      <div class="certificate-box">IBM – Introduction to Python</div>
-      <div class="certificate-box">IIT Bombay – Python 3.4.3</div>
-      <div class="certificate-box">Simplilearn – Machine Learning with R</div>
-      <div class="certificate-box">TATA Forage – Cybersecurity Analyst Simulation</div>
-    </div>
-    <a href="https://drive.google.com/drive/folders/1RB2iLHqzvsfokXb35whjumrMjJa8xS3G?usp=sharing" target="_blank" rel="noopener" class="see-more-btn">📂 See More Certificates</a>
-  </section>
-
-  <!-- ROCK PAPER SCISSORS GAME -->
-  <section class="game-section">
-    <h2>🎮 Rock Paper Scissors</h2>
-    <div id="rps-game">
-      <button onclick="playRPS('rock')">🪨 Rock</button>
-      <button onclick="playRPS('paper')">📄 Paper</button>
-      <button onclick="playRPS('scissors')">✂️ Scissors</button>
-      <p id="rps-result" aria-live="polite"></p>
-      <p id="rps-score">Your Score: 0 | Bot Score: 0</p>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact-section">
-    <div class="contact-boxes">
-      <a href="mailto:syedsameer.xtech@gmail.com" class="contact-box">📧 Email</a>
-      <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank" rel="noopener" class="contact-box">🔗 LinkedIn</a>
-      <a href="https://github.com/syedsameer-xtech" target="_blank" rel="noopener" class="contact-box">🐙 GitHub</a>
-    </div>
-    <a href="https://github.com/syedsameer-xtech/syedsameer-xtech.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" target="_blank" rel="noopener" class="resume-btn">📄 View / Download Resume</a>
-  </section>
-
-<script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
